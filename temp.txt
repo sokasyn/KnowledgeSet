@@ -2,3 +2,4 @@
      http://blog.csdn.net/liuqiaoyu080512/article/details/8648266
      关于写脚本简化命令的调查如alias push="git push origin maste" 
      我只commit到本地仓库,没有push到远程主机,怎么远程主机也变最新了?
+     mac小技巧,在finder中直接打开终端
