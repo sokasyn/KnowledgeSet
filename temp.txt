@@ -1,1 +1,2 @@
 #Git .ignore的记录
+     http://blog.csdn.net/liuqiaoyu080512/article/details/8648266
