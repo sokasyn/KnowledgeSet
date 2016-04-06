@@ -1,5 +1,11 @@
-#Git .ignore的记录
-     http://blog.csdn.net/liuqiaoyu080512/article/details/8648266
-     关于写脚本简化命令的调查如alias push="git push origin maste" 
-     我只commit到本地仓库,没有push到远程主机,怎么远程主机也变最新了?
-     
+#Git 
+2016-04-05
+     1..ignore的记录
+     2.http://blog.csdn.net/liuqiaoyu080512/article/details/8648266
+     3.关于写脚本简化命令的调查如alias push="git push origin maste" 
+     4.我只commit到本地仓库,没有push到远程主机,怎么远程主机也变最新了?
+
+2016-04-06
+     1.iPhone旋转的适配问题     
+     5.关于各个iPhone版本的尺寸,像素等详细规格数据以及iOS基于这些数据的适配问题等
+       http://blog.csdn.net/phunxm/article/details/42174937
