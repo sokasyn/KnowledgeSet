@@ -7,5 +7,8 @@
 
 2016-04-06
      1.iPhone旋转的适配问题     
-     5.关于各个iPhone版本的尺寸,像素等详细规格数据以及iOS基于这些数据的适配问题等
+     2.关于各个iPhone版本的尺寸,像素等详细规格数据以及iOS基于这些数据的适配问题等
        http://blog.csdn.net/phunxm/article/details/42174937
+2016-04-07
+     1.关于Mac中的brew 类似Linux/centOS等系统的apt-get,yum 下载安装工具
+     2.iOS开发的设备,应用程序的旋转问题
