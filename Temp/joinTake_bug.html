@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../../css/mui/mui.min.css" type="text/css"	charset="utf-8" />
+    <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="../../css/examination/joinTake.css" type="text/css" charset="utf-8" />
+</head>
+<body>
+    <!--header-->
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title"></h1>
+    </header><p></p>
+
+    <!--content-->
+    <div class="mui-content">
+        <p class='take-title'></p>
+
+        <!--content-题-->
+        <div class='top-div'>
+            <img src="../../img/ai.jpg" alt="">
+            <ul>
+                <li class=''><img src="../../img/min-black.png" alt="">&nbsp; <span id="examTitleSpan"></span></li>
+            </ul>
+        </div><p></p>
+
+        <!--content-answer-->
+        <div class="answer-all">
+            <ul class='answerList answer'></ul>
+        </div>
+        
+        <div class='mui-button-row addOrCabcelBtn'>
+           <button type='button' class='mui-btn mui-btn-success self-btn-sty2 last-btn' onclick='lastItem()'>上一题</button>&nbsp;&nbsp;
+           <button type='button' class='mui-btn mui-btn-success self-btn-sty2 next-btn' onclick='nextItem()'>下一题</button>
+        </div><br/><br/>
+    </div>
+
+    <!--footer-->
+    <nav class="mui-bar mui-bar-tab">
+        <a class="mui-tab-item" href="javascript:void(0)" id="selectTopic">
+            <img src="../../img/xuanTi.png" alt="">
+            <span class="mui-tab-label">0/00</span>
+        </a>
+        <a class="mui-tab-item">
+            <span class="white-bg">
+                <img src="../../img/time.png" alt="">
+                <span class="mui-tab-label time-take" id="examTimer">00:00</span>
+            </span>
+        </a>
+        <a class="mui-tab-item commitQuiz">
+            <span class="mui-tab-label">交卷</span>
+            <img src="../../img/jiaoJuan.png" alt="">
+        </a>
+    </nav>
+
+    <!-- 选择第几题 -->
+    <div id="tblProductBg">
+        <div class="best-bottom">
+            <div class="best-bottom-other">
+                <img src="../../img/close.png" alt="" id="closeTblProductBg">
+                <span class="now-choice-question">
+                    <span id="indexQuestion"></span>/
+                    <span id="numQuestion"></span>
+                </span>
+            </div>
+			
+		 	 <p class="take">
+                <span><span class="yes-answer answer-log">&nbsp;</span> &nbsp;已做的题目</span>
+                <span class="spacing"><span class="now-answer answer-log">&nbsp;</span> &nbsp;当前所在的题目</span>
+             </p>
+			
+            <ul id="topicList"></ul>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../../js/mui/mui.min.js"></script>
+<script type="text/javascript" src="../../js/db.js"></script>
+<script type="text/javascript">
+var quiz_scenario_id,quizDts,timerMinute,quiz_rel_attendee_id,exercicesType;
+var timerSecond = 0,index = 0,timer = null,eventBack = true;
+mui.init({
+	swipeBack:false
+});
+
+mui.plusReady(function(){
+	plus.screen.lockOrientation("portrait-primary");
+	
+	mui.back = function(event) {
+		if(eventBack){
+			var btnArray = ['否', '是'];
+			mui.confirm('是否退出考试', '提示', btnArray, function(e) {
+				if (e.index == 1) {
+					plus.webview.close("examNotice.html");
+					plus.webview.close("takeExam.html");
+					mui.currentWebview.close();
+				}
+			});
+		}else{
+			plus.webview.close("examNotice.html");
+			plus.webview.close("takeExam.html");
+			mui.currentWebview.close();
+		}
+	};
+	
+	quiz_scenario_id = mui.currentWebview.quiz_scenario_id;
+	quiz_rel_attendee_id = mui.currentWebview.quiz_rel_attendee_id;
+	exercicesType = mui.currentWebview.exercicesType;
+	
+	var quiz_title = mui.currentWebview.quiz_title;
+	timerMinute = mui.currentWebview.expired_time;
+	
+	document.getElementsByClassName("take-title")[0].innerHTML = "考试科目 - " + quiz_title;
+	mui(".commitQuiz")[0].addEventListener("tap",noticeCommitQuiz);
+	
+	if(exercicesType == "test"){
+		mui(".mui-title")[0].innerHTML = "模拟考试";
+		loadExamQuiz();
+		setTimer();
+	}else{
+		mui(".mui-title")[0].innerHTML = "正在考试";
+		faceHead("验证是否本人考试",loadExamQuiz);
+	}
+});
+
+function goTimer(){
+	
+	if(timerSecond == 0){
+		timerSecond = 59;
+		timerMinute--;
+	}else{
+		timerSecond--;
+	}
+	
+	var thisMinute = timerMinute < 10 ? "0" + timerMinute : timerMinute;
+	var thisSecond = timerSecond < 10 ? "0" + timerSecond : timerSecond;
+	
+	document.getElementById("examTimer").innerHTML = thisMinute + ":" + thisSecond;
+	
+	if(timerSecond == 0 && timerMinute == 0){
+		if(exercicesType == "test"){
+			plus.nativeUI.toast("考试时间到，正在为您提交答案!");
+			commitQuiz();
+			return;
+		}else{
+			plus.nativeUI.toast("考试时间到!");
+			commitQuizCheck();
+			return;
+		}
+	}
+}
+
+//开始timer
+function setTimer(){
+	timer = setInterval(goTimer,1000);
+}
+
+//暂停timer
+function clearTimer(){
+	clearInterval(timer);
+	timer = null;
+}
+
+function loadExamQuiz(){
+	var w = plus.nativeUI.showWaiting("正在获取数据，请稍等...",{back:"none"});
+	mui.ajax({
+		url:localStorage.baseUrl+"/quiz!arrangeQuiz",
+		headers:{
+			
+		},
+		data:{
+			userId:localStorage.userId,
+			password:localStorage.passWord,
+			quizScenarioId:quiz_scenario_id
+		},
+		async:false,
+		dataType:'json',//服务器返回json格式数据
+		type:'post',//HTTP请求类型
+		timeout:10000,//超时时间设置为10秒；
+		success:function(data,status,xhr){
+			w.close();
+			quizDts = data.data;
+			if(data.success&&quizDts.quiz_question.length > 0){
+				
+				plus.db.execSql("delete from quiz");
+				dispayIndexExamDts(quizDts.quiz_question[index]);
+				mui(".mui-tab-label")[0].innerHTML = "1/" + quizDts.quiz_question.length;
+				
+				/**
+			     * 显示选题
+			     */
+			     mui("#selectTopic")[0].addEventListener("tap",function(event){
+			    	 event.stopPropagation();
+			         mui("#tblProductBg")[0].style.display = "block";
+
+			         var html = "";
+			         for(var i = 0,len = quizDts.quiz_question.length;i < len;i++){
+			        	 if(i == index){
+			        		 html += "<li data-id='"+i+"' class='now-answer' style='background: #fff;'>"+ (i+1) +"</li>";
+			        		 continue;
+			        	 }
+			        	 
+			        	 var quizs = plus.db.query("select * from quiz where quizId = '"+quizDts.quizId+"' and quizScenarioId = '"+quizDts.quizScenarioId+"' and id = '"+quizDts.quiz_question[i].id+"'");
+			        	 
+			        	 if(quizs.length > 0){
+			        		 html += "<li data-id='"+i+"' class='yes-answer' style='background: #b3b3b3;'>"+ (i+1) +"</li>";
+			        	 }else{
+			        		 html += "<li data-id='"+i+"' style='background: #efeff4;'>"+ (i+1) +"</li>";
+			        	 }
+			         }
+
+			         html += "<br style='clear: both;'/>";
+			         mui("#topicList")[0].innerHTML = html;
+
+			         mui("#indexQuestion")[0].innerHTML = Number(index)+1;
+			         mui("#numQuestion")[0].innerHTML = quizDts.quiz_question.length;
+			         
+			         mui("#topicList li").each(function(){
+			             this.addEventListener("tap",choiceQuestion);
+			         });
+			     });
+				
+
+			     /**
+			      * 关闭选题
+			      */
+			     mui("#closeTblProductBg")[0].addEventListener("tap",function(){
+			         mui("#tblProductBg")[0].style.display = "none";
+			     });
+				
+				
+			}else if(data.success&&quizDts.quiz_question.length == 0){
+				plus.nativeUI.toast("亲，暂时没有数据哦");
+			}else if(!data.success){
+				mui.alert(data.message, '提示', function() {});
+			}
+		},
+		error:function(xhr,type,errorThrown){
+			w.close();
+			mui.alert(xhr.status+":"+type+":"+errorThrown, '提示', function() {});
+		}
+	});
+}
+
+//上一题
+function lastItem(){
+	insertDbForQuiz();
+	if(index == 0){
+		plus.nativeUI.toast("已经是第一题了!");
+		return;
+	}
+	index--;
+	dispayIndexExamDts(quizDts.quiz_question[index]);
+	mui(".mui-tab-label")[0].innerHTML = (Number(index)+1) + "/" + quizDts.quiz_question.length;
+	
+	var children = mui(".addOrCabcelBtn")[0].children;
+	if(index == 0){
+		children[0].className = "mui-btn mui-btn-success self-btn-sty2 last-btn";
+	}else if(index == quizDts.quiz_question.length-2){
+		children[1].className = "mui-btn mui-btn-success self-btn-sty2 next-btn";
+	}
+}
+
+//下一题
+function nextItem(){
+	insertDbForQuiz();
+	if(index == quizDts.quiz_question.length-1){
+		plus.nativeUI.toast("已经是最后一题了!");
+		return;
+	}
+	index++;
+	dispayIndexExamDts(quizDts.quiz_question[index]);
+	mui(".mui-tab-label")[0].innerHTML = (Number(index)+1) + "/" + quizDts.quiz_question.length;
+	
+	var children = mui(".addOrCabcelBtn")[0].children;
+	if(index == 1){
+		children[0].className = "mui-btn mui-btn-success self-btn-sty2 next-btn";
+	}else if(index == quizDts.quiz_question.length-1){
+		children[1].className = "mui-btn mui-btn-success self-btn-sty2 last-btn";
+	}
+}
+
+//插入当前所做题目相关数据
+function insertDbForQuiz(){
+	var item = quizDts.quiz_question[index];
+	item.quizId = quizDts.quizId;
+	item.quizScenarioId = quizDts.quizScenarioId;
+	
+	var isTrue = "true";
+	var answer = item.answer;
+	var myAnswers = [];
+	
+	if(item.level == 1 || item.level == 2){//表示判断或者单选
+		var radios = document.getElementsByName("radio");
+		for(var i = 0,len = radios.length;i < len;i++){
+			if(radios[i].checked){
+				myAnswers.push(radios[i].value);
+				if(answer.indexOf(radios[i].value) == -1){
+					isTrue = "false";
+				}
+				break;
+			}
+		}
+	}else if(item.level == 3){//表示多选
+		var checkBoxs = document.getElementsByName("checkbox");
+		for(var i = 0,len = checkBoxs.length;i < len;i++){
+			if(checkBoxs[i].checked){
+				myAnswers.push(checkBoxs[i].value);
+				if(answer.indexOf(checkBoxs[i].value) == -1){
+					isTrue = "false";
+				}
+			}
+		}
+	}
+	
+	if(myAnswers.length == 0){
+		return;
+	}
+	
+	//判断是否正确
+	if(answer.length != myAnswers.length){
+		isTrue = "false";
+	}
+	
+	item.myAnswer = myAnswers;
+	item.isTrue = isTrue;
+	
+	//alert(JSON.stringify(item));
+	plus.db.execSql("delete from quiz where quizId = '"+quizDts.quizId+"' and quizScenarioId = '"+quizDts.quizScenarioId+"' and id='"+item.id+"'");
+	plus.db.insert("quiz",item);
+	
+	if(exercicesType == "formal"){
+		var quizs = plus.db.query("select * from quiz where quizId = '"+quizDts.quizId+"' and quizScenarioId = '"+quizDts.quizScenarioId+"'");
+		if(quizs.length == Math.floor(quizDts.quiz_question.length/2)){
+			faceHead("验证是否本人考试","");
+		}
+	}
+}
+
+function faceHead(str,fun_success_back){
+	if(timer != null){
+		clearTimer();
+	}
+	
+	var btnArray = ['否', '是'];
+	mui.confirm(str, '提示', btnArray, function(e) {
+		if (e.index == 1) {
+			
+			var cmr = plus.camera.getCamera();
+			var res = cmr.supportedImageResolutions[0];
+			var fmt = cmr.supportedImageFormats[0];
+			cmr.captureImage( function( path ){
+				compressImg(path,fun_success_back);
+			},
+			function( error ) {
+				console.log("Capture image failed: " + error.message);
+				
+				eventBack = false;
+				mui.back();
+			},
+			{resolution:res,
+				format:fmt,
+				index:2
+			});
+		
+		} else {
+			eventBack = false;
+			mui.back();
+		}
+	});
+}
+
+function compressImg(imgPath,fun_success_back){
+	plus.zip.compressImage({
+		src:imgPath,
+		dst:imgPath,
+		quality:20,
+		overwrite:true
+	},function() {
+		loadImgFaceId(imgPath,fun_success_back)
+	},function(error) {
+		mui.alert("Compress error!", '提示', function() {});
+	});
+}
+
+var w = null;
+//获取当前照片的face_id
+function loadImgFaceId(imgPath,fun_success_back){
+	w = plus.nativeUI.showWaiting("正在验证，请稍等...",{back:"none"});
+	var task = plus.uploader.createUpload("http://apicn.faceplusplus.com/v2/detection/detect",{method:"POST"},
+		function ( t, status ) {
+			
+			if ( status == 200 ) { 
+				var result = JSON.parse(t.responseText);
+				var faceArr = result.face;
+				if(faceArr.length == 0){
+					w.close();
+					faceHead("验证失败，请选择光线充足的地方再次验证",fun_success_back);
+				}else{
+					var face_id = faceArr[0].face_id;
+					
+					//plus.nativeUI.toast("验证成功!");
+					loadHeadFaceId(imgPath,face_id,fun_success_back);
+					
+					//uploadCheckSuccessImg(imgPath,fun_success_back);
+				}
+				
+			} else {
+				w.close();
+				mui.alert("验证失败，请检查网络: " + status, '提示', function() {
+					eventBack = false;
+					mui.back();
+				});
+			}
+		}
+	);
+	task.addFile( imgPath, {key:"img"} );
+	task.addData( "api_key", "107cb00809c34d25b1156af698351257" );
+	task.addData( "api_secret", "pIQ3IIsKL1bhxq_VnvhXOnIdjt4CZ5pM" );
+	//task.addEventListener( "statechanged", onStateChanged, false );
+	task.start();
+}
+
+//获取头像face_id
+function loadHeadFaceId(imgPath,img_face_id,fun_success_back){
+	mui.ajax({
+		url:"http://apicn.faceplusplus.com/v2/detection/detect",
+		headers:{
+			
+		},
+		data:{
+			api_key:"107cb00809c34d25b1156af698351257",
+			api_secret:"pIQ3IIsKL1bhxq_VnvhXOnIdjt4CZ5pM",
+			url:localStorage.baseUrl + "/user!myHead?userId="+localStorage.userId+"&password="+localStorage.passWord
+		},
+		async:false,
+		dataType:'json',//服务器返回json格式数据
+		type:'post',//HTTP请求类型
+		timeout:10000,//超时时间设置为10秒；
+		success:function(data,status,xhr){
+			if(data.face.length == 0){
+				w.close();
+				faceHead("头像验证失败，请返回重新上传头像",fun_success_back);
+			}else{
+				var head_face_id = data.face[0].face_id;
+				
+				checkHeadAndImg(imgPath,img_face_id,head_face_id,fun_success_back);
+			}
+		},
+		error:function(xhr,type,errorThrown){
+			w.close();
+			if(xhr.status == 0){
+				mui.alert('网络断开,请连接网络', '提示', function() {});
+			}else{
+				mui.alert(xhr.status+":"+type+":"+errorThrown, '提示', function() {});
+			}
+		}
+	});
+}
+
+//验证是否为同一人
+function checkHeadAndImg(imgPath,img_face_id,head_face_id,fun_success_back){
+	mui.ajax({
+		url:"http://apicn.faceplusplus.com/v2/recognition/compare",
+		headers:{
+			
+		},
+		data:{
+			api_key:"107cb00809c34d25b1156af698351257",
+			api_secret:"pIQ3IIsKL1bhxq_VnvhXOnIdjt4CZ5pM",
+			face_id1:img_face_id,
+			face_id2:head_face_id
+		},
+		async:false,
+		dataType:'json',//服务器返回json格式数据
+		type:'post',//HTTP请求类型
+		timeout:10000,//超时时间设置为10秒；
+		success:function(data,status,xhr){
+			if(Number(data.similarity) > 85){
+				plus.nativeUI.toast("验证成功!");
+				
+				uploadCheckSuccessImg(imgPath,fun_success_back);
+			}else{
+				w.close();
+				plus.nativeUI.toast("验证失败!");
+				
+				eventBack = false;
+				mui.back();
+			}
+		},
+		error:function(xhr,type,errorThrown){
+			w.close();
+			if(xhr.status == 0){
+				mui.alert('网络断开,请连接网络', '提示', function() {});
+			}else{
+				mui.alert(xhr.status+":"+type+":"+errorThrown, '提示', function() {});
+			}
+		}
+	});
+}
+
+function uploadCheckSuccessImg(imgPath,fun_success_back){
+	w.setTitle("正在上传图片，请稍等...");
+	var task = plus.uploader.createUpload(localStorage.baseUrl+"/courses!playFileUpload",{method:"POST"},
+		function ( t, status ) {
+			
+			w.close();
+			var resultJson = JSON.parse(t.responseText);
+			if ( status == 200 && resultJson.success) { 
+				
+				plus.nativeUI.toast("上传成功!");
+				if(typeof fun_success_back == "function"){
+					fun_success_back();
+				}
+				setTimer();
+				
+			} else {
+				mui.alert("上传失败，请检查网络: " + status, '提示', function() {
+					eventBack = false;
+					mui.back();
+				});
+			}
+		}
+	);
+	task.addFile( imgPath, {key:"file"} );
+	task.addData( "userId", localStorage.userId );
+	task.addData( "password", localStorage.passWord );
+	task.addData( "courseCode", quiz_scenario_id );
+	//task.addEventListener( "statechanged", onStateChanged, false );
+	task.start();
+} 
+
+//显示当前题目内容
+function dispayIndexExamDts(item){
+	var doneQuizs = plus.db.query("select * from quiz where quizId = '"+quizDts.quizId+"' and quizScenarioId = '"+quizDts.quizScenarioId+"' and id = '"+item.id+"'");
+	var myAnswers = new Array();
+	if(doneQuizs.length > 0){
+		myAnswers = JSON.parse(doneQuizs[0].myAnswer);
+	}
+	
+	document.getElementById("examTitleSpan").innerHTML = item.question;
+	var html = "";
+	//题目的选项：item.option
+	var options = item.option;
+	if(options.length > 0){
+		for(var i = 0,len = options.length;i < len;i++){
+			var o = options[i];
+			
+			//每道题的选项内容
+			var optionItem = "";
+			var indexKey = "";
+			for(var key in o){
+				indexKey = key;
+				optionItem = o[key];
+				break;
+			}
+			
+			
+			if(item.level == 1 || item.level == 2){//表示判断或者单选
+				html += "<li>";
+	   			html += "<div class='mui-radio'>";
+		 		html += "<label>";
+		 		
+		 		if(myAnswers.length > 0 && myAnswers[0] == indexKey){
+		 			html += "<input name='radio' type='radio' value='"+indexKey+"' checked />";
+		 		}else{
+		 			html += "<input name='radio' type='radio' value='"+indexKey+"' />";
+		 		}
+	 			
+	 			html += "</label>";
+				html += "</div>";
+				html += "<span>&nbsp;&nbsp;"+optionItem+"</span>";
+				html += "</li>";
+			}else if(item.level == 3){
+				html += "<li>";
+	   			html += "<div class='mui-checkbox'>";
+		 		html += "<label>";
+		 		
+		 		if(myAnswers.length > 0 && myAnswers.indexOf(indexKey) != -1){
+		 			html += "<input name='checkbox' type='checkbox' value='"+indexKey+"' checked />";
+		 		}else{
+		 			html += "<input name='checkbox' type='checkbox' value='"+indexKey+"' />";
+		 		}
+		 		
+	 			html += "</label>";
+				html += "</div>";
+				html += "<span>&nbsp;&nbsp;"+optionItem+"</span>";
+				html += "</li>";
+			}
+		}
+		
+		document.getElementsByClassName("answerList")[0].innerHTML = html;
+	}
+}
+
+/**
+ *选择题
+ */
+function choiceQuestion(){
+	insertDbForQuiz();
+	
+    mui("#indexQuestion")[0].innerHTML = this.innerHTML;
+    var lis = this.parentNode.children;
+    index = this.dataset.id;
+
+    for(var i = 0; i < lis.length; i++){
+        lis[i].className = "";
+    }
+
+    this.className ="checkeSty";
+    
+    dispayIndexExamDts(quizDts.quiz_question[index]);
+    mui("#tblProductBg")[0].style.display = "none";
+    mui(".mui-tab-label")[0].innerHTML = (Number(index)+1) + "/" + quizDts.quiz_question.length;
+    
+    var children = mui(".addOrCabcelBtn")[0].children;
+	if(index == quizDts.quiz_question.length-1){
+		children[0].className = "mui-btn mui-btn-success self-btn-sty2 next-btn";
+		children[1].className = "mui-btn mui-btn-success self-btn-sty2 last-btn";
+	}else if(index == 0){
+		children[0].className = "mui-btn mui-btn-success self-btn-sty2 last-btn";
+		children[1].className = "mui-btn mui-btn-success self-btn-sty2 next-btn";
+	}else if(index > 0 && index < quizDts.quiz_question.length-1){
+		children[0].className = "mui-btn mui-btn-success self-btn-sty2 next-btn";
+		children[1].className = "mui-btn mui-btn-success self-btn-sty2 next-btn";
+	}
+}
+
+/**
+ *提示提交答案
+ */
+function noticeCommitQuiz(){
+	insertDbForQuiz();
+	
+	var quizs = plus.db.query("select * from quiz where quizId = '"+quizDts.quizId+"' and quizScenarioId = '"+quizDts.quizScenarioId+"'");
+	
+	if(quizs.length < quizDts.quiz_question.length){
+		var btnArray = ['否', '是'];
+		mui.confirm('考题还没做完，是否继续提交?', '提示', btnArray, function(e) {
+			if (e.index == 1) {
+				if(exercicesType == "formal"){
+					commitQuizCheck();
+				}else{
+					commitQuiz();
+				}
+			}
+		});
+	}else{
+		if(exercicesType == "formal"){
+			commitQuizCheck();
+		}else{
+			commitQuiz();
+		}
+	}
+}
+
+/**
+ *提交答案验证
+ */
+function commitQuizCheck(){
+	faceHead("验证是否本人考试",commitQuiz);
+}
+
+/**
+ *提交答案
+ */
+function commitQuiz(){
+
+	var quizsScore = plus.db.query("select sum(score) as resultScore from quiz where quizId = '"+quizDts.quizId+"' and quizScenarioId = '"+quizDts.quizScenarioId+"' and isTrue='true'");
+	var resultScore = quizsScore[0].resultScore == ""?"0":quizsScore[0].resultScore;
+	
+	var userAnswerMap = {};//key;试题id value:答案 id 多个以逗号分割 
+	var userAnswerScoreMap = {};//key;试题id value:当前问题得分 错误0分  
+	
+	var quizs = plus.db.query("select * from quiz where quizId = '"+quizDts.quizId+"' and quizScenarioId = '"+quizDts.quizScenarioId+"'");
+	if(quizs.length > 0){
+		for(var i = 0,len = quizs.length;i < len;i++){
+			var o = quizs[i];
+			
+			userAnswerMap[o.id] = JSON.parse(o.myAnswer).join(",");
+			
+			if(o.isTrue == "true"){
+				userAnswerScoreMap[o.id] = o.score;
+			}else{
+				userAnswerScoreMap[o.id] = 0;
+			}
+		}
+	}
+	
+	//alert(JSON.stringify(userAnswerMap)+"============"+JSON.stringify(userAnswerScoreMap)+"============"+resultScore);
+	
+	var errorQuizs = plus.db.query("select * from quiz where quizId = '"+quizDts.quizId+"' and quizScenarioId = '"+quizDts.quizScenarioId+"' and isTrue='false'");
+	if(errorQuizs.length > 0){
+		plus.db.insertForBatch("errorQuiz",errorQuizs);
+	}
+	
+	var w = plus.nativeUI.showWaiting("正在提交数据，请稍等...",{back:"none"});
+	mui.ajax({
+		url:localStorage.baseUrl+"/quiz!saveTrackeExercices",
+		headers:{
+			
+		},
+		data:{
+			userId:localStorage.userId,
+			password:localStorage.passWord,
+			quizRelAttendeeId:quiz_rel_attendee_id,
+			quizScenarioId:quizDts.quizScenarioId,
+			dataTracking:quizDts.data_tracking,
+			quizId:quizDts.quizId,
+			startTime:quizDts.startTime,
+			resultScore:resultScore,
+			quizScore:quizDts.quizScore,
+			exercicesType:exercicesType,
+			userAnswerMap:JSON.stringify(userAnswerMap),
+			userAnswerScoreMap:JSON.stringify(userAnswerScoreMap)
+		},
+		async:false,
+		dataType:'json',//服务器返回json格式数据
+		type:'post',//HTTP请求类型
+		timeout:10000,//超时时间设置为10秒；
+		success:function(data,status,xhr){
+			w.close();
+			if(data.success){
+				eventBack = false;
+				mui.back();
+			}else{
+				mui.alert(data.message, '提示', function() {});
+			}
+		},
+		error:function(xhr,type,errorThrown){
+			w.close();
+			if(xhr.status == 0){
+				mui.alert('网络断开,请连接网络', '提示', function() {});
+			}else{
+				mui.alert(xhr.status+":"+type+":"+errorThrown, '提示', function() {});
+			}
+		}
+	});
+}
+
+</script>
+</html>
