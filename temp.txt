@@ -12,3 +12,6 @@
 2016-04-07
      1.关于Mac中的brew 类似Linux/centOS等系统的apt-get,yum 下载安装工具
      2.iOS开发的设备,应用程序的旋转问题
+2016-04-08
+     1.关于Git的diff功能学习
+     
