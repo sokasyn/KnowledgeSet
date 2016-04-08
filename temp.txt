@@ -15,4 +15,6 @@
      2.iOS开发的设备,应用程序的旋转问题
 2016-04-08
      1.关于Git的diff功能学习.(再确认,git diff master 在 git fetch前后)
-     
+2016-04-09
+     1.关于git diff,想配置利用source tree工具进行差分查看的配置
+     2.git 高级学习:http://blog.jobbole.com/26131/     
