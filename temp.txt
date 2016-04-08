@@ -1,9 +1,10 @@
 #Git 
 2016-04-05
-     1..ignore的记录
+  ※  1..ignore的记录(已学习)
      2.http://blog.csdn.net/liuqiaoyu080512/article/details/8648266
      3.关于写脚本简化命令的调查如alias push="git push origin maste" 
-     4.我只commit到本地仓库,没有push到远程主机,怎么远程主机也变最新了?
+  ※  4.我只commit到本地仓库,没有push到远程主机,怎么远程主机也变最新了?
+       (已学习,git commit 和git commit -a 的区别)
 
 2016-04-06
      1.iPhone旋转的适配问题     
@@ -13,5 +14,5 @@
      1.关于Mac中的brew 类似Linux/centOS等系统的apt-get,yum 下载安装工具
      2.iOS开发的设备,应用程序的旋转问题
 2016-04-08
-     1.关于Git的diff功能学习
+     1.关于Git的diff功能学习.(再确认,git diff master 在 git fetch前后)
      
