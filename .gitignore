@@ -3,5 +3,9 @@
 #Excel temp files
 ~\$*.xlsx
 
-#忽略掉提交模板
+#忽略提交模板
 /commit_template/
+
+#忽略临时测试文件
+/Temp/
+test*.txt
