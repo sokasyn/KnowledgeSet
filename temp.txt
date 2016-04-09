@@ -19,3 +19,5 @@
      1.关于git diff,想配置利用source tree工具进行差分查看的配置
      2.git 高级学习:http://blog.jobbole.com/26131/
      3.http://www.cnblogs.com/flying_bat/p/3408634.html
+     4.git commit template的学习
+     5.vim 工具跳到开头和末尾的方法 
