@@ -2,7 +2,8 @@
 2016-04-05
   ※  1..ignore的记录(已学习)
      2.http://blog.csdn.net/liuqiaoyu080512/article/details/8648266
-     3.关于写脚本简化命令的调查如alias push="git push origin master” 
+  ※  3.关于简化命令的调查,如输入git st ==>git status
+       (已学习,git config alias.st status,取消该配置:git config —unset alias.st)
   ※  4.我只commit到本地仓库,没有push到远程主机,怎么远程主机也变最新了?
        (已学习,git commit 和git commit -a 的区别)
 
@@ -10,20 +11,31 @@
      1.iPhone旋转的适配问题     
      2.关于各个iPhone版本的尺寸,像素等详细规格数据以及iOS基于这些数据的适配问题等
        http://blog.csdn.net/phunxm/article/details/42174937
+
 2016-04-07
      1.关于Mac中的brew 类似Linux/centOS等系统的apt-get,yum 下载安装工具
      2.iOS开发的设备,应用程序的旋转问题
+
 2016-04-08
      1.关于Git的diff功能学习.(再确认,git diff master 在 git fetch前后)
+
 2016-04-09
      1.关于git diff,想配置利用source tree工具进行差分查看的配置
      2.git 高级学习:http://blog.jobbole.com/26131/
      3.http://www.cnblogs.com/flying_bat/p/3408634.html
   ※  4.git commit template的学习
-  ※  5.vim 工具跳到开头和末尾的方法
+  ※  5.vim 工具跳到文件开头和末尾的方法;跳到行的开头/末尾的方法;
      6.dispatch_group 全局的组的细节学习
+
 2016-04-10
      1.终端使用的命令
        http://www.cocoachina.com/industry/20140519/8466.html 
      2.Excel中宏的使用
+     3.UIImagepickerViewController的自定义使用
+     4.图片的处理
+     5.动画的系统学习
+     6.UIScrollView翻页效果,UITableView,UICollectionView界面的动画效果整理,完善
+     7.SQLite,CoreDate的整理,完善
+     8.网络相关的整理,完善
+
 
