@@ -38,4 +38,9 @@
      7.SQLite,CoreDate的整理,完善
      8.网络相关的整理,完善
 
-
+2016-04-11
+     1.JavaScript学习之时间的处理
+       http://www.cnblogs.com/qinpengming/archive/2012/12/03/2800002.html
+     2.JavaScript学习之function
+       http://www.cnblogs.com/see7di/archive/2011/06/18/2239716.html
+     3.plus.webview
