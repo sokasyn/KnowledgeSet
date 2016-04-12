@@ -44,3 +44,5 @@
      2.JavaScript学习之function
        http://www.cnblogs.com/see7di/archive/2011/06/18/2239716.html
      3.plus.webview
+     4.在终端通过命令的方式查看端口的占用情况:lsof -i -P
+ 
