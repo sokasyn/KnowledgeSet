@@ -45,4 +45,7 @@
        http://www.cnblogs.com/see7di/archive/2011/06/18/2239716.html
      3.plus.webview
      4.在终端通过命令的方式查看端口的占用情况:lsof -i -P
+
+2016-04-12
+     1.JavaScript:addEventListener和闭包等的学习,HTML布局简单布局.
  
