@@ -48,4 +48,6 @@
 
 2016-04-12
      1.JavaScript:addEventListener和闭包等的学习,HTML布局简单布局.
- 
+
+2016-04-13
+     1.JavaScript对象的学习 
