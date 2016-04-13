@@ -24,7 +24,7 @@
      2.git 高级学习:http://blog.jobbole.com/26131/
      3.http://www.cnblogs.com/flying_bat/p/3408634.html
   ※  4.git commit template的学习
-  ※  5.vim 工具跳到文件开头和末尾的方法;跳到行的开头/末尾的方法;
+  ※  5.vim 工具跳到文件开头(:0或者gg)和末尾(:$或者G)的方法;跳到行的开头(shift+6)/末尾(shift+4)的方法;
      6.dispatch_group 全局的组的细节学习
 
 2016-04-10
@@ -47,8 +47,8 @@
      4.在终端通过命令的方式查看端口的占用情况:lsof -i -P
 
 2016-04-12
-     1.JavaScript:addEventListener和闭包等的学习,HTML布局简单布局.
+     1.JavaScript:addEventListener和闭包
 
 2016-04-13
      1.JavaScript对象的学习
-     2.git diff-branch
+     2.JavaScript中的arguments.callee()的调查
