@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<!--界面设计部分-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+		.area {
+			margin: 20px auto 0px auto;
+		}
+	
+	    .mui-input-group {
+	    		margin-top: 20px;
+	    }
+		
+	    .mui-input-group label {
+	    		width: 30%;
+	    }
+	    
+	    .mui-input-row label~input,
+		.mui-input-row label~textarea {
+			width: 70%;
+		}
+		
+		.mui-checkbox input[type=checkbox],
+		.mui-radio input[type=radio] {
+			top: 6px;
+		}
+		
+	    .mui-content-padded{
+	    		padding-top: 20px;
+	    	}
+	    	
+		.mui-btn {
+			padding: 10px;
+		}
+	    	
+	    	.link-area{
+	    		display: block;
+	    		margin-top: 25px;
+	    		text-align: center;
+	    	}
+	    	.spliter{
+	    		color: #bbb;
+	    		padding: 0px 8px;
+	    	}
+    </style>
+    
+</head>
+
+<body>
+	<header class="mui-bar mui-bar-nav">
+		<h1 class="mui-title">Login</h1>
+	</header>
+	<div class="mui-content">
+		<!-- 账号和秘密一起提交到服务器验证 -->
+		<form id="login_form" class="mui-input-group">
+			<div id="div_account" class="mui-input-row">
+				<label>Account</label>
+				<input id="input_account" type="text" class="mui-input-clear mui-input" placeholder="input your account" value="Samson"/>
+			</div>
+			<div id="div_assword" class="mui-input-row">
+				<label>Password</label>
+				<input id="input_password" type="text" class="mui-input-clear mui-input" placeholder="input your password" value="1234"/>
+			</div>
+		</form>
+		
+		<!--自动登陆其实也是一个表单,需要提交到本地进行相应的处理-->
+		<form class="mui-input-group">
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell">
+					Auto login
+					<div id="autoLogin" class="mui-switch">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</li>
+			</ul>
+		</form>
+		
+		<div class="mui-content-padded">
+			<button id="btnLogin" class="mui-btn mui-btn-block mui-btn-danger">Login</button>
+			<div class="link-area">
+				<a>Register</a> <span class="spliter">|</span> <a>Forget Password</a> 
+			</div>
+		</div>
+		<div class="mui-content-padded"></div>
+	</div>
+	
+	<script src="js/mui.min.js"></script>
+	<!--<script src="js/mui.enterfocus.js"></script>
+	<script src="js/app.js"></script>-->
+	<!--功能部分-->
+	<script>
+
+	
+		(function($,doc){
+			var btnLogin = doc.getElementById("btnLogin");
+			var accountField = doc.getElementById("input_account");
+			var passwordField = doc.getElementById("input_password");
+			// 绑定登陆事件
+			btnLogin.addEventListener('tap',function(){
+				console.log("Button login tapped!");
+				// H5+ api的调用要在plusready()事件触发后才有效
+//				plus.nativeUI.alert("tips",function(){
+//					console.log("alert view complete.");
+//				},"title");
+				
+				var loginInfo = {
+					account : accountField.value,
+					password: passwordField.value
+				};
+				console.log("loginInfo.account:" + loginInfo.account);
+				console.log("loginInfo.password:" + loginInfo.password);
+				loginManager.login(loginInfo,function(status){
+					console.log("info from callback:" + status);
+					// 在页面的这个回调里,如果登陆状态是成功的,那么应该进入到主页面,否则弹出失败的信息
+					// longinManager里的callBack(),具体就是这里的具体实现(匿名函数),info是callBack()的参数
+					// 类似与iOS中的block回调
+					switch (status){
+						case 0:{
+							console.log("branch 0");
+							break;
+						}
+						case 1:{
+							console.log("branch 1");
+							break;
+						}
+						default:
+							break;
+					}
+				});
+			});
+			
+		})(mui,document);
+//		登陆验证事件
+		var loginManager = {};
+		(function($,loginManager){
+			loginManager.login = function(loginInfo , callBack){
+				// 数据库验证
+				var authed = (function(){
+					// 从本地或者服务器端获取数据与页面的输入进行比对
+					var accountDB = "Samson";
+					var passwordDB = "1234";
+					if(loginInfo.account == accountDB){
+						alert("account is the same");
+					}
+					if(loginInfo.password == passwordDB){
+						alert("password is the same");
+					}
+					
+					if(true && true){
+						console.log("successfully..");
+					}else{
+						console.log("failed.");
+					}
+					
+					if ( loginInfo.acccount == accountDB && loginInfo.password == passwordDB) {
+						console.log("Login successfully..");
+						return true;
+					} else{
+						console.log("Login failed..");
+						return false;
+					}
+				})();
+//				alert("authed:" + authed)
+//				
+//				if (authed) {
+//					console.log(1111);
+//				} else{
+//					console.log(222);
+//				}
+			};
+			
+		})(mui,loginManager);	
+
+//		(function ($,doc) {
+//			$.init(){
+//				console.log(11);
+//				statusBarBackground: '#f7f7f7';
+//			};
+//			$.plusReady(function(){
+//				console.log(22);
+//				// 绑定登陆事件
+//				var btnLogin = doc.getElementById("btnLogin");
+//				btnLogin.addEventListener('tap',function(){
+//					console.log("button login tapped!");
+//				});
+//			});
+//			
+//		})(mui,document);
+	</script>
+</body>
+
+</html>
