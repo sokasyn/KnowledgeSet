@@ -52,3 +52,8 @@
 2016-04-13
      1.JavaScript对象的学习
      2.JavaScript中的arguments.callee()的调查
+
+2016-04-18
+     1.MUI框架之mui.openWindow({});
+     2.iOS动画的完善与整理,与mui进行类比.
+
