@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<!--界面设计部分-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+		.area {
+			margin: 20px auto 0px auto;
+		}
+	
+	    .mui-input-group {
+	    		margin-top: 20px;
+	    }
+		
+	    .mui-input-group label {
+	    		width: 30%;
+	    }
+	    
+	    .mui-input-row label~input,
+		.mui-input-row label~textarea {
+			width: 70%;
+		}
+		
+		.mui-checkbox input[type=checkbox],
+		.mui-radio input[type=radio] {
+			top: 6px;
+		}
+		
+	    .mui-content-padded{
+	    		padding-top: 20px;
+	    	}
+	    	
+		.mui-btn {
+			padding: 10px;
+		}
+	    	
+	    	.link-area{
+	    		display: block;
+	    		margin-top: 25px;
+	    		text-align: center;
+	    	}
+	    	.spliter{
+	    		color: #bbb;
+	    		padding: 0px 8px;
+	    	}
+    </style>
+    
+</head>
+
+<body>
+	<header class="mui-bar mui-bar-nav">
+		<h1 class="mui-title">Login</h1>
+	</header>
+	<div class="mui-content">
+		<!-- 账号和秘密一起提交到服务器验证 -->
+		<form id="login_form" class="mui-input-group">
+			<div id="div_account" class="mui-input-row">
+				<label>Account</label>
+				<input id="input_account" type="text" class="mui-input-clear mui-input" placeholder="input your account" value="Samson"/>
+			</div>
+			<div id="div_assword" class="mui-input-row">
+				<label>Password</label>
+				<input id="input_password" type="text" class="mui-input-clear mui-input" placeholder="input your password" value="1234"/>
+			</div>
+		</form>
+		
+		<!--自动登陆其实也是一个表单,需要提交到本地进行相应的处理-->
+		<form class="mui-input-group">
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell">
+					Auto login
+					<div id="autoLogin" class="mui-switch">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</li>
+			</ul>
+		</form>
+		
+		<div class="mui-content-padded">
+			<button id="btnLogin" class="mui-btn mui-btn-block mui-btn-danger">Login</button>
+			<div class="link-area">
+				<a>Register</a> <span class="spliter">|</span> <a id="forgetPassword">Forget Password</a> 
+			</div>
+		</div>
+		<div class="mui-content-padded"></div>
+	</div>
+	
+	<script src="js/mui.min.js"></script>
+	<!--<script src="js/mui.enterfocus.js"></script>
+	<script src="js/app.js"></script>-->
+	<!--功能部分-->
+	<script>
+		(function($,doc){
+			$.init();
+			$.plusReady(function(){
+				
+				console.log("plusRead()");
+				console.log("当前页面URL：" + plus.webview.currentWebview().getURL());
+				var btnLogin = doc.getElementById("btnLogin");
+				var accountField = doc.getElementById("input_account");
+				var passwordField = doc.getElementById("input_password");
+				// 绑定登陆事件
+				btnLogin.addEventListener('tap',function(){
+					console.log("Button login tapped!");
+					var loginInfo = {
+						account : accountField.value,
+						password: passwordField.value
+					};
+					console.log("loginInfo.account:" + loginInfo.account);
+					console.log("loginInfo.password:" + loginInfo.password);					
+					// 登陆业务逻辑调用
+					loginManager.login(loginInfo , function(errorInfo){
+						if(errorInfo){
+							plus.nativeUI.toast(errorInfo);
+							return;
+						}else{
+							console.log("Should go to main page..")
+							toMain();
+						}
+					});
+				});
+				
+				// 跳转到主页
+				var mainPage = $.preload({
+					'id' : 'main',
+					'url': 'main.html'
+				});
+				var toMain = function(){
+					$.fire(mainPage,'show',null);
+					console.log("will show main page");
+					$.openWindow({
+						id : 'main',
+						show : {
+							aniShow :'pop-in'
+						},
+						waiting:{
+							autoShow:false
+						}
+					});
+				};
+				
+				// 跳到注册页面
+				var btnForget = doc.getElementById("forgetPassword");
+				btnForget.addEventListener('tap',function(event){
+					$.openWindow({
+						'id' : 'forget_password',
+						'url': 'forget_password.html',
+						preload :true,
+						show :{
+							aniShow : 'pop-in'	
+						},
+						waiting :{
+							autoShow : false
+						}
+					});
+				},false);
+				
+				// 返回
+				var backButtonPressed = 0;
+				$.back = function(){
+					return true;
+				};
+			});
+		})(mui,document);
+		
+//		登陆验证事件
+		var loginManager = {};
+		(function($,loginManager){
+			// 在执行回调函数之前，必须要要确保"回调"是一个函数,而不是一个普通的"callBack"变量
+			// 在传入login的参数中,callBack是一个function(loginInfo,function(err){})中的function(err){},是一个函数
+			loginManager.login = function(loginInfo , callBack){
+				// 数据库验证
+				var authed = (function(){
+					// 从本地或者服务器端获取数据与页面的输入进行比对
+					var accountDB = "Samson";
+					var passwordDB = "1234";
+
+					console.log(loginInfo.account + " " + loginInfo.password );
+					if(loginInfo.account == accountDB && loginInfo.password == passwordDB){
+						console.log("Login successfully..");
+						return true;
+					} else{
+						console.log("Login failed..");
+						return false;
+					}
+				})();
+				alert("authed:" + authed);
+				if (authed) {
+					callBack();
+				} else{
+					if(typeof(callBack) === "function"){
+						console.log("callBack is a function");
+						return callBack("用户名或者密码出错!");
+					}else{
+						console.log("callBack is not a function");
+					}
+//					return callBack("用户名或者密码出错!");
+				}
+			};
+		})(mui,loginManager);
+	</script>
+</body>
+
+</html>
