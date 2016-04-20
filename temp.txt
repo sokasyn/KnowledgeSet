@@ -1,10 +1,10 @@
 #Git 
 2016-04-05
-  ※  1..ignore的记录(已学习)
+  *  1..ignore的记录(已学习)
      2.http://blog.csdn.net/liuqiaoyu080512/article/details/8648266
-  ※  3.关于简化命令的调查,如输入git st ==>git status
+  *  3.关于简化命令的调查,如输入git st ==>git status
        (已学习,git config alias.st status,取消该配置:git config —unset alias.st)
-  ※  4.我只commit到本地仓库,没有push到远程主机,怎么远程主机也变最新了?
+  *  4.我只commit到本地仓库,没有push到远程主机,怎么远程主机也变最新了?
        (已学习,git commit 和git commit -a 的区别)
 
 2016-04-06
@@ -21,10 +21,11 @@
 
 2016-04-09
      1.关于git diff,想配置利用source tree工具进行差分查看的配置
+       https://git-scm.com/docs/git-mergetool
      2.git 高级学习:http://blog.jobbole.com/26131/
      3.http://www.cnblogs.com/flying_bat/p/3408634.html
-  ※  4.git commit template的学习
-  ※  5.vim 工具跳到文件开头(:0或者gg)和末尾(:$或者G)的方法;跳到行的开头(shift+6)/末尾(shift+4)的方法;
+  *  4.git commit template的学习
+  *  5.vim 工具跳到文件开头(:0或者gg)和末尾(:$或者G)的方法;跳到行的开头(shift+6)/末尾(shift+4)的方法;
      6.dispatch_group 全局的组的细节学习
 
 2016-04-10
@@ -44,21 +45,33 @@
      2.JavaScript学习之function
        http://www.cnblogs.com/see7di/archive/2011/06/18/2239716.html
      3.plus.webview
-     4.在终端通过命令的方式查看端口的占用情况:lsof -i -P
+  *  4.在终端通过命令的方式查看端口的占用情况:lsof -i -P
+  *  5.简单查看自己的ip:config | grep inet
 
 2016-04-12
      1.JavaScript:addEventListener和闭包
 
 2016-04-13
-     1.JavaScript对象的学习
+  *  1.JavaScript对象的学习
      2.JavaScript中的arguments.callee()的调查
 
 2016-04-18
-     1.MUI框架之mui.openWindow({});
+  *  1.MUI框架之mui.openWindow({});
      2.iOS动画的完善与整理,与mui进行类比.
-     3.mui.fire()函数的调查.
-     4.重写mui.back(),显示在关闭之前执行一些必要的业务逻辑,比如刷新上一级页面
+  *  3.mui.fire()函数的调查.
+  *  4.重写mui.back(),显示在关闭之前执行一些必要的业务逻辑,比如刷新上一级页面
 
-2016-04-18
+2016-04-19
      1.调查:mui中要始终未button按钮添加type属性,否则,默认为submit,即点击了相当于要执行表单提交,页面会刷新,用户体验差
-     2.学习mui页面的传值问题(预加载和新创建中mui.openWindow()中的extras的有效性问题)
+  *  2.学习mui页面的传值问题(预加载和新创建中mui.openWindow()中的extras的有效性问题)
+     3.学习MUI,事件绑定,解绑,取消,手势，事件触发,自定义事件.
+       http://dev.dcloud.net.cn/mui/event/
+
+2016-04-20
+  *  1.git强制推送到远程服务器问题:git push origin master -f
+     2.git tag -a v1.0 给版本打上标签的用法;git log --decorate查看这些标签
+     3.调查git commit --anmend造成的于远程仓库冲突的问题(很确定今天遇到的这个问题就是--amend的操作造成)
+     4.git non-fast-forward errors的调查 
+     5.vi/vim 的复制,粘贴,块操作,快速替换功能的学习
+     6.Hybrid开发的载入页面之预载与现载的性能问题
+     
