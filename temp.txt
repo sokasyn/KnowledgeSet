@@ -74,4 +74,5 @@
      4.git non-fast-forward errors的调查 
      5.vi/vim 的复制,粘贴,块操作,快速替换功能的学习
      6.Hybrid开发的载入页面之预载与现载的性能问题
-     
+     7.5+SDK 集成原生应用的demo,从零开始,不用SDK提供的demo
+
