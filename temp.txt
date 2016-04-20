@@ -73,3 +73,5 @@
      3.调查git commit --anmend造成的于远程仓库冲突的问题(很确定今天遇到的这个问题就是--amend的操作造成)
      4.git non-fast-forward errors的调查 
      5.vi/vim 的复制,粘贴,块操作,快速替换功能的学习
+     6.Hybrid开发的载入页面之预载与现载的性能问题
+     
