@@ -21,6 +21,7 @@
 
 2016-04-09
      1.关于git diff,想配置利用source tree工具进行差分查看的配置
+       https://git-scm.com/docs/git-mergetool
      2.git 高级学习:http://blog.jobbole.com/26131/
      3.http://www.cnblogs.com/flying_bat/p/3408634.html
   *  4.git commit template的学习
@@ -60,9 +61,13 @@
   *  3.mui.fire()函数的调查.
   *  4.重写mui.back(),显示在关闭之前执行一些必要的业务逻辑,比如刷新上一级页面
 
-2016-04-18
+2016-04-19
      1.调查:mui中要始终未button按钮添加type属性,否则,默认为submit,即点击了相当于要执行表单提交,页面会刷新,用户体验差
   *  2.学习mui页面的传值问题(预加载和新创建中mui.openWindow()中的extras的有效性问题)
      3.学习MUI,事件绑定,解绑,取消,手势，事件触发,自定义事件.
        http://dev.dcloud.net.cn/mui/event/
 
+2016-04-20
+     1.git强制推送到远程服务器问题:git push origin master -f
+     2.git tag -a v1.0 给版本打上标签的用法;git log --decorate查看这些标签
+     3.调查git commit --anmend造成的于远程仓库冲突的问题(很确定今天遇到的这个问题就是--amend的操作造成)3.调查git commit --anmend造成的于远程仓库冲突的问题(很确定今天遇到的这个问题就是--amend的操作造成)3.调查git commit --anmend造成的于远程仓库冲突的问题(很确定今天遇到的这个问题就是--amend的操作造成)
