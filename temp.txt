@@ -76,3 +76,10 @@
      6.Hybrid开发的载入页面之预载与现载的性能问题
      7.5+SDK 集成原生应用的demo,从零开始,不用SDK提供的demo
 
+2016-04-21
+     1.iOS9的3D Touch调查
+     2.iOS本地自定义消息提醒
+     3.iOS自动布局之 autoresizingMask 
+       http://www.cocoachina.com/ios/20141216/10652.html
+  *  4.Xcode工程中黄色与蓝色文件夹的区别与做法.(拖入工程的时候选择Group和folder，后者的文件都不会参与编译)
+     
