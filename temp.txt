@@ -82,4 +82,4 @@
      3.iOS自动布局之 autoresizingMask 
        http://www.cocoachina.com/ios/20141216/10652.html
   *  4.Xcode工程中黄色与蓝色文件夹的区别与做法.(拖入工程的时候选择Group和folder，后者的文件都不会参与编译)
-     
+     5.试验:在源代码中可以通过一个编译器指令__has_feature(objc_arc)来检测项目是否使用了ARC
