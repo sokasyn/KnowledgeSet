@@ -87,4 +87,6 @@
 2016-04-22
      1.Xcode的环境变量及路劲;导入静态库时,需要配置-Objc(Other linker flag);
       http://www.cnblogs.com/shirley-1019/p/3823906.html
+      http://blog.csdn.net/phunxm/article/details/17044337/
+      http://blog.csdn.net/phunxm/article/details/17044337/
      
