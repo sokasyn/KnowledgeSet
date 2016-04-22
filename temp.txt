@@ -83,3 +83,8 @@
        http://www.cocoachina.com/ios/20141216/10652.html
   *  4.Xcode工程中黄色与蓝色文件夹的区别与做法.(拖入工程的时候选择Group和folder，后者的文件都不会参与编译)
      5.试验:在源代码中可以通过一个编译器指令__has_feature(objc_arc)来检测项目是否使用了ARC
+
+2016-04-22
+     1.Xcode的环境变量及路劲;导入静态库时,需要配置-Objc(Other linker flag);
+      http://www.cnblogs.com/shirley-1019/p/3823906.html
+     
