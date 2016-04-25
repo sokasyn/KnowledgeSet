@@ -64,18 +64,33 @@ PDRCoreAppFrame* appFrame = nil;
                                                object:nil];
 }
 
+- (void)unRegisterNotigication{
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)handleWidgetCloseNotification:(id)sender{
     NSLog(@"%@",NSStringFromSelector(_cmd));
 //    [self getWebapp];
-    PDRCoreApp *widget = [[[PDRCore Instance] appManager] getAppByID:kAppIdFromManifest];
+    /* 响应的HTML5页面中的postNotification
+    function backToNative(){
+        var NSNotificationCenter = plus.ios.importClass("NSNotificationCenter");
+        var appid = plus.runtime.appid;
+        // alert("appid:" + appid);
+        NSNotificationCenter.defaultCenter().postNotificationNameobject("WidgetCloseNotification",appid);
+    }*/
+    NSNotification *notification = (NSNotification *)sender;
+    NSString *webAppId = (NSString *)[notification object];
+    NSLog(@"web app id:%@",webAppId);
+    PDRCoreApp *widget = [[[PDRCore Instance] appManager] getAppByID:webAppId];
     if (widget) {
         // 回到主线程移除widget
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[[PDRCore  Instance] appManager] endWithAppid:kAppIdFromManifest animated:YES];
+            [[[PDRCore  Instance] appManager] endWithAppid:webAppId animated:YES];
             [_containerView removeFromSuperview];
         });
     }else{
-        NSLog(@"App with id:%@ not found",kAppIdFromManifest);
+        NSLog(@"App with id:%@ not found",webAppId);
     }
     
 }
@@ -165,10 +180,15 @@ PDRCoreApp* pAppHandle = nil;
     [super viewDidAppear:animated];
 }
 
+- (void)viewDidDisappear:(BOOL)animated{
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+     NSLog(@"%@",NSStringFromSelector(_cmd));
 }
 #pragma mark -
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
