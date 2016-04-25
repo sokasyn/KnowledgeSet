@@ -89,4 +89,9 @@
       http://www.cnblogs.com/shirley-1019/p/3823906.html
       http://blog.csdn.net/phunxm/article/details/17044337/
       http://blog.csdn.net/phunxm/article/details/17044337/
-     
+
+2016-04-25
+     1.iOS中静态库与动态库的区别与制作
+      http://www.360doc.com/content/15/0910/23/26281448_498349415.shtml
+      http://www.tuicool.com/articles/VFFjmq6
+     2.Other Linker Flags -Objc的作用
