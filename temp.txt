@@ -108,4 +108,9 @@
      4.阅读:http://kb.cnblogs.com/page/129756/
      5.阅读http下载 http://blog.csdn.net/wong_judy/article/details/5785315
      6.HTML5+SDK runtime API
-      
+     7.阅读http://www.jianshu.com/p/77a4349bf67b
+
+2016-04-28
+     1.Mac第三方应用的环境配置快捷命令,如tomcat,在终端输入tomcat start等命令取代到bin目录执行startup.sh
+     
+     
