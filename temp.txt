@@ -96,4 +96,16 @@
       http://www.tuicool.com/articles/VFFjmq6
      2.Other Linker Flags -Objc的作用
      3.iOS,NSEnum&NSOption再完善;
-     
+
+2016-04-26
+     1.以Sotryboard或IB设计界面的技巧
+       http://my.oschina.net/makeffort/blog/85534?p=1
+     2.HTML5+ App升级,Hybrid app的升级，如果是前端(HTML,JS,CSS等www内的资源),不需要重新打包上传(尤其是苹果应用需要审核)
+       2-1. 整包(apk/ipa)升级 http://ask.dcloud.net.cn/docs/#http://ask.dcloud.net.cn/article/431
+       2-2. 资源升级(wgt)     http://ask.dcloud.net.cn/docs/#http://ask.dcloud.net.cn/article/182
+       2-3. 资源差量升级(wgtu)http://ask.dcloud.net.cn/docs/#http://ask.dcloud.net.cn/article/199
+     3.ajax的使用
+     4.阅读:http://kb.cnblogs.com/page/129756/
+     5.阅读http下载 http://blog.csdn.net/wong_judy/article/details/5785315
+     6.HTML5+SDK runtime API
+      
