@@ -112,5 +112,7 @@
 
 2016-04-28
      1.Mac第三方应用的环境配置快捷命令,如tomcat,在终端输入tomcat start等命令取代到bin目录执行startup.sh
-     
+     2.在不做web工程的前提下,将Tomcat作为一个简单的可供HTTP下载的服务器,即只需要将文件放到webapps/ROOT下,或者配置相关文件
+       http://blog.csdn.net/yuan882696yan/article/details/26680253
+
      
