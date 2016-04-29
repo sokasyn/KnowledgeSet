@@ -132,50 +132,103 @@ function preateClear(){
 		}
 	}
 }
-        // 2016-04-25 增加关闭当前页面,返回原生app
-        function backToNative(){
-            var NSNotificationCenter = plus.ios.importClass("NSNotificationCenter");
-            var appid = plus.runtime.appid;
-            // alert("appid:" + appid);
-            NSNotificationCenter.defaultCenter().postNotificationNameobject("WidgetCloseNotification",appid);
-        }
         function testUpdate(){
             var appid = plus.runtime.appid;
             alert("runtime appid:" + appid);
             
             plus.runtime.getProperty(appid,function(widgetInfo){
-                widgetVersion = widgetInfo.version;
-                alert("当前webapp版本:" + widgetVersion);
-                widgetUpdate();
-            });
+                                     widgetVersion = widgetInfo.version;
+                                     alert("当前webapp版本:" + widgetVersion);
+                                     widgetUpdate();
+                                     });
         }
         function widgetUpdate(){
             alert("begin update...");
-            var sourceUrl = 'http://127.0.0.1:8080/update/update003.wgtu';
+            //var sourceUrl = 'http://127.0.0.1:8080/update/update.wgtu';
+            var sourceUrl = 'http://192.168.0.111:8080/update/update.wgtu';
             plus.nativeUI.showWaiting("升级中...");
             var dtask = plus.downloader.createDownload(sourceUrl, {method:"GET"}, function(d,status){
-                if ( status == 200 ) {
-                    alert( "Download wgtu success: " + d.filename );
-                    plus.runtime.install(d.filename,{},function(){
-                                         plus.nativeUI.closeWaiting();
-                                         plus.nativeUI.alert("Update wgtu success, restart now!",function(){
-                                                                plus.runtime.restart();
-                                                             });
-                                                         },
-                                                        function(e){
-                                                                plus.nativeUI.closeWaiting();
-                                                                alert("Update wgtu failed: "+e.message);
-                                                        });
-                 } else {
-                       plus.nativeUI.closeWaiting();
-                       alert( "Download wgtu failed: " + status );
-                 }
-             });
-            dtask.addEventListener('statechanged',function(d,status){
-                alert("statechanged: "+d.state);
+                        if ( status == 200 ) {
+                                alert( "Download wgtu success: " + d.filename ); //_download/update.wgtu
+                                plus.runtime.install(d.filename,{},function(){
+                                                     plus.nativeUI.closeWaiting();
+                                                     plus.nativeUI.alert("Update wgtu success, restart now!",function(){
+                                                                          plus.runtime.restart();
+                                                                        });
+                                                     },
+                                                     function(e){
+                                                              plus.nativeUI.closeWaiting();
+                                                              alert("Update wgtu failed: "+e.message);
+                                                      });
+                         } else {
+                            plus.nativeUI.closeWaiting();
+                            alert( "Download wgtu failed: " + status );
+                         }
             });
-            dtask.start();
+                                                       
+           dtask.addEventListener('statechanged',function(d,status){
+                 alert("statechanged: "+d.state);
+           });
+           dtask.start();
         }
+        
+        function testUpdateMoreVersion(){
+            alert("下载更新一览");
+            plus.nativeUI.showWaiting("更新一览文件下载...");
+            
+            /*
+            var listUrl = 'http://192.168.0.111:8080/update/list.txt';
+            var taskDownList = plus.downloader.createDownload(listUrl,{},function(d,status){
+                                    if(status == 200){
+                                        alert("succesully download file:" + d.filename);
+                                        alert("id" + d.id + "\n url :" + d.url + " \n downloadedSize:" + d.downloadedSize + "\n totalSize" + d.totalSize);
+                                    }else{
+                                                              //plus.nativeUI.closeWaiting():
+                                                                    alert("Download list file failed");
+                                    }
+            });
+            taskDownList.start();
+             */
+            var fileUrl = 'http://192.168.0.111:8080/update/file.txt';
+            var taskDownFile = plus.downloader.createDownload(fileUrl,{filename:"_download/myFile.txt"},function(d1,status){
+                                                              if(status == 200){
+                                                              alert("succesully download file:" + d1.filename);
+                                                              alert("id" + d1.id + "\n url :" + d1.url + " \n downloadedSize:" + d1.downloadedSize + "\n totalSize" + d1.totalSize);
+                                                              }else{
+                                                              plus.nativeUI.closeWaiting():
+                                                              alert("Download list file failed");
+                                                              }
+                                                              });
+            taskDownFile.start();
+            
+            /*
+            var docUrl = 'http://192.168.0.111:8080/update/doc.txt';
+            var taskDownDoc = plus.downloader.createDownload(docUrl,{filename :"_doc/"},function(d2,status){
+                                                              if(status == 200){
+                                                              alert("succesully download file:" + d2.filename);
+                                                             //alert("id" + d.id + "\n url :" + d.url + " \n downloadedSize:" + d.downloadedSize + "\n totalSize" + d.totalSize);
+                                                              }else{
+                                                             //plus.nativeUI.closeWaiting():
+                                                              alert("Download doc file failed");
+                                                              }
+            });
+            taskDownDoc.start();
+            */
+            /*
+            var documentsUrl = 'http://192.168.0.111:8080/update/document.txt';
+            var taskDownDocument = plus.downloader.createDownload(documentsUrl,{filename:"_documents/"},function(d3,status){
+                                                           if(status == 200){
+                                                           alert("succesully download file:" + d3.filename);
+                                                                  //alert("id" + d.id + "\n url :" + d.url + " \n downloadedSize:" + d.downloadedSize + "\n totalSize" + d.totalSize);
+                                                           }else{
+                                                           plus.nativeUI.closeWaiting():
+                                                           alert("Download document file failed");
+                                                           }
+           });
+           taskDownDocument.start();
+          */
+        }
+        
 		</script>
 		<link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8"/>
 		<style type="text/css">
@@ -204,12 +257,10 @@ li:active {
 	</head>
 	<body onselectstart="return false;">
 		<header id="header">
-            <!-- <div id="back" style="visibility:hidden" class="nvbt iback" onclick="plus.runtime.quit()"></div>-->
-
-            <!-- 2016-04-25 增加关闭当前页面,返回原生app-->
-            <div id="back" style="visibility:visible" class="nvbt iback" onclick="testUpdate()"></div>
+			<div id="back" style="visibility:hidden" class="nvbt iback" onclick="plus.runtime.quit()"></div>
 			<div class="nvtt">Hello HTML5+</div>
-			<div class="nvbt iabout" onclick="clicked('about.html','zoom-fade-out',true)"></div>
+<!--			<div class="nvbt iabout" onclick="clicked('about.html','zoom-fade-out',true)"></div>-->
+            <div class="nvbt iabout" onclick="testUpdateMoreVersion()"></div>
 		</header>
 		<div id="content" class="content">
 		<ul id="plist" style="list-style:none;margin:0;padding:0;text-align:left;">
@@ -1212,4 +1263,3 @@ document.addEventListener('DOMContentLoaded', function() {
 }());
 	</script>
 </html>
-

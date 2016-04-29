@@ -115,4 +115,6 @@
      2.在不做web工程的前提下,将Tomcat作为一个简单的可供HTTP下载的服务器,即只需要将文件放到webapps/ROOT下,或者配置相关文件
        http://blog.csdn.net/yuan882696yan/article/details/26680253
 
-     
+2016-04-29
+     1.HTML5+ download模块学习,并用OC语言开发出类似模块,以供后面项目使用
+
