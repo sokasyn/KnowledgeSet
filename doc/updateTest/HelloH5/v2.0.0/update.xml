@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<wgtu appid="HelloH5" >
+    <basis version="1.7.6" />
+<remove>
+    <item path="test/testRemove.html" />
+</remove>
+</wgtu>
