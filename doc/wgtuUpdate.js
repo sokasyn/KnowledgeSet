@@ -5,9 +5,8 @@ var appid = null;
 function wgtuUpdateTest(){
     appid = plus.runtime.appid;
     plus.runtime.getProperty(appid,function(wgetInfo){
-                             //alert("runtime appid:" + appid + "\nwebapp version:" + wgetInfo.version);
-                             checkUpdate(appid,wgetInfo.version);
-                             });
+         checkUpdate(appid,wgetInfo.version);
+    });
     //var url = "http://192.168.0.105:8080/arm/appload/temp/update2.0.0.wgtu";
     //dowloadWgtu(url);
 }
@@ -86,36 +85,36 @@ function dowloadWgtu(url){
     waiting = plus.nativeUI.showWaiting("处理中,请稍等...",{back:"none"});
     var downloadTask = plus.downloader.createDownload(url, {method:"GET"});
     downloadTask.addEventListener('statechanged',function(downloadObj,status){
-                                  switch(downloadObj.state){
-                                  case 0:
-                                  waiting.setTitle("下载任务已经开始...");
-                                  break;
-                                  case 1:
-                                  waiting.setTitle("正在连接服务器...");
-                                  break;
-                                  case 2:
-                                  waiting.setTitle("连接成功,准备下载...");
-                                  break;
-                                  case 3:
-                                  waiting.setTitle("正在为您下载,请耐心等待...\n"+((downloadObj.downloadedSize/(1024*1024)).toFixed(2))+"MB/"+((downloadObj.totalSize/(1024*1024)).toFixed(2))+"MB");
-                                  break;
-                                  case 4:
-                                  if(status == 200){
-                                  waiting.setTitle("下载完成!");
-                                  var localFile = downloadObj.filename;
-                                  installWgtu(localFile);
-                                  }else{
-                                  waiting.setTitle("下载失败,请稍后重试...");
-                                  }
-                                  break;
-                                  case 5:
-                                  waiting.setTitle("下载已暂停...");
-                                  break;
-                                  default:
-                                  alert("default");
-                                  break;
-                                  }
-                                  });
+          switch(downloadObj.state){
+          case 0:
+              waiting.setTitle("下载任务已经开始...");
+              break;
+          case 1:
+              waiting.setTitle("正在连接服务器...");
+              break;
+          case 2:
+              waiting.setTitle("连接成功,准备下载...");
+              break;
+          case 3:
+              waiting.setTitle("正在为您下载,请耐心等待...\n"+((downloadObj.downloadedSize/(1024*1024)).toFixed(2))+"MB/"+((downloadObj.totalSize/(1024*1024)).toFixed(2))+"MB");
+              break;
+          case 4:
+              if(status == 200){
+                  waiting.setTitle("下载完成!");
+                  var localFile = downloadObj.filename;
+                  installWgtu(localFile);
+              }else{
+                  waiting.setTitle("下载失败,请稍后重试...");
+              }
+              break;
+          case 5:
+              waiting.setTitle("下载已暂停...");
+              break;
+          default:
+              alert("default");
+              break;
+          }
+     });
     downloadTask.start();
 }
 
@@ -123,19 +122,19 @@ function dowloadWgtu(url){
 function installWgtu(wgtuFilePath){
     waiting.setTitle("正在安装...");
     plus.runtime.install(wgtuFilePath,{},function(){
-                         waiting.close();
-                         plus.nativeUI.confirm("安装成功!是否重启应用",function(e){
-                                               if(e.index == 0){
-                                               waiting.close();
-                                               restartWebApp();
-                                               }else{
-                                               waiting.close();
-                                               }
-                                               },"提示",["现在重启","稍后再说"]);
-                         },function(e){
-                         waiting.close();
-                         plus.nativeUI.alert("安装失败" + e.message + "安装包:" + filePath);
-                         });
+         waiting.close();
+         plus.nativeUI.confirm("安装成功!是否重启应用",function(e){
+               if(e.index == 0){
+                   waiting.close();
+                   restartWebApp();
+               }else{
+                   waiting.close();
+               }
+         },"提示",["现在重启","稍后再说"]);
+    },function(e){
+         waiting.close();
+         plus.nativeUI.alert("安装失败" + e.message + "安装包:" + filePath);
+    });
     
 }
 // 应用重启
