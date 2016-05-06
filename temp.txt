@@ -120,4 +120,7 @@
 
 2016-05-04
      2.Hybrid升级模块的制造
-     
+
+2016-05-06
+     1.http://www.cnblogs.com/hyddd/archive/2009/03/31/1426026.html
+     2. 
