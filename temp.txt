@@ -72,7 +72,7 @@
      2.git tag -a v1.0 给版本打上标签的用法;git log --decorate查看这些标签
      3.调查git commit --anmend造成的于远程仓库冲突的问题(很确定今天遇到的这个问题就是--amend的操作造成)
      4.git non-fast-forward errors的调查 
-     5.vi/vim 的复制,粘贴,块操作,快速替换功能的学习
+  *  5.vi/vim 的复制,粘贴,块操作,快速替换功能的学习
      6.Hybrid开发的载入页面之预载与现载的性能问题
      7.5+SDK 集成原生应用的demo,从零开始,不用SDK提供的demo
 
@@ -123,4 +123,6 @@
 
 2016-05-06
      1.http://www.cnblogs.com/hyddd/archive/2009/03/31/1426026.html
-     2. 
+     2.关于git乱码的又一篇可以阅读和学习的文章
+       http://zengrong.net/post/1249.htm
+ 
