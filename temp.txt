@@ -125,4 +125,9 @@
      1.http://www.cnblogs.com/hyddd/archive/2009/03/31/1426026.html
      2.关于git乱码的又一篇可以阅读和学习的文章
        http://zengrong.net/post/1249.htm
- 
+
+2016-05-10
+    1.web的跨域访问了解
+    2.AJAX和xmlHttpRequest的关系与理解 
+    3.Mac OX 的Android开发环境搭载
+    
