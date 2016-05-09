@@ -1,15 +1,43 @@
 var updateServer = "http://192.168.0.105:8080/arm/version/getVersion";
-//var xhr = null;
+var appid = null;  // webapp的id
+var updateDir = "update"; // 升级资源包的下载目录
+var dir = null;
 var waiting = null;
-var appid = null;
-function wgtuUpdateTest(){
-    appid = plus.runtime.appid;
-    plus.runtime.getProperty(appid,function(wgetInfo){
-         checkUpdate(appid,wgetInfo.version);
-    });
-    //var url = "http://192.168.0.105:8080/arm/appload/temp/update2.0.0.wgtu";
-    //dowloadWgtu(url);
+//var xhr = null;
+
+var testMode = true;
+function wgtuUpdate(){
+    updateInit();
 }
+
+// 初始化配置
+function updateInit(){
+    // 创建安装包的存放目录
+    plus.io.requestFileSystem( plus.io.PUBLIC_DOWNLOADS, function(fileSystem){
+          fileSystem.root.getDirectory(updateDir, {create:true}, function(entry){
+               dir = entry;
+               appid = plus.runtime.appid;
+               plus.runtime.getProperty(appid,function(wgetInfo){
+                    if(testMode){
+                        test();
+                    }else{
+                        checkUpdate(appid,wgetInfo.version);
+                    }
+               });
+          }, function(e){
+               plus.console.log("打开update目录失败" + e.message);
+          });
+    }, function(e){
+           plus.console.log( "打开downloads目录失败：" + e.message );
+    });
+}
+
+function test(){
+    //var url = "http://192.168.0.105:8080/arm/appload/temp/update2.0.0.wgtu";
+    var url = "http://127.0.0.1:8080/update/update2.0.0.wgtu";
+    dowloadWgtu(url);
+}
+
 // 检查更新
 function checkUpdate(appid,version){
     plus.nativeUI.toast("正在检查更新，请稍等...");
@@ -17,23 +45,23 @@ function checkUpdate(appid,version){
     xhr.onreadystatechange = function () {
         switch ( xhr.readyState ) {
             case 0:
-                //alert( "xhr请求已初始化" );
+                plus.console.log( "xhr请求已初始化" );
                 break;
             case 1:
-                //alert( "xhr请求已打开" );
+                plus.console.log( "xhr请求已打开" );
                 break;
             case 2:
-                //alert( "xhr请求已发送" );
+                plus.console.log( "xhr请求已发送" );
                 break;
             case 3:
-                //alert( "xhr请求已响应");
+                plus.console.log( "xhr请求已响应");
                 break;
             case 4:
                 if(xhr.status == 200){
-                    //alert( "xhr请求成功：");
+                    plus.console.log( "xhr请求成功" );
                     responseComplete(xhr);
                 }else{
-                    alert( "请求失败：" + xhr.status );
+                    plus.console.log( "网络请求失败：" + xhr.status );
                 }
                 break;
             default :
@@ -42,6 +70,11 @@ function checkUpdate(appid,version){
     }
     xhr.open( "POST", updateServer );
     xhr.setRequestHeader('Content-Type','application/json');
+    // 超时设置
+    xhr.timeout = 10000; // 10s
+    xhr.ontimeout = function(){
+        plus.console.log("request timeout");
+    }
     
     // 发送HTTP请求
     var data = {
@@ -49,7 +82,6 @@ function checkUpdate(appid,version){
         appId : appid
     };
     var param = JSON.stringify(data);
-    //alert("data string:" + param);
     xhr.send(param);
 }
 
@@ -65,25 +97,26 @@ function responseComplete(xhrObj){
         var downloadUrl = data.loadurl;
         
         // ismax:true 是最新版本; false:不是最新版本,可升级
-        if(isMax!=null && !isMax){
+        if(isMax!=null && isMax!="undefined" && !isMax){
             var message = "当前版本为:" + appid + ",最新版本为:" + data.to;
             plus.nativeUI.confirm(message, function(e){
                                   if(e.index == 0){
-                                  dowloadWgtu(downloadUrl);
+                                      dowloadWgtu(downloadUrl);
                                   }else{
                                   }
-                                  },"更新提示",["现在更新","下次再说"]);
+            },"更新提示",["现在更新","下次再说"]);
         }else if(isMax!=null && isMax){
-            //alert("应用版本是最新的");
+            plus.nativeUI.alert("当前应用版本是最新的");
         }else{}
     }else{
-        alert(data.message);
+        plus.nativeUI.alert(e.message);
     }
 }
-// 下载
+// 下载升级包
 function dowloadWgtu(url){
     waiting = plus.nativeUI.showWaiting("处理中,请稍等...",{back:"none"});
-    var downloadTask = plus.downloader.createDownload(url, {method:"GET"});
+    var wgtuDir = dir.toURL() + "/";
+    var downloadTask = plus.downloader.createDownload(url, {method:"GET",filename:wgtuDir});
     downloadTask.addEventListener('statechanged',function(downloadObj,status){
           switch(downloadObj.state){
           case 0:
@@ -105,6 +138,7 @@ function dowloadWgtu(url){
                   installWgtu(localFile);
               }else{
                   waiting.setTitle("下载失败,请稍后重试...");
+                  waiting.close();
               }
               break;
           case 5:
@@ -118,26 +152,46 @@ function dowloadWgtu(url){
     downloadTask.start();
 }
 
-// 安装
+// 安装升级包
 function installWgtu(wgtuFilePath){
     waiting.setTitle("正在安装...");
     plus.runtime.install(wgtuFilePath,{},function(){
+         waiting.setTitle("安装成功！正在重启应用.");
          waiting.close();
+         deleteWgtuFile(wgtuFilePath);
+         restartWebApp();
+         /*
          plus.nativeUI.confirm("安装成功!是否重启应用",function(e){
+               waiting.close();
+               restartWebApp();
                if(e.index == 0){
                    waiting.close();
                    restartWebApp();
                }else{
                    waiting.close();
                }
-         },"提示",["现在重启","稍后再说"]);
+         },"提示",["现在重启","稍后再说"]);*/
     },function(e){
          waiting.close();
-         plus.nativeUI.alert("安装失败" + e.message + "安装包:" + filePath);
+         plus.nativeUI.alert("安装失败:" + e.message);
     });
-    
 }
-// 应用重启
+
+// 删除升级资源包
+function deleteWgtuFile(filePath){
+    plus.console.log("delete file path:" + filePath);
+    plus.io.resolveLocalFileSystemURL( filePath, function(entry){
+          entry.remove(function(entry){
+                       //plus.console.log("remove successfully!");
+          },function(e){
+                       //plus.console.log("remove failed");
+          });
+    }, function(e){
+        plus.console.log( "Resolve file URL failed: " + e.message );
+    });
+}
+
+// 重启应用
 function restartWebApp(){
     plus.runtime.restart();
 }
