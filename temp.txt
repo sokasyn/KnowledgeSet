@@ -112,7 +112,8 @@
 
 2016-04-28
      1.Mac第三方应用的环境配置快捷命令,如tomcat,在终端输入tomcat start等命令取代到bin目录执行startup.sh
-     2.在不做web工程的前提下,将Tomcat作为一个简单的可供HTTP下载的服务器,即只需要将文件放到webapps/ROOT下,或者配置相关文件
+       http://blog.sina.com.cn/s/blog_5a6efa330101eq5z.html
+  *  2.在不做web工程的前提下,将Tomcat作为一个简单的可供HTTP下载的服务器,即只需要将文件放到webapps/ROOT下,或者配置相关文件
        http://blog.csdn.net/yuan882696yan/article/details/26680253
 
 2016-04-29
@@ -133,5 +134,17 @@
     4.Xcode的性能调试工具
     
 2016-05-11
-    1.
- 
+    1.Mac OX活动监视器的内存解释
+    2.Mac 下的svn工具versions特别版
+      http://www.cr173.com/soft/97051.html
+    3.git相关,做成场景example:
+      3-1.从本地开始创建git仓库,并将改仓库推送到远程仓库(之前未建立),并建立追踪关系
+      3-2.有一个远程的仓库,clone到本地,并建立追踪关系
+    4.Homebrew的使用
+      http://blog.csdn.net/delphiwcdj/article/details/19679891
+    5.关于Android Studio 的emulator和Virtual Box的冲突问题
+      https://www.virtualbox.org/ticket/14294                          
+    6.制作iOS的Notification管理类,通过该类可以管理应用自定义的Notification
+      背景:如果只是用到了Notification就在用到的类里通过NSNotificationCenter注册,那么应用中Notification繁多的时候,就需要统一管理了
+           以后在需要用到Notification的时候,到该类里就很清晰得看到哪些通知,为哪些对象发送等..
+    
