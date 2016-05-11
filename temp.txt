@@ -147,4 +147,5 @@
     6.制作iOS的Notification管理类,通过该类可以管理应用自定义的Notification
       背景:如果只是用到了Notification就在用到的类里通过NSNotificationCenter注册,那么应用中Notification繁多的时候,就需要统一管理了
            以后在需要用到Notification的时候,到该类里就很清晰得看到哪些通知,为哪些对象发送等..
+    7.git branch的实践
     
