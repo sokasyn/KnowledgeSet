@@ -126,7 +126,6 @@
      1.http://www.cnblogs.com/hyddd/archive/2009/03/31/1426026.html
      2.关于git乱码的又一篇可以阅读和学习的文章
        http://zengrong.net/post/1249.htm
-<<<<<<< HEAD
 
 2016-05-10
     1.web的跨域访问了解
@@ -150,6 +149,3 @@
            以后在需要用到Notification的时候,到该类里就很清晰得看到哪些通知,为哪些对象发送等..
     7.git branch的实践
     
-=======
- 
->>>>>>> parent of eb4a43c... web开发的跨域访问,mac android开发环境的搭载调查
