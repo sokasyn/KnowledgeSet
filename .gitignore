@@ -8,4 +8,5 @@
 
 #忽略临时测试文件
 /Temp/
+/temp/
 test*.txt
