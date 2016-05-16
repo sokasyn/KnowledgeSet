@@ -155,4 +155,10 @@
       http://www.cnblogs.com/itech/p/5188933.html
     2.JavaScript的广播和监听
       http://blog.csdn.net/flm000/article/details/8022092
-    
+   
+2016-05-16
+    1.Mac下JDK管理
+      http://blog.csdn.net/u012964796/article/details/47000991
+    2.Android studio java文件的中文注释乱码问题(其它的,像xml文件里却没有中文乱码问题)
+    3.Android studio 编译报错,Gradle控制台报错:编码UTF-8 的不可映射字符
+     
