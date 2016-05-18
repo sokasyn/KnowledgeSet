@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="misapplication-tap-highlight" content="no"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>H5Plugin</title>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/plugin/pgLogin.js"></script>
+    <script type="text/javascript">
+		document.addEventListener('plusready',function(){
+            plus.key.addEventListener('backbutton',function(){
+                    plus.runtime.quit();
+            },false);
+		},false);
+
+        function login(){
+            alert(111);
+            var userName = "Samson";
+            var password = "1234";
+            //var waiting = plus.nativeUI.showWaiting("登陆中,请稍等..");
+            plus.loginManager.login(userName,password,function(result){
+                                    //waiting.close();
+                                    alert("callback result:" + result);
+            });
+        }
+
+        function register(){
+            var userName = "Kate"
+            plus.loginManager.register(userName);
+        }
+
+        function forgetPassword(){
+            var userName = "Coco";
+            plus.loginManager.forgetPassword();
+        }
+
+        function logout(){
+            plus.loginManager.logout();
+        }
+
+        function checkin(){
+            plus.loginManager.checkin(function(ressult){
+                alert(ressult);
+            });
+        }
+
+		</script>
+    <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8"/>
+</head>
+<body>
+
+<header id="header">
+    <div class="nvbt iback" onclick="back()"></div>
+    <div class="nvtt">Plugin</div>
+</header>
+
+<div id="dcontent" class="dcontent">
+    <br/>
+    <div class="button" onclick="login()">用户登陆</div>
+    <div class="button" onclick="register()">用户注册</div>
+    <div class="button" onclick="forgetPassword()">忘记密码</div>
+    <div class="button" onclick="logout()">用户登出</div>
+    <div class="button" onclick="checkin()">异步测试:用户签到</div>
+    <br/>
+</div>
+</body>
+<script type="text/javascript" src="../js/immersed.js" ></script>
+</html>

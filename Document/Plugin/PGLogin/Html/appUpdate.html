@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="misapplication-tap-highlight" content="no"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>Hello H5+</title>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/wgtuUpdate.js"></script>
+    <script type="text/javascript">
+    function checkUpdate() {
+        appUpdater.beginWgtuUpdate();
+    }
+	</script>
+    <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8"/>
+</head>
+<body>
+<header id="header">
+    <div class="nvbt iback" onclick="back(true);"></div>
+    <div class="nvtt">App Update</div>
+    <div class="nvbt idoc" onclick="openDoc('Accelerometer Document','/doc/accelerometer.html')"></div>
+</header>
+<div id="dcontent" class="dcontent">
+    <br/>
+    <div class="button" onclick="checkUpdate()">检查更新</div>
+    <br/>
+</div>
+<div id="output">
+    应用的升级包括整包升级,widget升级,增量升级。增量升级,只针对有变动的资源,所以具有安装包体积小,传输消耗的流量小等优点.
+</div>
+</body>
+<script type="text/javascript" src="../js/immersed.js" ></script>
+</html>
