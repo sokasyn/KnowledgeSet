@@ -165,4 +165,5 @@
 2016-05-18
     1.复习git命令的好网址
       http://justcoding.iteye.com/blog/1830388
+  * 2.Xcode自带了一个文件对比工具FileMerge,通过邮件Xocde-显示包内容-Contents-Applications-FileMerge找到
 
