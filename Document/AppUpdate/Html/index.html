@@ -8,6 +8,8 @@
 		<meta name="MobileOptimized" content="320"/>
 		<title>Hello H5+</title>
 		<script type="text/javascript" src="js/update.js"></script>
+        <script type="text/javascript" src="js/wgtuUpdate.js"></script>
+<!--        <script type="text/javascript" src="js/appUpdate.js"></script>-->
 		<script type="text/javascript" charset="utf-8">
 //取消浏览器的所有事件，使得active的样式在手机上正常生效
 document.addEventListener('touchstart',function(){
@@ -132,7 +134,30 @@ function preateClear(){
 		}
 	}
 }
+        
+        
         function testUpdate(){
+            //testUpdateSingle();
+            
+            //alert("update server:" + appUpdateObj.updateServer);
+            
+            // 正式版本测试
+            //alert("public property :" + appUpdateObj.description);
+            appUpdater.beginWgtuUpdate();
+            //appUpd.init();
+            /*
+            setTimeout(function(){
+                       alert("settimeout invoked" + appUpdateObj.downloadTask.state);
+                       if(appUpdateObj.downloadTask!=null){
+                           alert("appUpdateObj.downloadTask not null,it's state:" + appUpdateObj.downloadTask.state);
+                       }else{
+                           alert("appUpdateObj.downloadTask is null");
+                       }
+            },1000);*/
+        }
+        
+        //----------------------------------------单个版本更新测试--------------------------------------------
+        function testUpdateSingle(){
             var appid = plus.runtime.appid;
             alert("runtime appid:" + appid);
             
@@ -144,8 +169,7 @@ function preateClear(){
         }
         function widgetUpdate(){
             alert("begin update...");
-            //var sourceUrl = 'http://127.0.0.1:8080/update/update.wgtu';
-            var sourceUrl = 'http://192.168.0.111:8080/update/update.wgtu';
+            var sourceUrl = 'http://192.168.0.121:8080/update/update.wgtu';
             plus.nativeUI.showWaiting("升级中...");
             var dtask = plus.downloader.createDownload(sourceUrl, {method:"GET"}, function(d,status){
                         if ( status == 200 ) {
@@ -158,7 +182,7 @@ function preateClear(){
                                                      },
                                                      function(e){
                                                               plus.nativeUI.closeWaiting();
-                                                              alert("Update wgtu failed: "+e.message);
+                                                              alert("Update wgtu failed: " + e.message);
                                                       });
                          } else {
                             plus.nativeUI.closeWaiting();
@@ -172,61 +196,151 @@ function preateClear(){
            dtask.start();
         }
         
-        function testUpdateMoreVersion(){
-            alert("下载更新一览");
-            plus.nativeUI.showWaiting("更新一览文件下载...");
-            
-            /*
-            var listUrl = 'http://192.168.0.111:8080/update/list.txt';
-            var taskDownList = plus.downloader.createDownload(listUrl,{},function(d,status){
-                                    if(status == 200){
-                                        alert("succesully download file:" + d.filename);
-                                        alert("id" + d.id + "\n url :" + d.url + " \n downloadedSize:" + d.downloadedSize + "\n totalSize" + d.totalSize);
-                                    }else{
-                                                              //plus.nativeUI.closeWaiting():
-                                                                    alert("Download list file failed");
-                                    }
+        //----------------------------------------多个版本迭代更新测试--------------------------------------------
+        
+        var hostIp = 'http://192.168.0.121';
+        var hostPort = '8080';
+        var srcPath = 'update';
+        
+        var updateObjArray = [];
+        // 测试入口
+        function testUpdates(){
+            var appid = plus.runtime.appid;
+            plus.runtime.getProperty(appid,function(widgetInfo){
+                 widgetVersion = widgetInfo.version;
+                 alert("runtime appid:" + appid + "\nwebapp version:" + widgetVersion);
+                 versionsUpdate();
             });
-            taskDownList.start();
-             */
-            var fileUrl = 'http://192.168.0.111:8080/update/file.txt';
-            var taskDownFile = plus.downloader.createDownload(fileUrl,{filename:"_download/myFile.txt"},function(d1,status){
-                                                              if(status == 200){
-                                                              alert("succesully download file:" + d1.filename);
-                                                              alert("id" + d1.id + "\n url :" + d1.url + " \n downloadedSize:" + d1.downloadedSize + "\n totalSize" + d1.totalSize);
-                                                              }else{
-                                                              plus.nativeUI.closeWaiting():
-                                                              alert("Download list file failed");
-                                                              }
-                                                              });
-            taskDownFile.start();
+        }
+        
+        // 迭代更新总控
+        function versionsUpdate(){
+            // 获取更新资源包地址一览
+            var pkgList = getUpadatePackList();
+            for(i = 0 ; i < pkgList.length ; i++){
+                //alert("pkgList[" + i + "]:" + pkgList[i]);
+                var packageAddr = pkgList[i];
+                
+                // 从服务器下载地址中截取资源包的名称
+                var packageName = getNameFromHostAddr(packageAddr);
+                
+                // 用对象将数据保存起来,以便下载升级包,并安装。该两个过程都是异步,并且要保证安装升级包的顺序正确
+                var updateObj = {
+                    index : i,
+                    packageName :packageName,
+                    packageAddr:packageAddr,
+                    localFilePath:''
+                };
+                updateObjArray.push(updateObj);
+            }
+            // 下载补丁包
+            createDownloadWithoutCheck(updateObjArray[0]);
+        }
+        
+        // 从服务器端获取本次更新所需要的安装包地址一览
+        function getUpadatePackList(){
+            var package2 = 'update2.0.0.wgtu';
+            var packageUrl2 = getPackageHostAddr(package2);
             
-            /*
-            var docUrl = 'http://192.168.0.111:8080/update/doc.txt';
-            var taskDownDoc = plus.downloader.createDownload(docUrl,{filename :"_doc/"},function(d2,status){
-                                                              if(status == 200){
-                                                              alert("succesully download file:" + d2.filename);
-                                                             //alert("id" + d.id + "\n url :" + d.url + " \n downloadedSize:" + d.downloadedSize + "\n totalSize" + d.totalSize);
-                                                              }else{
-                                                             //plus.nativeUI.closeWaiting():
-                                                              alert("Download doc file failed");
-                                                              }
+            var package3 = 'update3.0.0.wgtu';
+            var packageUrl3 = getPackageHostAddr(package3);
+            
+            var package4 = 'update4.0.0.wgtu';
+            var packageUrl4 = getPackageHostAddr(package4);
+            return [packageUrl2,packageUrl3,packageUrl4];
+        }
+        
+        // 构造更新包的服务器下载地址
+        function getPackageHostAddr(packageName){
+            var address = getBaseUrl() + '/' + packageName;
+            return address;
+        }
+        
+        function getBaseUrl(){
+            return hostIp + ':' + hostPort + '/' + srcPath;
+        }
+        
+        // 解析安装包服务器下载地址中的包名字
+        function getNameFromHostAddr(url){
+            var urlComponents = url.split("/");
+            var length = urlComponents.length;
+            return urlComponents[length-1];
+        }
+        
+        function checkUpdatePackage(fileName,fileExistCB,fileNotExistCB){
+            var url = "_downloads/" + fileName;
+            alert("检查安装包是否在本地已经存在.url:" + url);
+            plus.io.resolveLocalFileSystemURL( url, function(){
+                  alert("获取文件成功:" + url);
+                  fileExistCB(fileName);
+            }, function(){
+                  alert("获取文件失败:" + url);
+                  fileNotExistCB(fileName);
             });
-            taskDownDoc.start();
-            */
-            /*
-            var documentsUrl = 'http://192.168.0.111:8080/update/document.txt';
-            var taskDownDocument = plus.downloader.createDownload(documentsUrl,{filename:"_documents/"},function(d3,status){
-                                                           if(status == 200){
-                                                           alert("succesully download file:" + d3.filename);
-                                                                  //alert("id" + d.id + "\n url :" + d.url + " \n downloadedSize:" + d.downloadedSize + "\n totalSize" + d.totalSize);
-                                                           }else{
-                                                           plus.nativeUI.closeWaiting():
-                                                           alert("Download document file failed");
-                                                           }
-           });
-           taskDownDocument.start();
-          */
+        }
+        
+        var downIndex = 0;
+        function createDownloadWithoutCheck(updateObj){
+            
+            var url = updateObj.packageAddr;
+            alert("下载地址:" + url);
+            var dtask = plus.downloader.createDownload(url, {method:"GET"}, function(d,status){
+                   if ( status == 200 ) {
+                       alert( "Download wgtu success: " + d.filename ); //_download/update.wgtu
+                       updateObj.localFilePath = d.filename;
+                       downIndex += 1;
+                       if(downIndex < updateObjArray.length){
+                           createDownloadWithoutCheck(updateObjArray[downIndex]);
+                       }else{
+                            // 开始按顺序安装补丁包
+                            installUpdatePackages();
+                       }
+                   } else {
+                       alert("Failed download wgtu " + status + "\nIndex:" + updateObj.index + "\nPackageName:" + updateObj.packageName + "\n资源包的下载地址" + updateObj.packageAddr);
+                   }
+             });
+             dtask.addEventListener('statechanged',function(d,status){
+                 //alert("statechanged: "+ d.state);
+             });
+             dtask.start();
+        }
+        
+        // 删除本地安装包
+        function removeUpdatePackage(localPagePath){
+            alert("删除本地安装包...");
+        }
+        
+        function sleep(sleepTime) {
+            for(var start = Date.now(); Date.now() - start <= sleepTime; ) { }
+        }
+        
+        // 安装更新包
+        var installIndex = 0;
+        function installUpdatePackages(){
+            alert("即将安装补丁包");
+            installUpdatePackage(updateObjArray[installIndex].localFilePath);
+        }
+        
+        function installUpdatePackage(filePath){
+            alert("安装补丁包:" + filePath);
+            plus.runtime.install(filePath,{},function(){
+                     alert("安装包:" + filePath + " 安装成功");
+                     installIndex += 1;
+                     if(installIndex < updateObjArray.length){
+                         installUpdatePackage(updateObjArray[installIndex].localFilePath);
+                     }else{
+                         alert("所有补丁包已安装成功");
+                         appRestart();
+                     }
+                 },function(e){
+                     alert("安装包:" + filePath + " 安装失败\n" + e.message);
+                 });
+        }
+        
+        function appRestart(){
+            plus.nativeUI.alert("重启应用",function(){
+                 plus.runtime.restart();
+            });
         }
         
 		</script>
@@ -260,7 +374,8 @@ li:active {
 			<div id="back" style="visibility:hidden" class="nvbt iback" onclick="plus.runtime.quit()"></div>
 			<div class="nvtt">Hello HTML5+</div>
 <!--			<div class="nvbt iabout" onclick="clicked('about.html','zoom-fade-out',true)"></div>-->
-            <div class="nvbt iabout" onclick="testUpdateMoreVersion()"></div>
+<!--            <div class="nvbt iabout" onclick="testUpdates()"></div>-->
+            <div class="nvbt iabout" onclick="testUpdate()"></div>
 		</header>
 		<div id="content" class="content">
 		<ul id="plist" style="list-style:none;margin:0;padding:0;text-align:left;">
