@@ -17,24 +17,52 @@ public class PGLoginManager extends StandardFeature{
     private static int S_CHECKIN_TIMES = 0;
     /*
      * 用户登陆
+     * js将成功和失败回调函数封装在一起,只生成一个callbackId,
+     * 需要通过JSUtil.OK和JSUtil.ERROR来执行成功和失败的回调
+     * 比如,如果两个execCallBack()都用JSUtil.ERROR,
+     * 则执行的回调都是bridge.callbackId(success,failure)都中的failure,即第二个回调函数
      */
-    public String userLogin(IWebview pWebview, JSONArray array){
+    public void userLogin(IWebview pWebview, JSONArray array){
         String userName = array.optString(0);
         String passwrod = array.optString(1);
+        String callbackId = array.optString(2);
         boolean success = login(userName,passwrod);
-        return JSUtil.wrapJsVar(success);
+        String result = "";
+        if(success){
+            result = "登陆成功";
+            JSUtil.execCallback(pWebview,callbackId,result,JSUtil.OK,false);
+        }else{
+            result = "登陆失败";
+            JSUtil.execCallback(pWebview,callbackId,result,JSUtil.ERROR,false);
+        }
     }
 
     /*
      * 用户注册
+     * js将成功和失败的回调函数都单独生成了callbackId,
+     * 则execCallback()执行回调只需要通过对应的callbackId即可,JSUtil.OK则没有影响
      */
-    public String userRegister(IWebview pWebview , JSONArray array){
-        String result = "注册成功";
-        return JSUtil.wrapJsVar(result);
+    public void userRegister(IWebview pWebview , JSONArray array){
+        String userName = array.optString(0);
+        String successCallbackId = array.optString(1);
+        String failureCallbackId = array.optString(2);
+        boolean success = false;
+        if(userName.equals(USER_NAME)){
+            success = true;
+        }
+        String result = "";
+        if(success){
+            result = "注册成功";
+            JSUtil.execCallback(pWebview,successCallbackId,result,JSUtil.OK,false);
+        }else{
+            result = "用户名非法,注册失败";
+            JSUtil.execCallback(pWebview,failureCallbackId,result,JSUtil.OK,false);
+        }
     }
 
     /*
      * 忘记密码
+     * 参数只有一个,无回调,直接返回结果,js得用同步调用方式exeSync()才能确保得到正确结果
      */
     public String forgetPassword(IWebview pWebview , JSONArray array){
         String userName = array.optString(0);
@@ -47,6 +75,7 @@ public class PGLoginManager extends StandardFeature{
 
     /*
      * 用户登出
+     * js调用时,忽略参数列表,即参数都不写的情况,返回值是boolean类型的字符串
      */
     public String logout(IWebview pWebview , JSONArray array){
         return JSUtil.wrapJsVar(true);
@@ -54,13 +83,12 @@ public class PGLoginManager extends StandardFeature{
 
     /*
      * 用户签到
-     * 测试JS异步调用,回调反馈,多线程(android的mesage机制等)
+     * 只有一个回调
      */
     public void checkin(IWebview pWebview , JSONArray array){
         String callbackId = array.optString(0);
-        String userName = array.optString(1);
         S_CHECKIN_TIMES ++;
-        String result = userName + ",您成功签到了" + S_CHECKIN_TIMES + "次.";
+        String result =  "您成功签到了" + S_CHECKIN_TIMES + "次.";
         JSUtil.execCallback(pWebview,callbackId,result,JSUtil.OK,false);
     }
 

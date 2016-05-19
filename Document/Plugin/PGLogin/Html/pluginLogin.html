@@ -11,39 +11,43 @@
     <script type="text/javascript" src="../js/plugin/pgLogin.js"></script>
     <script type="text/javascript">
 		document.addEventListener('plusready',function(){
-            plus.key.addEventListener('backbutton',function(){
-                    plus.runtime.quit();
-            },false);
+
 		},false);
 
         function login(){
-            alert(111);
             var userName = "Samson";
-            var password = "1234";
-            //var waiting = plus.nativeUI.showWaiting("登陆中,请稍等..");
-            plus.loginManager.login(userName,password,function(result){
-                                    //waiting.close();
-                                    alert("callback result:" + result);
-            });
+            var password = document.getElementById("inputVal").value;
+            plus.loginManager.login(userName,password,function(succMsg){
+                    alert("成功回调:" + succMsg);
+                },function(failMsg){
+                    alert("失败回调:" + failMsg);
+                }
+            );
         }
 
         function register(){
-            var userName = "Kate"
-            plus.loginManager.register(userName);
+            var userName = document.getElementById("inputVal").value;
+            plus.loginManager.register(userName,function(succMsg){
+                    alert("成功回调:" + succMsg);
+                },function(failMsg){
+                    alert("失败回调:" + failMsg);
+                }
+            );
         }
 
         function forgetPassword(){
-            var userName = "Coco";
-            plus.loginManager.forgetPassword();
+            var userName = document.getElementById("inputVal").value;
+            plus.loginManager.forgetPassword(userName);
         }
 
         function logout(){
+
             plus.loginManager.logout();
         }
 
         function checkin(){
             plus.loginManager.checkin(function(ressult){
-                alert(ressult);
+                alert("签到回调:" + ressult);
             });
         }
 
@@ -59,11 +63,14 @@
 
 <div id="dcontent" class="dcontent">
     <br/>
+    <div>
+        <input id="inputVal" type="text" placeholder="input test param" value="123" />
+    </div>
     <div class="button" onclick="login()">用户登陆</div>
     <div class="button" onclick="register()">用户注册</div>
     <div class="button" onclick="forgetPassword()">忘记密码</div>
     <div class="button" onclick="logout()">用户登出</div>
-    <div class="button" onclick="checkin()">异步测试:用户签到</div>
+    <div class="button" onclick="checkin()">用户签到</div>
     <br/>
 </div>
 </body>
