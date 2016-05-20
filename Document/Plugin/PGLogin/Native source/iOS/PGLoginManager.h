@@ -1,6 +1,6 @@
 //
 //  PGLoginManager.h
-//  HBuilder-Hello
+//  Plugin-test
 //
 //  Created by Samson on 16/5/18.
 //  Copyright © 2016年 Emin. All rights reserved.
@@ -14,11 +14,11 @@
 // 用户登陆
 - (void)userLogin:(PGMethod *)param;
 // 用户注册
-- (NSData *)userRegister:(PGMethod *)param;
+- (void)userRegister:(PGMethod *)param;
 // 忘记密码
 - (NSData *)forgetPassword:(PGMethod *)param;
 // 用户登出
-- (void)logout:(PGMethod *)param;
+- (NSData *)logout:(PGMethod *)param;
 // 用户签到
 - (void)checkin:(PGMethod *)param;
 

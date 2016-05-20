@@ -18,9 +18,9 @@
             var userName = "Samson";
             var password = document.getElementById("inputVal").value;
             plus.loginManager.login(userName,password,function(succMsg){
-                    alert("成功回调:" + succMsg);
+                    plus.nativeUI.alert(succMsg,function(){},"成功回调","OK");
                 },function(failMsg){
-                    alert("失败回调:" + failMsg);
+                    plus.nativeUI.alert(failMsg,function(){},"失败回调","OK");
                 }
             );
         }
@@ -28,9 +28,9 @@
         function register(){
             var userName = document.getElementById("inputVal").value;
             plus.loginManager.register(userName,function(succMsg){
-                    alert("成功回调:" + succMsg);
+                    plus.nativeUI.alert(succMsg,function(){},"成功回调","OK");
                 },function(failMsg){
-                    alert("失败回调:" + failMsg);
+                    plus.nativeUI.alert(failMsg,function(){},"失败回调","OK");
                 }
             );
         }
@@ -46,25 +46,38 @@
         }
 
         function checkin(){
-            plus.loginManager.checkin(function(ressult){
-                alert("签到回调:" + ressult);
+            plus.loginManager.checkin(function(result){
+                plus.nativeUI.alert(result,function(){},"签到回调","OK");
             });
         }
 
 		</script>
-    <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8"/>
+        <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8"/>
+        <style type="text/css">
+            #inputVal{
+                -webkit-user-select:text;
+                text-align:center;
+                padding:0 1em;
+                border: 0px;
+                border-bottom:1px solid #ECB100;
+                border-radius: 0;
+                font-size:16px;
+                width:30%;
+                outline:none;
+            }
+        </style>
 </head>
 <body>
 
 <header id="header">
     <div class="nvbt iback" onclick="back()"></div>
-    <div class="nvtt">Plugin</div>
+    <div class="nvtt">Html5+SDK扩展插件</div>
 </header>
 
 <div id="dcontent" class="dcontent">
     <br/>
-    <div>
-        <input id="inputVal" type="text" placeholder="input test param" value="123" />
+    <div style="padding: 0 1em;text-align:left">
+        测试参数:<input id="inputVal" type="text" value="123"/>
     </div>
     <div class="button" onclick="login()">用户登陆</div>
     <div class="button" onclick="register()">用户注册</div>

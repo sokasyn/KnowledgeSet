@@ -19,7 +19,7 @@ document.addEventListener( "plusready",  function()
     var loginManager = {
         // 通过bridge.callbackId(success,failure)合并成功与失败回调,并只生成一个callbackId传入
         login : function(userName,password,succCallback,failCallback){
-            var success = (typeof(succCallback) !="function") ? null : function(result){
+            var success = (typeof(succCallback) != "function") ? null : function(result){
                 succCallback(result);
             };
             var failure = (typeof(failCallback) != "function") ? null : function(result){
@@ -34,8 +34,8 @@ document.addEventListener( "plusready",  function()
             var success = (typeof(succCallback) !="function") ? null : function(result){
                 succCallback(result);
             };
-            var failure = (typeof(failCallback) != "function") ? null : function(result){
-                failCallback(result);
+            var failure = (typeof(failCallback) != "function") ? null : function(info){
+                failCallback(info);
             };
             sCallbackId = bridge.callbackId(success);
             fCallbackId = bridge.callbackId(failure);
@@ -46,19 +46,20 @@ document.addEventListener( "plusready",  function()
         // 采用同步调用方式,如果采用异步exec()方式,可能Undefined的结果
         forgetPassword : function(userName){
            var result = bridge.execSync(pgLoginManager,aForgetPassword,[userName]);
-           alert("forgetPassword result:" + result);
+           plus.nativeUI.alert(result,function(){},"插件方法直接返回的结果","OK");
         },
 
         // 无参数，调用时候不写也可以
         logout : function(){
-            var result = bridge.execSync(pgLoginManager,aLogout);
-            alert("logout result:" + result);
+            var result = bridge.execSync(pgLoginManager,aLogout,null);
+            plus.nativeUI.alert(result,function(){},"登出执行结果","OK");
         },
 
         // 参数只有一个回调函数
         checkin : function(callback){
             callBackID = bridge.callbackId(callback);
             bridge.exec(pgLoginManager,aCheckin,[callBackID]);
+            alert("exec异步,这里先打印");
         }
     };
 
