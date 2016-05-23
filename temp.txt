@@ -178,7 +178,10 @@
       http://www.lampweb.org/linux/1/
 
 2016-05-23
-    1.Android学习,UI,控件TextView的原理
+  * 1.Android学习,界面的跳转   
+    2.Android学习,UI,控件TextView的原理
       http://blog.csdn.net/luoshengyang/article/details/8372924
-
+    3.Android学习,多线程概念了解
+    4.Android与iOS几个大方面的对比
+      http://www.csdn.net/article/2013-11-17/2817531
 
