@@ -177,3 +177,8 @@
     1.Shell编程的学习,脚本处理
       http://www.lampweb.org/linux/1/
 
+2016-05-23
+    1.Android学习,UI,控件TextView的原理
+      http://blog.csdn.net/luoshengyang/article/details/8372924
+
+
