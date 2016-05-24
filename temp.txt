@@ -188,5 +188,11 @@
 2016-05-24
     1.Android学习,多线程之AsyncTask Demo以及文档做成
     2.Android ,AsyncTask 关于cancel不是立即终止任务的解决办法调查与测试
-
+    3.Java中的内部类,在Android中的AsyncTask就有这样的使用
+      http://android.blog.51cto.com/268543/384844/
+    4.Java类.this的使用
+    5.ETL:数据仓库技术的了解
+    6.cocoaPods
+      http://my.oschina.net/leejan97/blog/300436
+    7.iOS,search paths的整理,如在使用第三方库或者src的时候,import不提示文件名
 
