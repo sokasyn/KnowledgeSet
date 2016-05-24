@@ -185,3 +185,8 @@
     4.Android与iOS几个大方面的对比
       http://www.csdn.net/article/2013-11-17/2817531
 
+2016-05-24
+    1.Android学习,多线程之AsyncTask Demo以及文档做成
+    2.Android ,AsyncTask 关于cancel不是立即终止任务的解决办法调查与测试
+
+

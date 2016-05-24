@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="AsyncTask 测试"
+        android:id="@+id/textView"
+        android:layout_marginTop="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="进度"
+        android:id="@+id/idTxtTaskState"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Begin"
+        android:id="@+id/idBtnDownload"
+        android:textAllCaps="false"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/idTxtTaskState"
+        android:layout_alignLeft="@+id/idBtnPause"
+        android:layout_alignStart="@+id/idBtnPause" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pause"
+        android:id="@+id/idBtnPause"
+        android:layout_marginTop="43dp"
+        android:onClick="btnPauseClicked"
+        android:layout_below="@+id/idBtnDownload"
+        android:layout_alignLeft="@+id/idBtnCancel"
+        android:layout_alignStart="@+id/idBtnCancel" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:id="@+id/idBtnCancel"
+        android:layout_below="@+id/idBtnPause"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp"
+        android:onClick="btnCancelClicked" />
+
+
+</RelativeLayout>
