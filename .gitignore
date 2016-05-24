@@ -1,5 +1,8 @@
 .DS_Store
 
+#vim temp files
+*.swp
+
 #Excel temp files
 ~\$*.xlsx
 
@@ -10,3 +13,9 @@
 /Temp/
 /temp/
 test*.txt
+
+#Xcode
+#
+## Build generated
+xcuserdata/
+project.xcworkspace/
