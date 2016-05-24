@@ -13,6 +13,7 @@
 		D1398D771CB3A864007ACB48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1398D751CB3A864007ACB48 /* Main.storyboard */; };
 		D1398D791CB3A864007ACB48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1398D781CB3A864007ACB48 /* Assets.xcassets */; };
 		D1398D7C1CB3A864007ACB48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1398D7A1CB3A864007ACB48 /* LaunchScreen.storyboard */; };
+		F96705191CF4B80000949412 /* ArrayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F96705181CF4B80000949412 /* ArrayHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		D1398D781CB3A864007ACB48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1398D7B1CB3A864007ACB48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1398D7D1CB3A865007ACB48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F96705171CF4B80000949412 /* ArrayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayHelper.h; sourceTree = "<group>"; };
+		F96705181CF4B80000949412 /* ArrayHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayHelper.m; sourceTree = "<group>"; };
+		F967051A1CF4B86E00949412 /* MacroNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacroNotification.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 				D1398D701CB3A864007ACB48 /* AppDelegate.m */,
 				D1398D721CB3A864007ACB48 /* ViewController.h */,
 				D1398D731CB3A864007ACB48 /* ViewController.m */,
+				F96705121CF4B75F00949412 /* Common */,
+				F96705151CF4B78B00949412 /* Resouce */,
 				D1398D751CB3A864007ACB48 /* Main.storyboard */,
 				D1398D781CB3A864007ACB48 /* Assets.xcassets */,
 				D1398D7A1CB3A864007ACB48 /* LaunchScreen.storyboard */,
@@ -77,6 +83,47 @@
 				D1398D6D1CB3A864007ACB48 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F96705121CF4B75F00949412 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F96705131CF4B75F00949412 /* Helpers */,
+				F96705141CF4B75F00949412 /* Macro */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F96705131CF4B75F00949412 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F96705171CF4B80000949412 /* ArrayHelper.h */,
+				F96705181CF4B80000949412 /* ArrayHelper.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F96705141CF4B75F00949412 /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				F967051A1CF4B86E00949412 /* MacroNotification.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		F96705151CF4B78B00949412 /* Resouce */ = {
+			isa = PBXGroup;
+			children = (
+				F96705161CF4B78B00949412 /* Image */,
+			);
+			path = Resouce;
+			sourceTree = "<group>";
+		};
+		F96705161CF4B78B00949412 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +200,7 @@
 				D1398D741CB3A864007ACB48 /* ViewController.m in Sources */,
 				D1398D711CB3A864007ACB48 /* AppDelegate.m in Sources */,
 				D1398D6E1CB3A864007ACB48 /* main.m in Sources */,
+				F96705191CF4B80000949412 /* ArrayHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +349,7 @@
 				D1398D821CB3A865007ACB48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
