@@ -198,5 +198,6 @@
 
 2016-05-25
     1.android:AsynTask只能执行一次，以及多任务的并发问题的测试
+      http://www.tuicool.com/articles/NzEVzqI
 
 
