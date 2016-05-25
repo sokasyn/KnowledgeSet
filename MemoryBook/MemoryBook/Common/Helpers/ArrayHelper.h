@@ -11,13 +11,11 @@
 @interface ArrayHelper : NSObject
 
 /*
- * NSStrin对象数组的排序
- */
-+ (NSArray<NSString *> *)sortStringArray:(NSArray<NSString *> *)array;
-
-/*
  * 自定义对象数组的排序
  */
-+ (NSArray *)sortCustomObjectArray:(NSArray *)array;
++ (NSArray *)sortArray:(NSArray *)array withKey:(NSString *)key ascending:(BOOL)ascending;
++ (NSArray *)sortArray:(NSArray *)array withKeys:(NSArray *)keys ascending:(BOOL)ascending;
+
++ (NSArray *)sortStringArray:(NSArray<NSString *> *)array ascending:(BOOL)ascending;
 
 @end

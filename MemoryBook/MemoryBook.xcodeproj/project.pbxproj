@@ -14,6 +14,7 @@
 		D1398D791CB3A864007ACB48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1398D781CB3A864007ACB48 /* Assets.xcassets */; };
 		D1398D7C1CB3A864007ACB48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1398D7A1CB3A864007ACB48 /* LaunchScreen.storyboard */; };
 		F96705191CF4B80000949412 /* ArrayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F96705181CF4B80000949412 /* ArrayHelper.m */; };
+		F967051F1CF5FB0200949412 /* MBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F967051E1CF5FB0200949412 /* MBUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		F96705171CF4B80000949412 /* ArrayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayHelper.h; sourceTree = "<group>"; };
 		F96705181CF4B80000949412 /* ArrayHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayHelper.m; sourceTree = "<group>"; };
 		F967051A1CF4B86E00949412 /* MacroNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacroNotification.h; sourceTree = "<group>"; };
+		F967051D1CF5FB0200949412 /* MBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBUser.h; sourceTree = "<group>"; };
+		F967051E1CF5FB0200949412 /* MBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,7 @@
 				D1398D701CB3A864007ACB48 /* AppDelegate.m */,
 				D1398D721CB3A864007ACB48 /* ViewController.h */,
 				D1398D731CB3A864007ACB48 /* ViewController.m */,
+				F967051B1CF5FA9600949412 /* Model */,
 				F96705121CF4B75F00949412 /* Common */,
 				F96705151CF4B78B00949412 /* Resouce */,
 				D1398D751CB3A864007ACB48 /* Main.storyboard */,
@@ -124,6 +128,23 @@
 			children = (
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		F967051B1CF5FA9600949412 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F967051C1CF5FA9600949412 /* Domain */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F967051C1CF5FA9600949412 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				F967051D1CF5FB0200949412 /* MBUser.h */,
+				F967051E1CF5FB0200949412 /* MBUser.m */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +222,7 @@
 				D1398D711CB3A864007ACB48 /* AppDelegate.m in Sources */,
 				D1398D6E1CB3A864007ACB48 /* main.m in Sources */,
 				F96705191CF4B80000949412 /* ArrayHelper.m in Sources */,
+				F967051F1CF5FB0200949412 /* MBUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
