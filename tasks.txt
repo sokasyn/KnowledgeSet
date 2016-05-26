@@ -205,4 +205,11 @@
     2.iOS,细节陷阱[string compare:string2]==NSOrderedSame ,string为nil时,值为true
     3.iOS API设计规则
       http://www.tuicool.com/articles/viuQVj
+    4.android handler,将Handler单独抽出来,可以处理特定业务的Handler,通过Message的what属性设计业务功能代码
+     http://www.codeceo.com/article/android-handler-usage.html
+    5.Android:Context
+     http://blog.csdn.net/qinjuning/article/details/7310620
+    6.android:service的学习
+     http://www.cnblogs.com/newcj/archive/2011/05/30/2061370.html
+    7.android:完成LocalService的Demo与文档
 
