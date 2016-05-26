@@ -57,14 +57,14 @@
     user3.cellPhoneNum = @"123456789";
     
     MBUser *user4 = [[MBUser alloc] init];
-    user4.name = @"a000";
+//    user4.name = @"a000";
     user4.age = 50;
     user4.cellPhoneNum = @"123456789";
     
     NSArray *array = @[user1,user2,user3,user4];
 //    [self printArray:array];
-    NSArray *sortedArray = [ArrayHelper sortArray:array withKey:@"namehahaha" ascending:YES];
-//     NSArray *sortedArray = [ArrayHelper sortArray:array withKeys:@[@"name",@"age"] ascending:YES];
+//    NSArray *sortedArray = [ArrayHelper sortArray:array withKey:@"name" ascending:YES];
+     NSArray *sortedArray = [ArrayHelper sortArray:nil withKeys:@[@"name",@"age"] ascending:YES];
     
     NSLog(@"sort done");
 //    [self printArray:sortedArray];

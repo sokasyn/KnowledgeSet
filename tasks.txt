@@ -203,4 +203,6 @@
 2016-05-26
  *  1.iOS,对象数组排序工具类,普通字符串数组,自定义对象数组按照属性排序,支持多个属性排序
     2.iOS,细节陷阱[string compare:string2]==NSOrderedSame ,string为nil时,值为true
-  
+    3.iOS API设计规则
+      http://www.tuicool.com/articles/viuQVj
+
