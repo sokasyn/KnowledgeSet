@@ -212,4 +212,6 @@
     6.android:service的学习
      http://www.cnblogs.com/newcj/archive/2011/05/30/2061370.html
     7.android:完成LocalService的Demo与文档
+    8.Android:多线程java中的实现方式
+     http://blog.csdn.net/mad1989/article/details/38234759
 
