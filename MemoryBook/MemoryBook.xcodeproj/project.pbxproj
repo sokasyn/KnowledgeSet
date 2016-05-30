@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		38A396881CF68AB700C32A46 /* RuntimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A396871CF68AB700C32A46 /* RuntimeHelper.m */; };
+		38FF2A0A1CFBE047002AD8B9 /* NotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FF2A091CFBE047002AD8B9 /* NotificationHelper.m */; };
+		38FF2A0E1CFBE639002AD8B9 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FF2A0D1CFBE639002AD8B9 /* SecondViewController.m */; };
 		D1398D6E1CB3A864007ACB48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1398D6D1CB3A864007ACB48 /* main.m */; };
 		D1398D711CB3A864007ACB48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1398D701CB3A864007ACB48 /* AppDelegate.m */; };
 		D1398D741CB3A864007ACB48 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1398D731CB3A864007ACB48 /* ViewController.m */; };
@@ -21,6 +23,10 @@
 /* Begin PBXFileReference section */
 		38A396861CF68AB700C32A46 /* RuntimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuntimeHelper.h; sourceTree = "<group>"; };
 		38A396871CF68AB700C32A46 /* RuntimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeHelper.m; sourceTree = "<group>"; };
+		38FF2A081CFBE047002AD8B9 /* NotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationHelper.h; sourceTree = "<group>"; };
+		38FF2A091CFBE047002AD8B9 /* NotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationHelper.m; sourceTree = "<group>"; };
+		38FF2A0C1CFBE639002AD8B9 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		38FF2A0D1CFBE639002AD8B9 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		D1398D691CB3A864007ACB48 /* MemoryBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1398D6D1CB3A864007ACB48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D1398D6F1CB3A864007ACB48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -49,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38FF2A0B1CFBE61B002AD8B9 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				38FF2A0C1CFBE639002AD8B9 /* SecondViewController.h */,
+				38FF2A0D1CFBE639002AD8B9 /* SecondViewController.m */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		D1398D601CB3A864007ACB48 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +87,7 @@
 				D1398D701CB3A864007ACB48 /* AppDelegate.m */,
 				D1398D721CB3A864007ACB48 /* ViewController.h */,
 				D1398D731CB3A864007ACB48 /* ViewController.m */,
+				38FF2A0B1CFBE61B002AD8B9 /* Test */,
 				F967051B1CF5FA9600949412 /* Model */,
 				F96705121CF4B75F00949412 /* Common */,
 				F96705151CF4B78B00949412 /* Resouce */,
@@ -108,6 +124,8 @@
 				F96705181CF4B80000949412 /* ArrayHelper.m */,
 				38A396861CF68AB700C32A46 /* RuntimeHelper.h */,
 				38A396871CF68AB700C32A46 /* RuntimeHelper.m */,
+				38FF2A081CFBE047002AD8B9 /* NotificationHelper.h */,
+				38FF2A091CFBE047002AD8B9 /* NotificationHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -227,6 +245,8 @@
 				D1398D711CB3A864007ACB48 /* AppDelegate.m in Sources */,
 				D1398D6E1CB3A864007ACB48 /* main.m in Sources */,
 				F96705191CF4B80000949412 /* ArrayHelper.m in Sources */,
+				38FF2A0E1CFBE639002AD8B9 /* SecondViewController.m in Sources */,
+				38FF2A0A1CFBE047002AD8B9 /* NotificationHelper.m in Sources */,
 				38A396881CF68AB700C32A46 /* RuntimeHelper.m in Sources */,
 				F967051F1CF5FB0200949412 /* MBUser.m in Sources */,
 			);

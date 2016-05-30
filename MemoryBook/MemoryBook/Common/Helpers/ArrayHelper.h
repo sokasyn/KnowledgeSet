@@ -13,9 +13,23 @@
 
 /*
  * 自定义对象数组的排序
- * 如果key不是对象的属性，返回nil
+ * 如果key不是对象的属性，返回原数组
+ * @param array NSString对象数组
+ * @param key 按照指定的属性排序
+ * @param ascending YES:升序;NO:降序
+ * @return 排序后的数组
  */
 + (NSArray *)sortArray:(NSArray *)array withKey:(NSString *)key ascending:(BOOL)ascending;
+
+
+/*
+ * 自定义对象数组的排序
+ * 如果key不是对象的属性，返回原数组
+ * @param array NSString对象数组
+ * @param keys 按照指定的属性列表排序
+ * @param ascending YES:升序;NO:降序
+ * @return 排序后的数组
+ */
 + (NSArray *)sortArray:(NSArray *)array withKeys:(NSArray *)keys ascending:(BOOL)ascending;
 
 /*

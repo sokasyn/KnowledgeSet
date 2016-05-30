@@ -13,9 +13,17 @@
 
 /*
  * 判断key是否是某个类的属性
+ * @param key 属性名称
+ * @param cls 目标类Class
+ * @return YES:是类的属性 NO:不是类的属性
  */
 + (BOOL)key:(NSString *)key isPropertyOfClass:(Class)cls;
 
+/*
+ * 通过Runtime获取某个类的属性列表
+ * @param cls 目标类Class
+ * @return NSArray 属性列表
+ */
 + (NSArray *)getPropertyListOfClass:(Class)cls;
 
 @end

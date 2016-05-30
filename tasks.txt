@@ -215,3 +215,7 @@
     8.Android:多线程java中的实现方式
      http://blog.csdn.net/mad1989/article/details/38234759
 
+2016-05-30
+ *  1.Android:多线程的两种实现方式(继承Thread类,实现Runnable接口)
+ *  2.Android:多线程中,start()和run()的原理
+

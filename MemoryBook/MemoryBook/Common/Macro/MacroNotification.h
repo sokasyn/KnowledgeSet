@@ -9,5 +9,7 @@
 #ifndef MacroNotification_h
 #define MacroNotification_h
 
+#define kNotificationTest  @"NotificationTest"
+
 
 #endif /* MacroNotification_h */
