@@ -218,4 +218,6 @@
 2016-05-30
  *  1.Android:多线程的两种实现方式(继承Thread类,实现Runnable接口)
  *  2.Android:多线程中,start()和run()的原理
+    3.iOS,中实现选择性监听某个对象的某个Notification,以及选择性的取消对某个对象某个Notification的监听
+      http://blog.csdn.net/nogodoss/article/details/39156125
 
