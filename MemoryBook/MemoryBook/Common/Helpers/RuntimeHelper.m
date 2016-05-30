@@ -38,4 +38,18 @@
     return propertyList;
 }
 
++ (NSArray *)getInstanceVariableList:(Class)cls{
+    
+    unsigned int outCount;
+    Ivar *ivarList = class_copyIvarList(cls,&outCount);
+    if(outCount == 0) return nil;
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for(unsigned int i = 0 ; i < outCount ; i++){
+        Ivar ivar = ivarList[i];
+        const char *name = ivar_getName(ivar);
+        [array addObject:[NSString stringWithUTF8String:name]];
+    }
+    return array;
+}
+
 @end

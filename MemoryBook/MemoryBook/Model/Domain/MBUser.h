@@ -10,7 +10,7 @@
 
 @interface MBUser : NSObject
 
-@property (retain, nonatomic) NSString *userId;
+@property (retain, nonatomic,readonly) NSString *userId;
 @property (retain, nonatomic) NSString *name;
 @property (assign, nonatomic) int age;
 @property (retain, nonatomic) NSString *cellPhoneNum;

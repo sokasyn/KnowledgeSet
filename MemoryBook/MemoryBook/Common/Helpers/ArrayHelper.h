@@ -15,7 +15,7 @@
  * 自定义对象数组的排序
  * 如果key不是对象的属性，返回原数组
  * @param array NSString对象数组
- * @param key 按照指定的属性排序
+ * @param key 类的属性(类声明的@property,而不是成员变量_var之类)
  * @param ascending YES:升序;NO:降序
  * @return 排序后的数组
  */

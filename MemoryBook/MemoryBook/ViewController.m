@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "MacroNotification.h"
 #import "NotificationHelper.h"
+#import "RuntimeHelper.h"
 
 @interface ViewController ()
 
@@ -29,7 +30,20 @@
 
 // 测试入口
 - (void)test{
-    [self testNotification];
+    [self testRuntime];
+//    [self testSortCustomObjectArray];
+}
+
+// ------------  测试Runtime
+- (void)testRuntime{
+    MBUser *user = [[MBUser alloc] init];
+    [user setName:@"Samson"];
+    [user setAge:18];
+    
+    NSArray *pArray = [RuntimeHelper getPropertyListOfClass:[user class]];
+    NSArray *iArray = [RuntimeHelper getInstanceVariableList:[user class]];
+    
+    
 }
 
 // ------------  测试NotificationHelper
@@ -84,8 +98,8 @@
     
     NSArray *array = @[user1,user2,user3,user4];
 //    [self printArray:array];
-//    NSArray *sortedArray = [ArrayHelper sortArray:array withKey:@"name" ascending:YES];
-     NSArray *sortedArray = [ArrayHelper sortArray:array withKeys:@[@"name",@"age"] ascending:YES];
+    NSArray *sortedArray = [ArrayHelper sortArray:array withKey:@"name_" ascending:YES];
+//     NSArray *sortedArray = [ArrayHelper sortArray:array withKeys:@[@"name",@"age"] ascending:YES];
     
     NSLog(@"sort done");
     [self printArray:sortedArray];
