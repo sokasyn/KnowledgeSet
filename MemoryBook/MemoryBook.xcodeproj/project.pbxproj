@@ -18,6 +18,9 @@
 		D1398D7C1CB3A864007ACB48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1398D7A1CB3A864007ACB48 /* LaunchScreen.storyboard */; };
 		F96705191CF4B80000949412 /* ArrayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F96705181CF4B80000949412 /* ArrayHelper.m */; };
 		F967051F1CF5FB0200949412 /* MBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F967051E1CF5FB0200949412 /* MBUser.m */; };
+		F9A6C1D71CFDE15600FF7CD9 /* JSONHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F9A6C1D61CFDE15600FF7CD9 /* JSONHelper.m */; };
+		F9A6C1DA1CFDE1A500FF7CD9 /* DatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F9A6C1D91CFDE1A500FF7CD9 /* DatabaseHelper.m */; };
+		F9A6C1DD1CFDEB5200FF7CD9 /* update.json in Resources */ = {isa = PBXBuildFile; fileRef = F9A6C1DC1CFDEB5200FF7CD9 /* update.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,11 @@
 		F967051A1CF4B86E00949412 /* MacroNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacroNotification.h; sourceTree = "<group>"; };
 		F967051D1CF5FB0200949412 /* MBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBUser.h; sourceTree = "<group>"; };
 		F967051E1CF5FB0200949412 /* MBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBUser.m; sourceTree = "<group>"; };
+		F9A6C1D51CFDE15600FF7CD9 /* JSONHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHelper.h; sourceTree = "<group>"; };
+		F9A6C1D61CFDE15600FF7CD9 /* JSONHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHelper.m; sourceTree = "<group>"; };
+		F9A6C1D81CFDE1A500FF7CD9 /* DatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseHelper.h; sourceTree = "<group>"; };
+		F9A6C1D91CFDE1A500FF7CD9 /* DatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseHelper.m; sourceTree = "<group>"; };
+		F9A6C1DC1CFDEB5200FF7CD9 /* update.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = update.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +134,10 @@
 				38A396871CF68AB700C32A46 /* RuntimeHelper.m */,
 				38FF2A081CFBE047002AD8B9 /* NotificationHelper.h */,
 				38FF2A091CFBE047002AD8B9 /* NotificationHelper.m */,
+				F9A6C1D51CFDE15600FF7CD9 /* JSONHelper.h */,
+				F9A6C1D61CFDE15600FF7CD9 /* JSONHelper.m */,
+				F9A6C1D81CFDE1A500FF7CD9 /* DatabaseHelper.h */,
+				F9A6C1D91CFDE1A500FF7CD9 /* DatabaseHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -142,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				F96705161CF4B78B00949412 /* Image */,
+				F9A6C1DB1CFDEB5200FF7CD9 /* File */,
 			);
 			path = Resouce;
 			sourceTree = "<group>";
@@ -168,6 +181,14 @@
 				F967051E1CF5FB0200949412 /* MBUser.m */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		F9A6C1DB1CFDEB5200FF7CD9 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				F9A6C1DC1CFDEB5200FF7CD9 /* update.json */,
+			);
+			path = File;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +251,7 @@
 			files = (
 				D1398D7C1CB3A864007ACB48 /* LaunchScreen.storyboard in Resources */,
 				D1398D791CB3A864007ACB48 /* Assets.xcassets in Resources */,
+				F9A6C1DD1CFDEB5200FF7CD9 /* update.json in Resources */,
 				D1398D771CB3A864007ACB48 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,7 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9A6C1DA1CFDE1A500FF7CD9 /* DatabaseHelper.m in Sources */,
 				D1398D741CB3A864007ACB48 /* ViewController.m in Sources */,
+				F9A6C1D71CFDE15600FF7CD9 /* JSONHelper.m in Sources */,
 				D1398D711CB3A864007ACB48 /* AppDelegate.m in Sources */,
 				D1398D6E1CB3A864007ACB48 /* main.m in Sources */,
 				F96705191CF4B80000949412 /* ArrayHelper.m in Sources */,

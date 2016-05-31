@@ -5,6 +5,9 @@
 //  Created by Samson Tseng on 16/5/26.
 //  Copyright © 2016年 Samson Tseng. All rights reserved.
 //
+/*
+ * Modified 2016-05-31 class_copyPropertyList或class_copyIvarList等要free();
+ */
 
 #import "RuntimeHelper.h"
 
@@ -35,6 +38,7 @@
         NSLog(@"property name[%d]:%@",i,key);
         [propertyList addObject:key];
     }
+    free(plist);
     return propertyList;
 }
 
@@ -49,6 +53,7 @@
         const char *name = ivar_getName(ivar);
         [array addObject:[NSString stringWithUTF8String:name]];
     }
+    free(ivarList);
     return array;
 }
 

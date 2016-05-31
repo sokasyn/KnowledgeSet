@@ -10,6 +10,7 @@
 #import "MacroNotification.h"
 #import "NotificationHelper.h"
 #import "RuntimeHelper.h"
+#import "JSONHelper.h"
 
 @interface ViewController ()
 
@@ -30,20 +31,72 @@
 
 // 测试入口
 - (void)test{
-    [self testRuntime];
+//    [self testRuntime];
 //    [self testSortCustomObjectArray];
+    [self testJSONHelper];
+    
 }
 
-// ------------  测试Runtime
+// ------------ 测试JSONHelper
+- (void)testJSONHelper{
+    
+    
+    
+    
+    
+    
+    // 来源JOSN文件,转成OC对象
+    NSString *fileName = @"update";
+    NSString *fileType = @"json";
+    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:fileType];
+//    NSDictionary *dic = [JSONHelper dictionaryFromJsonFile:path];
+    
+    // 来源JSON字符串,转成OC对象
+    // {"name" : "Samson","telNum": "1234"}
+    NSString *jsonString = @"{\"name\" : \"Samson\",\"telNum\": \"1234\"}";
+    NSLog(@"jsonString:%@",jsonString);
+    if([NSJSONSerialization isValidJSONObject:jsonString]){
+        NSLog(@"YES");
+    }else{
+        NSLog(@"NO");
+    }
+    
+    id object = [JSONHelper dictionaryFromJsonString:jsonString];
+    NSLog(@"%@",object);
+    NSLog(@"%@",[object class]);
+    if([object isKindOfClass:[NSDictionary class]]){
+        NSLog(@"is NSDictionay type");
+    }else{
+        NSLog(@"is not NSDictionay type");
+    }
+    if([NSJSONSerialization isValidJSONObject:object]){
+        NSLog(@"YES");
+    }else{
+        NSLog(@"NO");
+    }
+
+    
+    // 带数组的json字符串:{"name" : "Samson","telNum": ["1234","789"]}
+    NSString *jsonString2 = @"{\"name\" : \"Samson\",\"telNum\": [\"1234\",\"789\"]}";
+    NSLog(@"jsonString2:%@",jsonString2);
+    id object2 = [JSONHelper dictionaryFromJsonString:jsonString2];
+    NSLog(@"%@",object2);
+    NSLog(@"%@",[object2 class]);
+
+    
+    // OC对象转成JSON字符串
+    
+    // OC对象写入文件,成json文件
+}
+
+// ------------  测试RuntimeHelper
 - (void)testRuntime{
     MBUser *user = [[MBUser alloc] init];
     [user setName:@"Samson"];
     [user setAge:18];
     
     NSArray *pArray = [RuntimeHelper getPropertyListOfClass:[user class]];
-    NSArray *iArray = [RuntimeHelper getInstanceVariableList:[user class]];
-    
-    
+    NSArray *iArray = [RuntimeHelper getInstanceVariableList:[MBUser class]]; // MBUser OK too
 }
 
 // ------------  测试NotificationHelper
