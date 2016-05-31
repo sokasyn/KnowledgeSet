@@ -13,6 +13,7 @@
 
 @implementation RuntimeHelper
 
+// 判断key是否是某个类的属性
 + (BOOL)key:(NSString *)key isPropertyOfClass:(Class)cls{
     BOOL isProperty = NO;
     objc_property_t property = class_getProperty(cls,[key cStringUsingEncoding:NSUTF8StringEncoding]);
@@ -22,6 +23,7 @@
     return isProperty;
 }
 
+// 获取某个类的属性列表(区别于成员变量列表)
 + (NSArray *)getPropertyListOfClass:(Class)cls{
     
     unsigned int outCount;
@@ -29,19 +31,19 @@
     if(outCount == 0){
         return nil;
     }
-    NSMutableArray *propertyList = [[NSMutableArray alloc] init];
+    NSMutableArray *array = [[NSMutableArray alloc] init];
     for(int i = 0 ; i < outCount ; i++){
-        objc_property_t o_property = plist[i];
+        objc_property_t oc_property = plist[i];
         // objc_property_t是一个结构,将其转换成字符
-        const char *c_property = property_getName(o_property);
-        NSString *key = [NSString stringWithUTF8String:c_property];
-        NSLog(@"property name[%d]:%@",i,key);
-        [propertyList addObject:key];
+        const char *property_name = property_getName(oc_property);
+        NSString *key = [NSString stringWithUTF8String:property_name];
+        [array addObject:key];
     }
     free(plist);
-    return propertyList;
+    return array;
 }
 
+// 获取某个类的成员变量名列表(区别于属性列表)
 + (NSArray *)getInstanceVariableList:(Class)cls{
     
     unsigned int outCount;
@@ -50,6 +52,7 @@
     NSMutableArray *array = [[NSMutableArray alloc] init];
     for(unsigned int i = 0 ; i < outCount ; i++){
         Ivar ivar = ivarList[i];
+        // Ivar是一个结构,将其转换成字符
         const char *name = ivar_getName(ivar);
         [array addObject:[NSString stringWithUTF8String:name]];
     }

@@ -221,3 +221,12 @@
     3.iOS,中实现选择性监听某个对象的某个Notification,以及选择性的取消对某个对象某个Notification的监听
       http://blog.csdn.net/nogodoss/article/details/39156125
 
+2016-05-31
+    1.Android:BroadcastReceiver组件整理
+      http://blog.csdn.net/zuolongsnail/article/details/6450156
+      试验:采用静态注册广播,关闭应用,在另一个应用发送该广播的时候触发?
+    2.Android:ContetnProvider学习,Demo开发
+    3.Java:将常量组织在常量Class和常量Interface的区别
+      http://www.ibm.com/developerworks/cn/java/l-java-interface/
+
+
