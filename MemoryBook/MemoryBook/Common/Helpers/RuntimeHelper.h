@@ -20,14 +20,14 @@
 + (BOOL)key:(NSString *)key isPropertyOfClass:(Class)cls;
 
 /*
- * 通过Runtime获取某个类的属性列表(区别于成员变量名列表)
+ * 获取某个类的属性列表(区别于成员变量列表)
  * @param cls 目标类Class
  * @return NSArray 属性列表
  */
 + (NSArray *)getPropertyListOfClass:(Class)cls;
 
 /*
- * 通过Runtime获取某个类的成员变量名列表(区别于属性名列表)
+ * 获取某个类的成员变量名列表(区别于属性列表)
  * @param cls 目标类Class
  * @return NSArray 成员变量列表
  */
