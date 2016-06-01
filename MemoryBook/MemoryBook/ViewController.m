@@ -40,18 +40,84 @@
 // ------------ 测试JSONHelper
 - (void)testJSONHelper{
     
-    
-    
-    
-    
-    
+    [self testDic];
     // 来源JOSN文件,转成OC对象
+//    [self testJsonFile];
+    
+    // 来源JSON字符串,转成OC对象
+//    [self testJsonString];
+
+    // OC对象转成JSON字符串
+    
+    // OC对象写入文件,成json文件
+}
+
+- (void)testJsonFile{
     NSString *fileName = @"update";
     NSString *fileType = @"json";
     NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:fileType];
-//    NSDictionary *dic = [JSONHelper dictionaryFromJsonFile:path];
+    id object = [JSONHelper dictionaryFromJsonFile:path];
+    NSLog(@"object:%@",object);
     
-    // 来源JSON字符串,转成OC对象
+    [self printDic:(NSDictionary *)object];
+
+    
+    if([object isKindOfClass:[NSDictionary class]]){
+        NSLog(@"is NSDictionay type");
+    }else{
+        NSLog(@"is not NSDictionay type");
+    }
+    
+    if([object isKindOfClass:[NSMutableDictionary class]]){
+        NSLog(@"is NSMutableDictionary type");
+        NSMutableDictionary *dic = (NSMutableDictionary *)object;
+        NSString *appId = [dic valueForKey:@"appid"];
+        NSLog(@"appId:%@",appId);
+        
+        id iOS= [dic valueForKey:@"iOS"];
+        NSLog(@"iOS class%@",[iOS class]);
+        NSLog(@"iOS:%@",iOS);
+        
+        NSString *note = [(NSDictionary *)[dic valueForKey:@"iOS"] valueForKey:@"note"];
+        NSLog(@"note:%@",note);
+        
+    }else{
+        NSLog(@"is not NSMutableDictionary type");
+    }
+}
+
+- (void)printDic:(NSDictionary *)dic
+{
+    NSString *tempStr1 = [[dic description] stringByReplacingOccurrencesOfString:@"\\u" withString:@"\\U"];
+    NSLog(@"tempStr1:%@",tempStr1);
+    
+    
+    NSString *tempStr2 = [tempStr1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    
+    NSLog(@"tempStr2:%@",tempStr2);
+    
+    NSString *tempStr3 = [[@"\"" stringByAppendingString:tempStr2] stringByAppendingString:@"\""];
+    NSLog(@"tempStr3:%@",tempStr3);
+    
+    NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *str = [NSPropertyListSerialization propertyListFromData:tempData mutabilityOption:NSPropertyListImmutable format:NULL errorDescription:NULL];
+    NSLog(@"dic:%@",str);
+}
+
+- (void)testDic{
+    NSString *name = @"张三";
+    NSDictionary *dic = @{
+                          @"name": name,
+                          @"number": @{
+                                  @"phone": @"123456",
+                                  @"电话" : @"座机208"
+                                  }
+                          };
+    NSLog(@"original dictionary:%@", dic);
+    [self printDic:dic];
+}
+
+- (void)testJsonString{
     // {"name" : "Samson","telNum": "1234"}
     NSString *jsonString = @"{\"name\" : \"Samson\",\"telNum\": \"1234\"}";
     NSLog(@"jsonString:%@",jsonString);
@@ -74,7 +140,6 @@
     }else{
         NSLog(@"NO");
     }
-
     
     // 带数组的json字符串:{"name" : "Samson","telNum": ["1234","789"]}
     NSString *jsonString2 = @"{\"name\" : \"Samson\",\"telNum\": [\"1234\",\"789\"]}";
@@ -82,11 +147,6 @@
     id object2 = [JSONHelper dictionaryFromJsonString:jsonString2];
     NSLog(@"%@",object2);
     NSLog(@"%@",[object2 class]);
-
-    
-    // OC对象转成JSON字符串
-    
-    // OC对象写入文件,成json文件
 }
 
 // ------------  测试RuntimeHelper

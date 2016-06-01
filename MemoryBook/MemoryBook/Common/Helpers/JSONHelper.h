@@ -10,8 +10,20 @@
 
 @interface JSONHelper : NSObject
 
+/*
+ * 从JSON字符串转成OC对象(NSDictionary/NSArray)
+ * @param jsonString JSON字符串
+ */
 + (id)dictionaryFromJsonString:(NSString *)jsonString;
-+ (NSDictionary *)dictionaryFromJsonFile:(NSString *)path;
 
+/*
+ * 从JSON文件转成OC对象(NSDictionary/NSArray)
+ * @param path JSON文件路劲
+ */
++ (id)dictionaryFromJsonFile:(NSString *)path;
+
++ (void)writeToFileWithJsonString:(NSString *)jsonString;
+
++ (void)writeToFileWithDictionary:(NSDictionary *)dic;
 
 @end

@@ -229,4 +229,10 @@
     3.Java:将常量组织在常量Class和常量Interface的区别
       http://www.ibm.com/developerworks/cn/java/l-java-interface/
 
+2016-06-01
+    1.iOS:NSJSONSerializtion的使用
+      其中NSJSONReadingOptions的3个枚举的作用
+    2.iOS,打印字典的Unicode乱码问题
+      http://blog.csdn.net/typingios/article/details/13164151
+      http://www.tuicool.com/articles/Y3aYNz
 
