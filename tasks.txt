@@ -236,3 +236,13 @@
       http://blog.csdn.net/typingios/article/details/13164151
       http://www.tuicool.com/articles/Y3aYNz
 
+2016-05-06-02
+    1.Android:Android Studio个人级别的配置,比如作者等
+      http://tools.android.com/tech-docs/configuration
+    2.Android:Android Studio 多个jdk的配置
+      http://tools.android.com/tech-docs/configuration/osx-jdk
+
+
+2016-05-06-03
+    1.Xcocde配置 Architectures
+
