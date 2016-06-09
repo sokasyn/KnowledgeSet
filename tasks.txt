@@ -258,5 +258,7 @@
     2.cocoapods的安装,管理iOS第三方库
     3.cocoapods与iOS工程的结合使用
     4.以上文档的建立
+ *  5.iOS项目配置:编译次数的配置(Build version)
+      xcrun agvtool next-version -all
 
 
