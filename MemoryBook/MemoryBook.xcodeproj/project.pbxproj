@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		38A396881CF68AB700C32A46 /* RuntimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A396871CF68AB700C32A46 /* RuntimeHelper.m */; };
+		38A8356A1D0EC22600C57CAE /* TableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A835691D0EC22600C57CAE /* TableDataSource.m */; };
 		38FF2A0A1CFBE047002AD8B9 /* NotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FF2A091CFBE047002AD8B9 /* NotificationHelper.m */; };
 		38FF2A0E1CFBE639002AD8B9 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FF2A0D1CFBE639002AD8B9 /* SecondViewController.m */; };
 		D1398D6E1CB3A864007ACB48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1398D6D1CB3A864007ACB48 /* main.m */; };
@@ -26,6 +27,8 @@
 /* Begin PBXFileReference section */
 		38A396861CF68AB700C32A46 /* RuntimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuntimeHelper.h; sourceTree = "<group>"; };
 		38A396871CF68AB700C32A46 /* RuntimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeHelper.m; sourceTree = "<group>"; };
+		38A835681D0EC22600C57CAE /* TableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableDataSource.h; sourceTree = "<group>"; };
+		38A835691D0EC22600C57CAE /* TableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableDataSource.m; sourceTree = "<group>"; };
 		38FF2A081CFBE047002AD8B9 /* NotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationHelper.h; sourceTree = "<group>"; };
 		38FF2A091CFBE047002AD8B9 /* NotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationHelper.m; sourceTree = "<group>"; };
 		38FF2A0C1CFBE639002AD8B9 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				F967051C1CF5FA9600949412 /* Domain */,
+				38A835681D0EC22600C57CAE /* TableDataSource.h */,
+				38A835691D0EC22600C57CAE /* TableDataSource.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 				D1398D711CB3A864007ACB48 /* AppDelegate.m in Sources */,
 				D1398D6E1CB3A864007ACB48 /* main.m in Sources */,
 				F96705191CF4B80000949412 /* ArrayHelper.m in Sources */,
+				38A8356A1D0EC22600C57CAE /* TableDataSource.m in Sources */,
 				38FF2A0E1CFBE639002AD8B9 /* SecondViewController.m in Sources */,
 				38FF2A0A1CFBE047002AD8B9 /* NotificationHelper.m in Sources */,
 				38A396881CF68AB700C32A46 /* RuntimeHelper.m in Sources */,
