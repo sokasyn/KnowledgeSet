@@ -266,5 +266,15 @@
 
 2016-06-12
     1.iOS项目的单元测试,command+U,或者product->test
+      https://developer.apple.com/library/ios/documentation/ToolsLanguages/Conceptual/Xcode_Overview/UnitTesting.html#//apple_ref/doc/uid/TP40010215-CH63-SW1
+
      
+2016-06-13
+    1.通过block回调实现对tableview datasource的封装的启发
+      
+    2.整理weak和strong等arc与非arc的文档
+      http://blog.csdn.net/q199109106q/article/details/8565017
+    3.关于以block作为参数或者返回值的主意事项
+      http://blog.csdn.net/fengsh998/article/details/38090205
+
 
