@@ -21,7 +21,6 @@
  */
 + (NSArray *)sortArray:(NSArray *)array withKey:(NSString *)key ascending:(BOOL)ascending;
 
-
 /*
  * 自定义对象数组的排序
  * 如果key不是对象的属性，返回原数组
@@ -39,5 +38,24 @@
  * @return 排序后的数组
  */
 + (NSArray *)sortStringArray:(NSArray<NSString *> *)array ascending:(BOOL)ascending;
+
+/*
+ * 截取数组
+ * @param array 数组对象
+ * @param fromIndex 起初索引
+ * @param toIndex   截止索引
+ * @return 截取后的数组
+ */
++ (NSArray *)subArray:(NSArray *)array atIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
+
+/*
+ * 截取数组
+ * @param array 数组对象
+ * @param fromIndex 起初索引
+ * @param length 从起始索引开始的长度
+ * @return 截取后的数组
+ */
++ (NSArray *)subArray:(NSArray *)array atIndex:(NSUInteger)fromIndex length:(NSUInteger)length;
+
 
 @end

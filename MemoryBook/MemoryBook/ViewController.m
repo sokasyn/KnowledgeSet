@@ -33,8 +33,8 @@
 - (void)test{
 //    [self testRuntime];
 //    [self testSortCustomObjectArray];
-    [self testJSONHelper];
-    
+//    [self testJSONHelper];
+//    NSLog(@"%@",[JSONHelper description]);
 }
 
 // ------------ 测试JSONHelper

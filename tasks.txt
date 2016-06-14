@@ -279,5 +279,10 @@
 
 2016-06-14
     1.iOS测试辅助工具:单元测试Unit test,Instruments,抓包工具Charles等的配合使用
-     http://blog.csdn.net/jiangwei0910410003/article/details/41620363/
+      http://blog.csdn.net/jiangwei0910410003/article/details/41620363/
+      OCMock,GHUnit等
+      http://www.tuicool.com/articles/jYFfY3
+    2.Store类的设计:Store 对象会关心数据加载、缓存和设置数据栈。它也经常被称为服务层或者仓库
+      http://objccn.io/issue-1-1/
+
 

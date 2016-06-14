@@ -64,4 +64,21 @@
     return sortedArray;
 }
 
+
++ (NSArray *)subArray:(NSArray *)array atIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex{
+    if(fromIndex > toIndex){
+        return nil;
+    }
+    NSUInteger len = toIndex - fromIndex;
+    NSRange range = NSMakeRange(fromIndex, len);
+    NSArray *newArray = [array subarrayWithRange:range];
+    return newArray;
+}
+
++ (NSArray *)subArray:(NSArray *)array atIndex:(NSUInteger)fromIndex length:(NSUInteger)length{
+    NSRange range = NSMakeRange(fromIndex, length);
+    NSArray *newArray = [array subarrayWithRange:range];
+    return newArray;
+}
+
 @end
