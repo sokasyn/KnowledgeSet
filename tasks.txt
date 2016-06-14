@@ -284,5 +284,7 @@
       http://www.tuicool.com/articles/jYFfY3
     2.Store类的设计:Store 对象会关心数据加载、缓存和设置数据栈。它也经常被称为服务层或者仓库
       http://objccn.io/issue-1-1/
+    3.iOS app自动化测试
+      http://www.360doc.com/content/15/0910/18/26281448_498289606.shtml
 
 
