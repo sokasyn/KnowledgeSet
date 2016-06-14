@@ -10,9 +10,9 @@
  使得统一,不重复定义等
  */
 
-#import <Foundation/Foundation.h>
+#import "MBHelper.h"
 
-@interface NotificationHelper : NSObject
+@interface NotificationHelper : MBHelper
 
 /*
  * 注册广播通知,block回调是在发送通知的线程中执行

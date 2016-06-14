@@ -1,5 +1,5 @@
 //
-//  DateTimeHelper.h
+//  FileIOHelper.h
 //  MemoryBook
 //
 //  Created by Samson on 16/6/14.
@@ -8,6 +8,6 @@
 
 #import "MBHelper.h"
 
-@interface DateTimeHelper : MBHelper
+@interface FileIOHelper : MBHelper
 
 @end

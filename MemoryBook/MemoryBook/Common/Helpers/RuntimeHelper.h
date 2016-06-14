@@ -6,10 +6,10 @@
 //  Copyright © 2016年 Samson Tseng. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "MBHelper.h"
 #import <objc/runtime.h>
 
-@interface RuntimeHelper : NSObject
+@interface RuntimeHelper : MBHelper
 
 /*
  * 判断key是否是某个类的属性

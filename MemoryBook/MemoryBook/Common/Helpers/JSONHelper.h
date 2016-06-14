@@ -6,9 +6,9 @@
 //  Copyright © 2016年 Samson Tseng. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "MBHelper.h"
 
-@interface JSONHelper : NSObject
+@interface JSONHelper : MBHelper
 
 /*
  * 从JSON字符串转成OC对象(NSDictionary/NSArray)

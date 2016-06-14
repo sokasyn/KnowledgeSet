@@ -66,17 +66,19 @@
 
 
 + (NSArray *)subArray:(NSArray *)array atIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex{
-    if(fromIndex > toIndex){
+    if(fromIndex > toIndex || toIndex > [array count] - 1){
         return nil;
     }
-    NSUInteger len = toIndex - fromIndex;
+    NSUInteger len = (toIndex - fromIndex + 1);
+    NSLog(@"len:%lu",(unsigned long)len);
     NSRange range = NSMakeRange(fromIndex, len);
     NSArray *newArray = [array subarrayWithRange:range];
     return newArray;
 }
 
-+ (NSArray *)subArray:(NSArray *)array atIndex:(NSUInteger)fromIndex length:(NSUInteger)length{
-    NSRange range = NSMakeRange(fromIndex, length);
++ (NSArray *)subArray:(NSArray *)array atIndex:(NSUInteger)fromIndex length:(NSUInteger)len{
+    if((fromIndex + len) > [array count]) return nil;
+    NSRange range = NSMakeRange(fromIndex, len);
     NSArray *newArray = [array subarrayWithRange:range];
     return newArray;
 }

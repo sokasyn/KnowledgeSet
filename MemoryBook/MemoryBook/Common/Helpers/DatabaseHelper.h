@@ -6,9 +6,9 @@
 //  Copyright © 2016年 Samson Tseng. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "MBHelper.h"
 
-@interface DatabaseHelper : NSObject
+@interface DatabaseHelper : MBHelper
 
 #pragma mark - database
 // 创建数据库

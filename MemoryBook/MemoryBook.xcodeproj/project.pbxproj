@@ -11,6 +11,10 @@
 		38A8356A1D0EC22600C57CAE /* TableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A835691D0EC22600C57CAE /* TableDataSource.m */; };
 		38A8357C1D0FEDA000C57CAE /* MBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A8357B1D0FEDA000C57CAE /* MBHelper.m */; };
 		38A8357F1D0FF0E700C57CAE /* DateTimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A8357E1D0FF0E700C57CAE /* DateTimeHelper.m */; };
+		38A835821D0FF2CE00C57CAE /* FileIOHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A835811D0FF2CE00C57CAE /* FileIOHelper.m */; };
+		38A8358D1D0FF5F500C57CAE /* MemoryBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A8358C1D0FF5F500C57CAE /* MemoryBookTests.m */; };
+		38A835A81D100BB400C57CAE /* JSONHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A835A71D100BB400C57CAE /* JSONHelperTests.m */; };
+		38A835AA1D10143000C57CAE /* ArrayHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A835A91D10143000C57CAE /* ArrayHelperTests.m */; };
 		38FF2A0A1CFBE047002AD8B9 /* NotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FF2A091CFBE047002AD8B9 /* NotificationHelper.m */; };
 		38FF2A0E1CFBE639002AD8B9 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FF2A0D1CFBE639002AD8B9 /* SecondViewController.m */; };
 		D1398D6E1CB3A864007ACB48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1398D6D1CB3A864007ACB48 /* main.m */; };
@@ -26,6 +30,16 @@
 		F9A6C1DD1CFDEB5200FF7CD9 /* update.json in Resources */ = {isa = PBXBuildFile; fileRef = F9A6C1DC1CFDEB5200FF7CD9 /* update.json */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		38A8358F1D0FF5F500C57CAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1398D611CB3A864007ACB48 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1398D681CB3A864007ACB48;
+			remoteInfo = MemoryBook;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		38A396861CF68AB700C32A46 /* RuntimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuntimeHelper.h; sourceTree = "<group>"; };
 		38A396871CF68AB700C32A46 /* RuntimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeHelper.m; sourceTree = "<group>"; };
@@ -35,6 +49,13 @@
 		38A8357B1D0FEDA000C57CAE /* MBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBHelper.m; sourceTree = "<group>"; };
 		38A8357D1D0FF0E700C57CAE /* DateTimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateTimeHelper.h; sourceTree = "<group>"; };
 		38A8357E1D0FF0E700C57CAE /* DateTimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateTimeHelper.m; sourceTree = "<group>"; };
+		38A835801D0FF2CE00C57CAE /* FileIOHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileIOHelper.h; sourceTree = "<group>"; };
+		38A835811D0FF2CE00C57CAE /* FileIOHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileIOHelper.m; sourceTree = "<group>"; };
+		38A8358A1D0FF5F500C57CAE /* MemoryBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoryBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		38A8358C1D0FF5F500C57CAE /* MemoryBookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryBookTests.m; sourceTree = "<group>"; };
+		38A8358E1D0FF5F500C57CAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38A835A71D100BB400C57CAE /* JSONHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHelperTests.m; sourceTree = "<group>"; };
+		38A835A91D10143000C57CAE /* ArrayHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayHelperTests.m; sourceTree = "<group>"; };
 		38FF2A081CFBE047002AD8B9 /* NotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationHelper.h; sourceTree = "<group>"; };
 		38FF2A091CFBE047002AD8B9 /* NotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationHelper.m; sourceTree = "<group>"; };
 		38FF2A0C1CFBE639002AD8B9 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
@@ -62,6 +83,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		38A835871D0FF5F500C57CAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D1398D661CB3A864007ACB48 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -72,6 +100,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38A8358B1D0FF5F500C57CAE /* MemoryBookTests */ = {
+			isa = PBXGroup;
+			children = (
+				38A8358C1D0FF5F500C57CAE /* MemoryBookTests.m */,
+				38A8358E1D0FF5F500C57CAE /* Info.plist */,
+				38A835A71D100BB400C57CAE /* JSONHelperTests.m */,
+				38A835A91D10143000C57CAE /* ArrayHelperTests.m */,
+			);
+			path = MemoryBookTests;
+			sourceTree = "<group>";
+		};
 		38FF2A0B1CFBE61B002AD8B9 /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				D1398D6B1CB3A864007ACB48 /* MemoryBook */,
+				38A8358B1D0FF5F500C57CAE /* MemoryBookTests */,
 				D1398D6A1CB3A864007ACB48 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				D1398D691CB3A864007ACB48 /* MemoryBook.app */,
+				38A8358A1D0FF5F500C57CAE /* MemoryBookTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,6 +192,8 @@
 				38A8357B1D0FEDA000C57CAE /* MBHelper.m */,
 				38A8357D1D0FF0E700C57CAE /* DateTimeHelper.h */,
 				38A8357E1D0FF0E700C57CAE /* DateTimeHelper.m */,
+				38A835801D0FF2CE00C57CAE /* FileIOHelper.h */,
+				38A835811D0FF2CE00C57CAE /* FileIOHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -209,6 +252,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		38A835891D0FF5F500C57CAE /* MemoryBookTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38A835911D0FF5F500C57CAE /* Build configuration list for PBXNativeTarget "MemoryBookTests" */;
+			buildPhases = (
+				38A835861D0FF5F500C57CAE /* Sources */,
+				38A835871D0FF5F500C57CAE /* Frameworks */,
+				38A835881D0FF5F500C57CAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				38A835901D0FF5F500C57CAE /* PBXTargetDependency */,
+			);
+			name = MemoryBookTests;
+			productName = MemoryBookTests;
+			productReference = 38A8358A1D0FF5F500C57CAE /* MemoryBookTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D1398D681CB3A864007ACB48 /* MemoryBook */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1398D801CB3A865007ACB48 /* Build configuration list for PBXNativeTarget "MemoryBook" */;
@@ -235,6 +296,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Samson Tseng";
 				TargetAttributes = {
+					38A835891D0FF5F500C57CAE = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = D1398D681CB3A864007ACB48;
+					};
 					D1398D681CB3A864007ACB48 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = F4V2F8ZVA8;
@@ -255,11 +320,19 @@
 			projectRoot = "";
 			targets = (
 				D1398D681CB3A864007ACB48 /* MemoryBook */,
+				38A835891D0FF5F500C57CAE /* MemoryBookTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		38A835881D0FF5F500C57CAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D1398D671CB3A864007ACB48 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,6 +347,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		38A835861D0FF5F500C57CAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38A8358D1D0FF5F500C57CAE /* MemoryBookTests.m in Sources */,
+				38A835AA1D10143000C57CAE /* ArrayHelperTests.m in Sources */,
+				38A835A81D100BB400C57CAE /* JSONHelperTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D1398D651CB3A864007ACB48 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -291,10 +374,19 @@
 				38A396881CF68AB700C32A46 /* RuntimeHelper.m in Sources */,
 				F967051F1CF5FB0200949412 /* MBUser.m in Sources */,
 				38A8357F1D0FF0E700C57CAE /* DateTimeHelper.m in Sources */,
+				38A835821D0FF2CE00C57CAE /* FileIOHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		38A835901D0FF5F500C57CAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1398D681CB3A864007ACB48 /* MemoryBook */;
+			targetProxy = 38A8358F1D0FF5F500C57CAE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D1398D751CB3A864007ACB48 /* Main.storyboard */ = {
@@ -316,6 +408,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		38A835921D0FF5F500C57CAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				INFOPLIST_FILE = MemoryBookTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.emin.digit.mobile.MemoryBookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemoryBook.app/MemoryBook";
+			};
+			name = Debug;
+		};
+		38A835931D0FF5F500C57CAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				INFOPLIST_FILE = MemoryBookTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.emin.digit.mobile.MemoryBookTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MemoryBook.app/MemoryBook";
+			};
+			name = Release;
+		};
 		D1398D7E1CB3A865007ACB48 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -423,6 +545,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		38A835911D0FF5F500C57CAE /* Build configuration list for PBXNativeTarget "MemoryBookTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38A835921D0FF5F500C57CAE /* Debug */,
+				38A835931D0FF5F500C57CAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		D1398D641CB3A864007ACB48 /* Build configuration list for PBXProject "MemoryBook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

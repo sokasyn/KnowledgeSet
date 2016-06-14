@@ -6,10 +6,10 @@
 //  Copyright © 2016年 Samson Tseng. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "MBHelper.h"
 #import "RuntimeHelper.h"
 
-@interface ArrayHelper : NSObject
+@interface ArrayHelper : MBHelper
 
 /*
  * 自定义对象数组的排序
