@@ -54,4 +54,12 @@
     }*/
 }
 
++ (void)writeToFileWithJsonString:(NSString *)jsonString{
+    
+}
+
++ (void)writeToFileWithDictionary:(NSDictionary *)dic{
+    
+}
+
 @end

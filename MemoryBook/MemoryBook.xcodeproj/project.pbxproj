@@ -114,13 +114,6 @@
 			path = MemoryBookTests;
 			sourceTree = "<group>";
 		};
-		38FF2A0B1CFBE61B002AD8B9 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Test;
-			sourceTree = "<group>";
-		};
 		D1398D601CB3A864007ACB48 = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +139,6 @@
 				D1398D701CB3A864007ACB48 /* AppDelegate.m */,
 				D1398D721CB3A864007ACB48 /* ViewController.h */,
 				D1398D731CB3A864007ACB48 /* ViewController.m */,
-				38FF2A0B1CFBE61B002AD8B9 /* Test */,
 				F967051B1CF5FA9600949412 /* Model */,
 				F96705121CF4B75F00949412 /* Common */,
 				F96705151CF4B78B00949412 /* Resouce */,
@@ -525,7 +517,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MemoryBook/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xinyue.MemoryBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -537,7 +529,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MemoryBook/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xinyue.MemoryBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -554,6 +546,7 @@
 				38A835931D0FF5F500C57CAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D1398D641CB3A864007ACB48 /* Build configuration list for PBXProject "MemoryBook" */ = {
 			isa = XCConfigurationList;
