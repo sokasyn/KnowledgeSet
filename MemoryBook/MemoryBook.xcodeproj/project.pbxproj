@@ -15,8 +15,9 @@
 		38A8358D1D0FF5F500C57CAE /* MemoryBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A8358C1D0FF5F500C57CAE /* MemoryBookTests.m */; };
 		38A835A81D100BB400C57CAE /* JSONHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A835A71D100BB400C57CAE /* JSONHelperTests.m */; };
 		38A835AA1D10143000C57CAE /* ArrayHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A835A91D10143000C57CAE /* ArrayHelperTests.m */; };
+		38A835AE1D10E8FB00C57CAE /* RuntimeHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A835AD1D10E8FB00C57CAE /* RuntimeHelperTests.m */; };
+		38A835B01D10EA3A00C57CAE /* NotificationHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 38A835AF1D10EA3A00C57CAE /* NotificationHelperTests.m */; };
 		38FF2A0A1CFBE047002AD8B9 /* NotificationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FF2A091CFBE047002AD8B9 /* NotificationHelper.m */; };
-		38FF2A0E1CFBE639002AD8B9 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38FF2A0D1CFBE639002AD8B9 /* SecondViewController.m */; };
 		D1398D6E1CB3A864007ACB48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1398D6D1CB3A864007ACB48 /* main.m */; };
 		D1398D711CB3A864007ACB48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1398D701CB3A864007ACB48 /* AppDelegate.m */; };
 		D1398D741CB3A864007ACB48 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1398D731CB3A864007ACB48 /* ViewController.m */; };
@@ -56,10 +57,10 @@
 		38A8358E1D0FF5F500C57CAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38A835A71D100BB400C57CAE /* JSONHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHelperTests.m; sourceTree = "<group>"; };
 		38A835A91D10143000C57CAE /* ArrayHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayHelperTests.m; sourceTree = "<group>"; };
+		38A835AD1D10E8FB00C57CAE /* RuntimeHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RuntimeHelperTests.m; sourceTree = "<group>"; };
+		38A835AF1D10EA3A00C57CAE /* NotificationHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationHelperTests.m; sourceTree = "<group>"; };
 		38FF2A081CFBE047002AD8B9 /* NotificationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationHelper.h; sourceTree = "<group>"; };
 		38FF2A091CFBE047002AD8B9 /* NotificationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationHelper.m; sourceTree = "<group>"; };
-		38FF2A0C1CFBE639002AD8B9 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		38FF2A0D1CFBE639002AD8B9 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		D1398D691CB3A864007ACB48 /* MemoryBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1398D6D1CB3A864007ACB48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D1398D6F1CB3A864007ACB48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -107,6 +108,8 @@
 				38A8358E1D0FF5F500C57CAE /* Info.plist */,
 				38A835A71D100BB400C57CAE /* JSONHelperTests.m */,
 				38A835A91D10143000C57CAE /* ArrayHelperTests.m */,
+				38A835AD1D10E8FB00C57CAE /* RuntimeHelperTests.m */,
+				38A835AF1D10EA3A00C57CAE /* NotificationHelperTests.m */,
 			);
 			path = MemoryBookTests;
 			sourceTree = "<group>";
@@ -114,8 +117,6 @@
 		38FF2A0B1CFBE61B002AD8B9 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				38FF2A0C1CFBE639002AD8B9 /* SecondViewController.h */,
-				38FF2A0D1CFBE639002AD8B9 /* SecondViewController.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -352,6 +353,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				38A8358D1D0FF5F500C57CAE /* MemoryBookTests.m in Sources */,
+				38A835AE1D10E8FB00C57CAE /* RuntimeHelperTests.m in Sources */,
+				38A835B01D10EA3A00C57CAE /* NotificationHelperTests.m in Sources */,
 				38A835AA1D10143000C57CAE /* ArrayHelperTests.m in Sources */,
 				38A835A81D100BB400C57CAE /* JSONHelperTests.m in Sources */,
 			);
@@ -369,7 +372,6 @@
 				D1398D6E1CB3A864007ACB48 /* main.m in Sources */,
 				F96705191CF4B80000949412 /* ArrayHelper.m in Sources */,
 				38A8356A1D0EC22600C57CAE /* TableDataSource.m in Sources */,
-				38FF2A0E1CFBE639002AD8B9 /* SecondViewController.m in Sources */,
 				38FF2A0A1CFBE047002AD8B9 /* NotificationHelper.m in Sources */,
 				38A396881CF68AB700C32A46 /* RuntimeHelper.m in Sources */,
 				F967051F1CF5FB0200949412 /* MBUser.m in Sources */,

@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ArrayHelper.h"
-#import "MBUser.h"
 
 @interface ViewController : UIViewController
 
