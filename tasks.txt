@@ -291,5 +291,7 @@
     1.iOS和android文件io工具类的构建
       http://blog.csdn.net/nono_love_lilith/article/details/8125110
     2.单例模式的继承问题,实现?目的:很多工具类需要单例模式,通过继承基类,这个获取相关类的单例的方法不用重复,如何实现?
+    3.iOS,完善JSONHelper,将json字符串格式化地写入文件
+    4.iOS,app应用增加,当出现应用崩溃的时候,发送E-mail到开发者邮箱
 
 
