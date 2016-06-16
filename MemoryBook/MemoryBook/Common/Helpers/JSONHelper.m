@@ -14,6 +14,7 @@
      需要注意的是普通的NSString有问题,例如@"abc",应当为@"\"abc\""有引号！但是@"123"就可以,因为123是纯数字,是有效的JSON Fragment
  */
 #import "JSONHelper.h"
+#import "FileIOHelper.h"
 
 @implementation JSONHelper
 
@@ -54,11 +55,30 @@
     }*/
 }
 
-+ (void)writeToFileWithJsonString:(NSString *)jsonString{
++ (void)writeToFile:(NSString *)filePath withJsonString:(NSString *)jsonString;{
     
+    [[FileIOHelper sharedInstance] createFileAtPath:filePath];
+    NSOutputStream *outStream = [[NSOutputStream alloc] initToFileAtPath:filePath append:NO];
+    
+    NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    id jsonObj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    if(error == nil && [NSJSONSerialization isValidJSONObject:jsonObj]){
+        NSError *writeError;
+        [outStream open];
+        [NSJSONSerialization writeJSONObject:jsonObj toStream:outStream options:NSJSONWritingPrettyPrinted error:&writeError];
+        if(writeError){
+            NSLog(@"======error:%@",[error userInfo]);
+        }else{
+            NSLog(@"write suceed");
+        }
+        [outStream close];
+    }else{
+        NSLog(@"=====error:%@",[error userInfo]);
+    }
 }
 
-+ (void)writeToFileWithDictionary:(NSDictionary *)dic{
++ (void)writeToFile:(NSString *)filePath withDictionary:(NSDictionary *)dic{
     
 }
 

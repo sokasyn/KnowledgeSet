@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "JSONHelper.h"
+#import "FileIOHelper.h"
 
 @interface JSONHelperTests : XCTestCase
 
@@ -114,6 +115,7 @@
                                   @"电话" : @"座机208"
                                   }
                           };
+    NSDictionary *dic2 = @{@"name": name,@"number": @{@"phone": @"123456",@"电话" : @"座机208"}};
     NSLog(@"original dictionary:%@", dic);
     [self printDic:dic];
 }
@@ -148,6 +150,14 @@
     id object2 = [JSONHelper dictionaryFromJsonString:jsonString2];
     NSLog(@"%@",object2);
     NSLog(@"%@",[object2 class]);
+}
+
+- (void)testWriteJsonToFile{
+    NSString *jsonString = @"{\"name\" : \"Samson\",\"telNum\": \"1234\"}";
+    NSString *path = [[FileIOHelper sharedInstance] getDocumentDirectory];
+    NSString *filePath = [path stringByAppendingPathComponent:@"user.json"];
+    [JSONHelper writeToFile:filePath withJsonString:jsonString];
+    
 }
 
 @end

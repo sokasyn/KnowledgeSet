@@ -22,8 +22,13 @@
  */
 + (id)dictionaryFromJsonFile:(NSString *)path;
 
-+ (void)writeToFileWithJsonString:(NSString *)jsonString;
+/*
+ * 从JSON字符串写入到文件中,并且是以易读的josn格式写入的(而不是一行字符串的形式)
+ * @param path 目标文件文件路劲
+ * @param jsonString JSON字符串
+ */
++ (void)writeToFile:(NSString *)filePath withJsonString:(NSString *)jsonString;
 
-+ (void)writeToFileWithDictionary:(NSDictionary *)dic;
++ (void)writeToFile:(NSString *)filePath withDictionary:(NSDictionary *)dic;
 
 @end
