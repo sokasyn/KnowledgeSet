@@ -287,4 +287,9 @@
     3.iOS app自动化测试
       http://www.360doc.com/content/15/0910/18/26281448_498289606.shtml
 
+2016-06-16
+    1.iOS和android文件io工具类的构建
+      http://blog.csdn.net/nono_love_lilith/article/details/8125110
+    2.单例模式的继承问题,实现?目的:很多工具类需要单例模式,通过继承基类,这个获取相关类的单例的方法不用重复,如何实现?
+
 

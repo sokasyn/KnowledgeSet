@@ -14,20 +14,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XYW-Jb-9po">
-                                <rect key="frame" x="95" y="122" width="113" height="30"/>
+                                <rect key="frame" x="137" y="122" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Test Notification"/>
+                                <state key="normal" title="Go"/>
                                 <connections>
-                                    <segue destination="4XB-Xj-vO3" kind="modal" id="0rU-lV-H4j"/>
+                                    <action selector="btnGoClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vIa-G4-lXd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ehT-0f-U5r">
-                                <rect key="frame" x="87" y="165" width="140" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -36,31 +29,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="886" y="314"/>
-        </scene>
-        <!--Second View Controller-->
-        <scene sceneID="KQd-BX-kv4">
-            <objects>
-                <viewController storyboardIdentifier="SecondViewController" id="4XB-Xj-vO3" customClass="SecondViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wSh-b1-pwJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VgB-G0-6Be">
-                                <rect key="frame" x="142" y="133" width="37" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Done"/>
-                                <connections>
-                                    <action selector="btnDoneClicked:" destination="4XB-Xj-vO3" eventType="touchUpInside" id="WbR-0s-9fI"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="JFV-X9-EZ8"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OE1-ha-r6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1318" y="307"/>
         </scene>
     </scenes>
 </document>

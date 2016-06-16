@@ -13,4 +13,6 @@
 
 @interface MBHelper : NSObject
 
++ (id)sharedInstance;
+
 @end

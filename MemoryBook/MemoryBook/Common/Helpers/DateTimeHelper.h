@@ -10,4 +10,7 @@
 
 @interface DateTimeHelper : MBHelper
 
++ (id)sharedInstance;
+- (NSString *)getCurrentTime;
+
 @end

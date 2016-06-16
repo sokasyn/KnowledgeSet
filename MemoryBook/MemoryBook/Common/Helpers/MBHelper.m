@@ -10,4 +10,13 @@
 
 @implementation MBHelper
 
++ (id)sharedInstance{
+    static dispatch_once_t onceToken;
+    static MBHelper *instance = nil;
+    dispatch_once(&onceToken, ^{
+        instance = [[self alloc] init];
+    });
+    return instance;
+}
+
 @end
