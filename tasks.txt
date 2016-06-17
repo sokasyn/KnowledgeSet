@@ -295,3 +295,10 @@
     4.iOS,app应用增加,当出现应用崩溃的时候,发送E-mail到开发者邮箱
 
 
+2016-06-17
+    1.Mac 配置以Eclipse 开发android环境
+      https://support.apple.com/kb/DL1572?locale=zh_CN
+    2.持续自动化构建工具Jenkins
+    3.关于iOS之后使用定位与地图的注意事项:授权
+      http://www.devstore.cn/new/newInfo/1083.html
+
