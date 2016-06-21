@@ -246,16 +246,16 @@
     1.Xcocde配置 Architectures
 
 2016-06-08
-    1.基于定位技术的原理了解
+ *  1.基于定位技术的原理了解
     2.高德地图
     3.获取当前定位信息
     4.多个定位连成的路劲
     5.围栏
 
 2016-06-09
-    1.Ruby的更新,通过安装rvm来管理ruby的版本
-    2.cocoapods的安装,管理iOS第三方库
-    3.cocoapods与iOS工程的结合使用
+ *  1.Ruby的更新,通过安装rvm来管理ruby的版本
+ *  2.cocoapods的安装,管理iOS第三方库
+ *  3.cocoapods与iOS工程的结合使用
     4.以上文档的建立
  *  5.iOS项目配置:编译次数的配置(Build version)
       xcrun agvtool next-version -all
@@ -265,13 +265,11 @@
     1.混合开发移动app框架iOS完成以及文档做成
 
 2016-06-12
-    1.iOS项目的单元测试,command+U,或者product->test
+  * 1.iOS项目的单元测试,command+U,或者product->test
       https://developer.apple.com/library/ios/documentation/ToolsLanguages/Conceptual/Xcode_Overview/UnitTesting.html#//apple_ref/doc/uid/TP40010215-CH63-SW1
-
      
 2016-06-13
-    1.通过block回调实现对tableview datasource的封装的启发
-      
+  * 1.通过block回调实现对tableview datasource的封装的启发
     2.整理weak和strong等arc与非arc的文档
       http://blog.csdn.net/q199109106q/article/details/8565017
     3.关于以block作为参数或者返回值的主意事项
@@ -302,3 +300,13 @@
     3.关于iOS之后使用定位与地图的注意事项:授权
       http://www.devstore.cn/new/newInfo/1083.html
 
+2016-06-21
+    1.框架的设计了解
+    2.iOS获取唯一的标识符
+      http://bbs.9ria.com/thread-195544-1-1.html
+    3.android获取唯一的标识符
+    4.androi的数据存储,以及adb shell
+      http://www.cnblogs.com/ITtangtang/p/3920916.html#type4
+    5.android的单元测试框架
+      
+    
