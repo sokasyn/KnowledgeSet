@@ -309,4 +309,13 @@
       http://www.cnblogs.com/ITtangtang/p/3920916.html#type4
     5.android的单元测试框架
       
+2016-06-22
+    1.Android Contex的理解
+      http://blog.csdn.net/qinjuning/article/details/7310620
+    2.Android:获取Application context
+      http://www.cnblogs.com/mikufansblog/archive/2013/01/21/2869402.html
+    3.Android:整理数据库的相关知识点,后续封装
+      http://blog.csdn.net/fangzhibin4712/article/details/8612368
+
+
     
