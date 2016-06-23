@@ -316,6 +316,15 @@
       http://www.cnblogs.com/mikufansblog/archive/2013/01/21/2869402.html
     3.Android:整理数据库的相关知识点,后续封装
       http://blog.csdn.net/fangzhibin4712/article/details/8612368
+      http://lzd20021683.iteye.com/blog/1277108
+
+2016-06-23
+    1.Android:sqlit数据库升级
+      http://www.cnblogs.com/liqw/p/4264925.html
+    2.Java:文件的分割与合并
+      http://blog.csdn.net/lincyang/article/details/5675846
+    3.Java:多线程的同步问题
+      http://www.cnblogs.com/devinzhang/archive/2011/12/14/2287675.html
 
 
     

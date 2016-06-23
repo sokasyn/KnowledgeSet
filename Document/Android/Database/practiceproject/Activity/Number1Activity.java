@@ -11,6 +11,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.emin.digit.mobile.android.learning.practiceproject.Model.DatabaseHelper;
+import com.emin.digit.mobile.android.learning.practiceproject.Model.EMDatabaseManger;
+import com.emin.digit.mobile.android.learning.practiceproject.common.ThisApplication;
 
 /**
  * Created by Samson on 16/6/22.
@@ -18,6 +20,8 @@ import com.emin.digit.mobile.android.learning.practiceproject.Model.DatabaseHelp
 public class Number1Activity extends Activity implements OnClickListener {
 
     private static final String TAG = Number1Activity.class.getSimpleName();
+
+    private static final String DB_NAME = "fish_1.db";
 
     //声明五个控件对象
     Button createDatabase=null;
@@ -57,38 +61,54 @@ public class Number1Activity extends Activity implements OnClickListener {
             //创建数据库
             case R.id.createDatabase:
                 //创建一个DatabaseHelper对象
-                DatabaseHelper dbHelper1 = new DatabaseHelper(Number1Activity.this, "test_db");
+                DatabaseHelper dbHelper1 = new DatabaseHelper(Number1Activity.this, DB_NAME);
                 //取得一个只读的数据库对象
                 SQLiteDatabase db1 = dbHelper1.getReadableDatabase();
                 break;
             //更新数据库
             case R.id.updateDatabase:
-                DatabaseHelper dbHelper2 = new DatabaseHelper(Number1Activity.this, "test_db", 2);
+                DatabaseHelper dbHelper2 = new DatabaseHelper(getApplicationContext(), "fish_2.db");
                 SQLiteDatabase db2 = dbHelper2.getReadableDatabase();
+
+//                DatabaseHelper dbHelper2 = new DatabaseHelper(Number1Activity.this, DB_NAME, 2);
+//                SQLiteDatabase db2 = dbHelper2.getReadableDatabase();
+
+//                EMDatabaseManger dbManager = EMDatabaseManger.getInstance(getApplicationContext());
+//                SQLiteDatabase db2 = dbManager.getDatabase();
+
                 break;
             //插入数据
             case R.id.insert:
+                DatabaseHelper dbHelper3 = new DatabaseHelper(Number1Activity.this);
+                SQLiteDatabase db3 = dbHelper3.getReadableDatabase();
+
+                /*
                 //创建存放数据的ContentValues对象
                 ContentValues values = new ContentValues();
                 //像ContentValues中存放数据
                 values.put("id", 1);
                 values.put("name","zhangsan");
-                DatabaseHelper dbHelper3 = new DatabaseHelper(Number1Activity.this, "test_db");
+                DatabaseHelper dbHelper3 = new DatabaseHelper(Number1Activity.this, DB_NAME);
                 SQLiteDatabase db3 = dbHelper3.getWritableDatabase();
                 //数据库执行插入命令
                 db3.insert("user", null, values);
+                */
                 break;
             //更新数据信息
             case R.id.update:
-                DatabaseHelper dbHelper4 = new DatabaseHelper(Number1Activity.this, "test_db");
+                DatabaseHelper dbHelper4 = new DatabaseHelper(ThisApplication.getAppContext());
+                SQLiteDatabase db4 = dbHelper4.getReadableDatabase();
+                /*
+                DatabaseHelper dbHelper4 = new DatabaseHelper(Number1Activity.this, DB_NAME);
                 SQLiteDatabase db4 = dbHelper4.getWritableDatabase();
                 ContentValues values2 = new ContentValues();
                 values2.put("name", "xiaosan");
                 db4.update("user", values2, "id=?", new String[]{"1"});
+                */
                 break;
             //查询信息
             case R.id.query:
-                DatabaseHelper dbHelper5 = new DatabaseHelper(Number1Activity.this, "test_db");
+                DatabaseHelper dbHelper5 = new DatabaseHelper(Number1Activity.this, DB_NAME);
                 SQLiteDatabase db5 = dbHelper5.getReadableDatabase();
                 //创建游标对象
                 Cursor cursor = db5.query("user", new String[]{"id","name"}, "id=?", new String[]{"1"}, null, null, null, null);
