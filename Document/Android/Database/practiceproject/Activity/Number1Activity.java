@@ -1,7 +1,6 @@
 package com.emin.digit.mobile.android.learning.practiceproject;
 
 import android.app.Activity;
-import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -10,9 +9,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.emin.digit.mobile.android.learning.practiceproject.EMModel.EMDaoConfig;
+import com.emin.digit.mobile.android.learning.practiceproject.EMModel.EMDatabase;
 import com.emin.digit.mobile.android.learning.practiceproject.Model.DatabaseHelper;
-import com.emin.digit.mobile.android.learning.practiceproject.Model.EMDatabaseManger;
+import com.emin.digit.mobile.android.learning.practiceproject.Model.EMDatabaseManager;
 import com.emin.digit.mobile.android.learning.practiceproject.common.ThisApplication;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by Samson on 16/6/22.
@@ -54,6 +58,21 @@ public class Number1Activity extends Activity implements OnClickListener {
         delete.setOnClickListener(this);
     }
 
+    private static final String DB_NAME_IN_NUMBER1_ACTIVITY = "number1_1.db";
+    private void createDatabaseWithEMLib(){
+        Log.i(TAG,"createDatabaseWithEMLib");
+
+
+
+        // 构造配置模版
+        EMDaoConfig daoConfig = new EMDaoConfig();
+        daoConfig.setContext(Number1Activity.this);
+        daoConfig.setDbName(DB_NAME_IN_NUMBER1_ACTIVITY);
+        daoConfig.setDbVersion(1);
+        daoConfig.setTargetDirectory(null);
+        EMDatabase database = EMDatabase.create(daoConfig);
+    }
+
     @Override
     public void onClick(View v) {
         //判断所触发的被监听控件，并执行命令
@@ -61,9 +80,11 @@ public class Number1Activity extends Activity implements OnClickListener {
             //创建数据库
             case R.id.createDatabase:
                 //创建一个DatabaseHelper对象
-                DatabaseHelper dbHelper1 = new DatabaseHelper(Number1Activity.this, DB_NAME);
+//                DatabaseHelper dbHelper1 = new DatabaseHelper(Number1Activity.this, DB_NAME);
                 //取得一个只读的数据库对象
-                SQLiteDatabase db1 = dbHelper1.getReadableDatabase();
+//                SQLiteDatabase db1 = dbHelper1.getReadableDatabase();
+
+                createDatabaseWithEMLib();
                 break;
             //更新数据库
             case R.id.updateDatabase:
@@ -73,14 +94,24 @@ public class Number1Activity extends Activity implements OnClickListener {
 //                DatabaseHelper dbHelper2 = new DatabaseHelper(Number1Activity.this, DB_NAME, 2);
 //                SQLiteDatabase db2 = dbHelper2.getReadableDatabase();
 
-//                EMDatabaseManger dbManager = EMDatabaseManger.getInstance(getApplicationContext());
+//                EMDatabaseManager dbManager = EMDatabaseManager.getInstance(getApplicationContext());
 //                SQLiteDatabase db2 = dbManager.getDatabase();
 
                 break;
             //插入数据
             case R.id.insert:
-                DatabaseHelper dbHelper3 = new DatabaseHelper(Number1Activity.this);
-                SQLiteDatabase db3 = dbHelper3.getReadableDatabase();
+                Log.i(TAG,"inser event called....");
+                try{
+                    JSONObject obj = new JSONObject();
+                    obj.putOpt("id", "1");
+                    obj.putOpt("name", "cocoa");
+                    String jsonStr = obj.toString();
+                    EMDatabaseManager.getInstance().insert("user",jsonStr);
+                }catch (JSONException e){
+                    Log.e(TAG,"JSONException occured--------");
+                    e.printStackTrace();
+                }
+
 
                 /*
                 //创建存放数据的ContentValues对象
