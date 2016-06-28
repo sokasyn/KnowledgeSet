@@ -96,6 +96,7 @@ public class EMDatabase {
 
     public void execSqlInfo(EMSqlInfo sqlInfo){
         database.execSQL(sqlInfo.getSql());
+        Log.i(TAG,"execSqlInfo succeed......" );
     }
 
     class SqliteDbHelper extends SQLiteOpenHelper {

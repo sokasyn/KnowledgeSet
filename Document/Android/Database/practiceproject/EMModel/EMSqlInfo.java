@@ -7,6 +7,14 @@ public class EMSqlInfo {
 
     private String sqlStr;
 
+    public EMSqlInfo(){
+
+    }
+
+    public EMSqlInfo(String sql){
+        this.sqlStr = sql;
+    }
+
     public String getSql() {
         return sqlStr;
     }
