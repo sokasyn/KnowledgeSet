@@ -1,6 +1,7 @@
 package com.emin.digit.mobile.android.learning.practiceproject.EMModel;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -63,7 +64,7 @@ public class EMDatabase {
         Log.i(TAG,"EMDatabase getInstance==========");
         EMDatabase dao = daoMap.get(daoConfig.getDbName());
         if(dao == null){
-            Log.i(TAG,"EMDatabase is null,Get new instance of EMDatabase==================");
+            Log.i(TAG,"EMDatabase is null,Get instance of EMDatabase==================");
             dao = new EMDatabase(daoConfig);
             daoMap.put(daoConfig.getDbName(),dao);
         }
@@ -97,6 +98,14 @@ public class EMDatabase {
     public void execSqlInfo(EMSqlInfo sqlInfo){
         database.execSQL(sqlInfo.getSql());
         Log.i(TAG,"execSqlInfo succeed......" );
+    }
+
+    public void execSQL(String sql){
+        database.execSQL(sql);
+    }
+
+    public Cursor queryWithSqlInfo(EMSqlInfo sqlInfo){
+        return database.rawQuery(sqlInfo.getSql(),null);
     }
 
     class SqliteDbHelper extends SQLiteOpenHelper {

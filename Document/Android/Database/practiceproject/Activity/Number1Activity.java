@@ -145,23 +145,89 @@ public class Number1Activity extends Activity implements OnClickListener {
     }
 
     // 删除数据
-    private void deleteData(){
+    private void testDeleteData(){
         Log.i(TAG,"test delete records");
-
         try {
-            JSONObject obj = new JSONObject();
+            testDeleteWithJsonString();
+        }catch (JSONException e){
+            Log.e(TAG,"!!!" + e.getMessage());
+        }
+    }
 
-            JSONObject whereObj = new JSONObject();
-            whereObj.put("name","Samson");
-            obj.put(TBL_USER,whereObj);
+    private void testDeleteWithJsonString() throws JSONException{
 
-            EMDatabaseManager.getInstance().deleteFromTables(obj.toString());
+
+        JSONObject obj = new JSONObject();
+
+//        JSONObject userWhereObj = new JSONObject();
+//        userWhereObj.put("name","Kate1");
+//        userWhereObj.put("age","1");
+//        obj.put(TBL_USER,userWhereObj);
+//
+//
+//        JSONObject accountWhereObj = new JSONObject();
+//        accountWhereObj.put("id","1");
+//        obj.put(TBL_ACCOUNT,accountWhereObj);
+
+        JSONObject addressWhereObj = new JSONObject();
+        addressWhereObj.put("id",null);
+        obj.put(TBL_ADDRESS,addressWhereObj);
+
+        Log.i(TAG,"JSON String:" + obj.toString());
+        EMDatabaseManager.getInstance().deleteWithJsonString(obj.toString());
+    }
+
+    private void deleteFromTable(){
+//        EMDatabaseManager.getInstance().deleteFromTable();
+    }
+
+    private JSONObject buildDeleteWhereJSONData(){
+        JSONObject obj = null;
+        try {
+            obj = new JSONObject();
+            obj.put("name","Samson");
+            obj.put("age" , "1");
         }catch (JSONException e){
             Log.e(TAG,"!!!!!!" + e.getMessage());
         }
-
-
+        return obj;
     }
+
+
+    // 更新数据
+    private void updateData(){
+        Log.i(TAG,"test update data");
+        // update address set pid='p2',name='Sam' where id='1';
+        // {"address":"set pid='p2',name='Sam' where id='1'"}
+        // {"table":"address",
+        //  "set":{"pid":"p2","name":"Sam"},
+        //  "where":{"id":"1","name":"Kate"}
+        // }
+        try{
+            JSONObject obj = new JSONObject();
+            String strSql = "set pid='p2',name='Sam' where id='1'";
+            obj.put("address",strSql);
+            EMDatabaseManager.getInstance().updateRecords(obj.toString());
+        }catch (JSONException e){
+            Log.e(TAG,"!!!!!!" + e.getMessage());
+        }
+    }
+
+    // 查询数据
+    private void queryData(){
+        try{
+            String jsonString = EMDatabaseManager.getInstance().query();
+            Log.i(TAG,"JSON STRING :" + jsonString);
+        }catch (JSONException e){
+            Log.e(TAG,e.getMessage());
+        }
+    }
+
+    // 清空数据库
+    private void clearDbData(){
+        EMDatabaseManager.getInstance().dropAllTables();
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -191,7 +257,7 @@ public class Number1Activity extends Activity implements OnClickListener {
                 break;
             //插入数据
             case R.id.insert:
-                Log.i(TAG,"inser event called....");
+                Log.i(TAG,"insert event called....");
                 insertData();
 
                 /*
@@ -221,8 +287,13 @@ public class Number1Activity extends Activity implements OnClickListener {
                 break;
             //更新数据信息
             case R.id.update:
+                Log.i(TAG,"update event...");
+                updateData();
+                /*
                 DatabaseHelper dbHelper4 = new DatabaseHelper(ThisApplication.getAppContext());
                 SQLiteDatabase db4 = dbHelper4.getReadableDatabase();
+                */
+
                 /*
                 DatabaseHelper dbHelper4 = new DatabaseHelper(Number1Activity.this, DB_NAME);
                 SQLiteDatabase db4 = dbHelper4.getWritableDatabase();
@@ -233,6 +304,10 @@ public class Number1Activity extends Activity implements OnClickListener {
                 break;
             //查询信息
             case R.id.query:
+                Log.i(TAG,"QUERY event..");
+                queryData();
+
+                /*
                 DatabaseHelper dbHelper5 = new DatabaseHelper(Number1Activity.this, DB_NAME);
                 SQLiteDatabase db5 = dbHelper5.getReadableDatabase();
                 //创建游标对象
@@ -242,11 +317,11 @@ public class Number1Activity extends Activity implements OnClickListener {
                     String name = cursor.getString(cursor.getColumnIndex("name"));
                     //日志打印输出
                     Log.i(TAG,"query-->"+name);
-                }
+                }*/
                 break;
             //删除记录
             case R.id.delete:
-                deleteData();
+                testDeleteData();
                 /*
                 DatabaseHelper dbHelper6 = new DatabaseHelper(Number1Activity.this,"test_db");
                 SQLiteDatabase db6 = dbHelper6.getWritableDatabase();

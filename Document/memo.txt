@@ -1,0 +1,3 @@
+#关于JSON的null
+通过JSONObject的put(key,value)
+如果value 为null,则json对象中该key自动被屏蔽,如果是"",则为key:"";如果是"null",则为{"key":"null"},因为用引号抱起来，其实被当成一个普通的字符串
