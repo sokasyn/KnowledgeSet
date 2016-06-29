@@ -104,37 +104,41 @@ public class Number1Activity extends Activity implements OnClickListener {
     // 插入表数据
     private void insertData(){
 
+        int count = 10;
         // 一个json string
         try {
             JSONObject dataObj = new JSONObject();
 
             // ----- TABLE USER
             // 多条数据存放与array中
-            JSONArray userData = new JSONArray();
-            JSONObject userObj = new JSONObject();
-            userObj.put("name","Kate1");
-            userObj.put("age","1");
-            userData.put(0,userObj);
-
-            JSONObject userObj2 = new JSONObject();
-            userObj2.put("name","Kate2");
-            userObj2.put("age","2");
-            userData.put(1,userObj2);
-
-            JSONObject userObj3 = new JSONObject();
-            userObj3.put("name","Kate3");
-            userObj3.put("age","3");
-            userData.put(2,userObj3);
-
-            dataObj.put(TBL_USER,userData);
+            JSONArray userDataArray = new JSONArray();
+            for(int i = 0 ; i < count ; i++){
+                JSONObject userObj = new JSONObject();
+                userObj.put("name","Kate" + i);
+                userObj.put("age","" + i);
+                userDataArray.put(i,userObj);
+            }
+            dataObj.put(TBL_USER,userDataArray);
 
 
             // ----- TABLE ACCOUNT
+
+            JSONArray accountDataArray = new JSONArray();
+            for(int i = 0 ; i < count ; i++){
+                JSONObject obj = new JSONObject();
+                obj.put("name","Sam" + i);
+                obj.put("password","" + i);
+                accountDataArray.put(i,obj);
+            }
+            dataObj.put(TBL_ACCOUNT,accountDataArray);
+
+            // ----- TABLE ADDRESS
             // 单条数据直接一个JSONObject
-            JSONObject accountObj = new JSONObject();
-            accountObj.put("name","Kate");
-            accountObj.put("password","123456");
-            dataObj.put(TBL_ACCOUNT,accountObj);
+            JSONObject addrObj = new JSONObject();
+            addrObj.put("id","1");
+            addrObj.put("pid","");
+            addrObj.put("name","Michael");
+            dataObj.put(TBL_ADDRESS,addrObj);
 
             EMDatabaseManager.getInstance().insertRecords(dataObj.toString());
 
@@ -159,18 +163,18 @@ public class Number1Activity extends Activity implements OnClickListener {
 
         JSONObject obj = new JSONObject();
 
-//        JSONObject userWhereObj = new JSONObject();
+        JSONObject userWhereObj = new JSONObject();
 //        userWhereObj.put("name","Kate1");
 //        userWhereObj.put("age","1");
-//        obj.put(TBL_USER,userWhereObj);
+        obj.put(TBL_USER,userWhereObj);
 //
 //
-//        JSONObject accountWhereObj = new JSONObject();
+        JSONObject accountWhereObj = new JSONObject();
 //        accountWhereObj.put("id","1");
-//        obj.put(TBL_ACCOUNT,accountWhereObj);
+        obj.put(TBL_ACCOUNT,accountWhereObj);
 
         JSONObject addressWhereObj = new JSONObject();
-        addressWhereObj.put("id",null);
+//        addressWhereObj.put("id",null);
         obj.put(TBL_ADDRESS,addressWhereObj);
 
         Log.i(TAG,"JSON String:" + obj.toString());

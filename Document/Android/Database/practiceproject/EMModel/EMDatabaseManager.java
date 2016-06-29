@@ -211,7 +211,6 @@ public class EMDatabaseManager {
             for(int i = 0 ; i < arrayList.size(); i++){
                 db.execSqlInfo(arrayList.get(i));
             }
-
         }catch (JSONException e){
             Log.e(TAG,"!!!!!!!!!!!!!" + e.getMessage());
         }
