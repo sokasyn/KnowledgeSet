@@ -335,4 +335,8 @@
 2016-06-29
     1.Web:JavaScript中的null和undefined
       http://www.jb51.net/article/55700.htm
+    2.JAVA:Exception的深入理解
+      http://javcoder.iteye.com/blog/1131003
+    3.JAVA:关于Exception设计和使用的讨论
+      http://www.cnblogs.com/mailingfeng/archive/2012/11/14/2769974.html
 
