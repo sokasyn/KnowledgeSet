@@ -17,7 +17,7 @@ import java.util.HashMap;
  */
 public class EMDatabase {
 
-    // Log
+    // DebugLog
     private static final String TAG = EMDatabase.class.getSimpleName();
 
     private static HashMap<String, EMDatabase> daoMap = new HashMap<String, EMDatabase>();
@@ -97,6 +97,7 @@ public class EMDatabase {
 
     public void execSqlInfo(EMSqlInfo sqlInfo){
         debugSql(sqlInfo.getSql());
+        Log.i(TAG,"sqlInfo.sql :" + sqlInfo.getSql());
         database.execSQL(sqlInfo.getSql());
         Log.i(TAG,"execSqlInfo succeed......" );
     }
@@ -129,7 +130,7 @@ public class EMDatabase {
         /*
         public SqliteDbHelper(Context context, String name, int version, DbUpdateListener dbUpdateListener) {
             super(context, name, null, version);
-            Log.i(TAG,"EMDatabase SqliteDbHelper constructor");
+            DebugLog.i(TAG,"EMDatabase SqliteDbHelper constructor");
             this.mDbUpdateListener = dbUpdateListener;
         }*/
 

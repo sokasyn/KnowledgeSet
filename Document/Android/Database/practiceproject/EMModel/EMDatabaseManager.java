@@ -9,7 +9,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -85,6 +84,7 @@ public class EMDatabaseManager {
     public void dropAllTables() {
         EMSqlInfo sqlInfo = new EMSqlInfo();
         String sqlStr = "SELECT name FROM sqlite_master WHERE type ='table' AND name != 'sqlite_sequence'";
+
         Cursor cursor = db.queryWithSqlInfo(new EMSqlInfo(sqlStr));
         if (cursor != null) {
             while (cursor.moveToNext()) {
@@ -97,12 +97,31 @@ public class EMDatabaseManager {
         }
     }
 
-    public void dropTable(String tableName){
-
+    // 通过构建JSON的方式删除表,可批量
+    public void dropTableWithJson(String jsonString) throws JSONException{
+        Log.i(TAG,"dropTablesWithJson :" + jsonString);
+        if(db == null){
+            Log.i(TAG,"db object is null");
+            return;
+        }
+        ArrayList<EMSqlInfo> arrayList = EMSqlBuilder.buildDropTableSqlWithJson(jsonString);
+        for(int i = 0 ; i < arrayList.size(); i++){
+            db.execSqlInfo(arrayList.get(i));
+        }
     }
 
-    //************************************** Drop Tables **************************************/
-    public void updateTable(){
+    // 删除指定表
+    public void dropTable(String tableName){
+        if(db == null){
+            Log.i(TAG,"db object is null");
+            return;
+        }
+        EMSqlInfo sqlInfo = EMSqlBuilder.buildDropTableSqlWithName(tableName);
+        db.execSqlInfo(sqlInfo);
+    }
+
+    //************************************** Update Tables **************************************/
+    public void updateTable(String jsonString){
 
     }
 
@@ -180,7 +199,6 @@ public class EMDatabaseManager {
      */
     public void insertRecord(String tableName ,String jsonObjectStr){
         EMSqlInfo sqlInfo = EMSqlBuilder.buildInsertSql(tableName,jsonObjectStr);
-        Log.i(TAG,"SQL :" + sqlInfo.getSql());
         db.execSqlInfo(sqlInfo);
     }
 
@@ -194,7 +212,7 @@ public class EMDatabaseManager {
     *        格式形如:
     *        {"TABLE1":{"ID":100},
     *         "TABLE2":{"ID":2,"NAME":"ABC"}
-    *         "TABLE3":null}
+    *         "TABLE3":{}}
     *
     *         删除TABLE1中ID为100的数据；
     *         删除TABLE2中ID为2且NAME为ABC的数据;
@@ -208,6 +226,11 @@ public class EMDatabaseManager {
         }
         try{
             ArrayList<EMSqlInfo> arrayList = EMSqlBuilder.buildDeleteSqlWithJSONString(jsonString);
+            if(arrayList == null){
+                Log.i(TAG,"arrayList is null.return now");
+                return;
+            }
+
             for(int i = 0 ; i < arrayList.size(); i++){
                 db.execSqlInfo(arrayList.get(i));
             }
@@ -236,17 +259,21 @@ public class EMDatabaseManager {
             db.execSqlInfo(sqlInfo);
         }catch (JSONException e){
             Log.e(TAG,"!!!!!!!!!!!!!" + e.getMessage());
+            // throw new JSONException("JSON 格式出错,参数2非法");
         }
     }
 
-    public void deleteFromTable(String tableName){
+    /*
+     * 无条件删除表的数据,(清空表数据)
+     * @param tableName 目标数据表
+     *
+     */
+    public void clearFromTable(String tableName){
         EMSqlInfo sqlInfo = EMSqlBuilder.buildDeleteSql(tableName,null);
-        Log.i(TAG,"SQL :" + sqlInfo.getSql());
         db.execSqlInfo(sqlInfo);
-
     }
 
-    public void deleteWithSQL(String sqlStatement){
+    public void deleteWithPureSQL(String sqlStatement){
         db.execSqlInfo(new EMSqlInfo(sqlStatement));
     }
 

@@ -2,7 +2,8 @@ package com.emin.digit.mobile.android.learning.practiceproject.EMModel;
 
 import android.util.Log;
 
-import com.emin.digit.mobile.android.learning.practiceproject.common.ThisApplication;
+import com.emin.digit.mobile.android.learning.practiceproject.common.DebugLog;
+import com.emin.digit.mobile.android.learning.practiceproject.exception.EMDatabaseException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,9 +19,16 @@ public class EMSqlBuilder {
 
     private static final String TAG = EMSqlBuilder.class.getSimpleName();
 
-    //////////////////////////////create table sql start/////////////////////////////////////////////
+    private String getClassName(){
+        String className = this.getClass().getName();
+        return className;
+    }
 
+    // ========================== Build Create SQL ========================== //
     public static EMSqlInfo buildCreateTableSql(String tableName , String values){
+
+        String className = Thread.currentThread().getStackTrace()[1].getClassName();
+        DebugLog.methodStart(className);
 
         StringBuffer sqlBuffer = new StringBuffer();
         sqlBuffer.append("CREATE TABLE IF NOT EXISTS ");
@@ -34,10 +42,33 @@ public class EMSqlBuilder {
         return sqlInfo;
     }
 
-    //////////////////////////////insert sql start/////////////////////////////////////////////
+    // ========================== Build Drop Table SQL ========================== //
+    public static EMSqlInfo buildDropTableSqlWithName(String tableName){
+        if(tableName.trim().isEmpty() || tableName == null) {
+            throw new EMDatabaseException("Table name can not be null");
+        }
+        StringBuffer sqlBuffer = new StringBuffer();
+        sqlBuffer.append("DROP TABLE IF EXISTS ");
+        sqlBuffer.append(tableName);
+        EMSqlInfo sqlInfo = new EMSqlInfo(sqlBuffer.toString());
+        return sqlInfo;
+    }
 
+    public static ArrayList<EMSqlInfo> buildDropTableSqlWithJson(String jsonString) throws JSONException{
+        JSONArray array = new JSONArray(jsonString);
+        ArrayList<EMSqlInfo> sqlInfoList = new ArrayList<EMSqlInfo>();
+        for(int i = 0; i < array.length(); i++){
+            String tableName = array.getString(i);
+            EMSqlInfo sqlInfo = buildDropTableSqlWithName(tableName);
+            sqlInfoList.add(sqlInfo);
+        }
+        DebugLog.i(TAG,"Sql size:" + sqlInfoList.size());
+        return sqlInfoList;
+    }
+
+    // ========================== Build Insert SQL ========================== //
     public static EMSqlInfo buildInsertSql(String tableName, String jsonString){
-        Log.i(TAG,"=============buildInsertSql: table name:" + tableName + "jsonString: " + jsonString);
+        Log.i(TAG,"BuildInsertSql:table name:" + tableName + "jsonString: " + jsonString);
         StringBuffer sqlBuffer = new StringBuffer();
         sqlBuffer.append("INSERT INTO ");
         sqlBuffer.append(tableName);
@@ -74,11 +105,17 @@ public class EMSqlBuilder {
     //////////////////////////////delete sql start/////////////////////////////////////////////
 
     public static ArrayList<EMSqlInfo> buildDeleteSqlWithJSONString(String jsonString) throws JSONException{
+        if(jsonString.trim().isEmpty()){
+            DebugLog.i(TAG,"jsonString is empty");
+        }else{
+            DebugLog.i(TAG,jsonString);
+        }
         ArrayList<EMSqlInfo> sqlInfoList = new ArrayList<EMSqlInfo>();
         JSONObject obj = new JSONObject(jsonString);
         Iterator tableKeyIterator = obj.keys();
+
         while (tableKeyIterator.hasNext()){
-            EMSqlInfo sqlInfo = null;
+            EMSqlInfo sqlInfo;
             String tableName = (String)tableKeyIterator.next();
             Object object = obj.opt(tableName);
             if(object instanceof JSONObject){
@@ -91,6 +128,7 @@ public class EMSqlBuilder {
             }
             sqlInfoList.add(sqlInfo);
         }
+        DebugLog.i(TAG,"Sql size:" + sqlInfoList.size());
         return sqlInfoList;
     }
 

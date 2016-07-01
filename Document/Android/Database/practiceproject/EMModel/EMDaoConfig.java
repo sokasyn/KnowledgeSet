@@ -12,6 +12,7 @@ public class EMDaoConfig {
 
     private  static final String DB_NAME = "default_config.db";
     private  static final int DB_VERSION = 1;
+
     private Context mContext = null; // android上下文
     private String mDbName = DB_NAME; // 数据库名字
     private int dbVersion = DB_VERSION; // 数据库版本

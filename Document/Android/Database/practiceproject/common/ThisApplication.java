@@ -1,4 +1,4 @@
-package com.emin.digit.mobile.android.common;
+package com.emin.digit.mobile.android.learning.practiceproject.common;
 
 import android.app.Application;
 import android.content.Context;
@@ -9,12 +9,12 @@ import android.content.res.Resources;
  */
 public class ThisApplication extends Application{
 
-    private static ThisApplication mContext;
+    private static Context mContext;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        mContext = this;
+        mContext = getApplicationContext();
     }
 
     public static Context getAppContext(){

@@ -8,12 +8,16 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.emin.digit.mobile.android.learning.practiceproject.EMModel.EMDaoConfig;
 import com.emin.digit.mobile.android.learning.practiceproject.EMModel.EMDatabase;
 import com.emin.digit.mobile.android.learning.practiceproject.EMModel.EMDatabaseManager;
 import com.emin.digit.mobile.android.learning.practiceproject.Model.DatabaseHelper;
 import com.emin.digit.mobile.android.learning.practiceproject.Model.DatabaseManager;
+import com.emin.digit.mobile.android.learning.practiceproject.Util.BuildDeleteJSON;
+import com.emin.digit.mobile.android.learning.practiceproject.Util.BuildTableJSON;
+import com.emin.digit.mobile.android.learning.practiceproject.common.ConstantTable;
 import com.emin.digit.mobile.android.learning.practiceproject.common.ThisApplication;
 
 import org.json.JSONArray;
@@ -29,6 +33,8 @@ public class Number1Activity extends Activity implements OnClickListener {
 
     private static final String DB_NAME = "fish_1.db";
 
+    private static boolean isDebug = false;
+
     //声明五个控件对象
     Button createDatabase=null;
     Button updateDatabase=null;
@@ -36,6 +42,9 @@ public class Number1Activity extends Activity implements OnClickListener {
     Button update=null;
     Button query=null;
     Button delete=null;
+
+    EditText inputTestCase = null;
+    EditText inputTestMethod = null;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +60,11 @@ public class Number1Activity extends Activity implements OnClickListener {
         update = (Button) this.findViewById(R.id.update);
         query = (Button) this.findViewById(R.id.query);
         delete = (Button) this.findViewById(R.id.delete);
+
+        // input text
+        inputTestMethod = (EditText)findViewById(R.id.idTestMethodNum);
+        inputTestCase = (EditText)findViewById(R.id.idTestCaseNum);
+
         //添加监听器
         createDatabase.setOnClickListener(this);
         updateDatabase.setOnClickListener(this);
@@ -75,30 +89,89 @@ public class Number1Activity extends Activity implements OnClickListener {
     }
 
 
-    private static final String TBL_USER = "user";
-    private static final String TBL_ACCOUNT = "account";
-    private static final String TBL_ADDRESS = "address";
+    //  = = = = = = = = = = = = = = = 数据库的更新(表创建,表更新) = = = = = = = = = = = = = = =
+    public enum TestTableMethod{
+        createTables,
+        dropTable,
+        dropAllTables,
+        updateTables
+    }
 
-    // 创建数据表
-    private void initDatabase(){
-        try{
-            JSONObject obj = new JSONObject();
-            // table:user
-            obj.put(TBL_USER,"name,age");
+    private void testUpdateDatabase() throws Exception{
 
-            // table:account
-            obj.put(TBL_ACCOUNT,"name,password");
-
-            // table:address
-            obj.put(TBL_ADDRESS,"id,pid,name");
-
-            String jsonStr = obj.toString();
-            Log.i(TAG,"json string:" + jsonStr);
-
-            EMDatabaseManager.getInstance().createTables(jsonStr);
-        }catch (JSONException e){
-            Log.e(TAG,"JSONException occurred");
+        TestTableMethod testMethod = TestTableMethod.createTables;
+        int methodNum = Integer.parseInt(inputTestMethod.getText().toString());
+        switch (methodNum){
+            case 0:{
+                testMethod = TestTableMethod.createTables;
+                break;
+            }
+            case 1:{
+                testMethod = TestTableMethod.dropTable;
+                break;
+            }
+            case 2:{
+                testMethod = TestTableMethod.dropAllTables;
+                break;
+            }
+            case 3:{
+                testMethod = TestTableMethod.updateTables;
+                break;
+            }
+            default:{
+                break;
+            }
         }
+
+        switch (testMethod){
+            case createTables:{
+                Log.i(TAG,"Test createTables");
+                JSONObject tableJson = new JSONObject();
+                // table:user
+                tableJson.put(ConstantTable.TBL_USER,"name,age");
+
+                // table:account
+                tableJson.put(ConstantTable.TBL_ACCOUNT,"name,password");
+
+                // table:address
+                tableJson.put(ConstantTable.TBL_ADDRESS,"id,pid,name");
+
+                String jsonStr = tableJson.toString();
+                Log.i(TAG,"json string:" + jsonStr);
+
+                EMDatabaseManager.getInstance().createTables(jsonStr);
+                break;
+            }
+            case dropTable:{
+                Log.i(TAG,"Test dropTable");
+//                String tableName = inputTestCase.getText().toString();
+//                if(tableName.trim() == "" || tableName == null){
+//                    tableName = ConstantTable.TBL_USER;
+//                }
+//                Log.i(TAG,"Table Name :" + tableName);
+//
+                int caseNumber = Integer.parseInt(inputTestCase.getText().toString());
+                String jsonString = BuildTableJSON.buildDropJson(caseNumber);
+                Log.i(TAG,"input Case : " + caseNumber + "Json String:" + jsonString);
+
+                EMDatabaseManager.getInstance().dropTableWithJson(jsonString);
+                break;
+            }
+            case dropAllTables:{
+                Log.i(TAG,"Test dropAllTables");
+
+                break;
+            }
+            case updateTables:{
+                Log.i(TAG,"Test updateTables");
+
+                break;
+            }
+            default:{
+                break;
+            }
+        }
+
     }
 
     // 插入表数据
@@ -118,11 +191,10 @@ public class Number1Activity extends Activity implements OnClickListener {
                 userObj.put("age","" + i);
                 userDataArray.put(i,userObj);
             }
-            dataObj.put(TBL_USER,userDataArray);
+            dataObj.put(ConstantTable.TBL_USER,userDataArray);
 
 
             // ----- TABLE ACCOUNT
-
             JSONArray accountDataArray = new JSONArray();
             for(int i = 0 ; i < count ; i++){
                 JSONObject obj = new JSONObject();
@@ -130,7 +202,7 @@ public class Number1Activity extends Activity implements OnClickListener {
                 obj.put("password","" + i);
                 accountDataArray.put(i,obj);
             }
-            dataObj.put(TBL_ACCOUNT,accountDataArray);
+            dataObj.put(ConstantTable.TBL_ACCOUNT,accountDataArray);
 
             // ----- TABLE ADDRESS
             // 单条数据直接一个JSONObject
@@ -138,7 +210,7 @@ public class Number1Activity extends Activity implements OnClickListener {
             addrObj.put("id","1");
             addrObj.put("pid","");
             addrObj.put("name","Michael");
-            dataObj.put(TBL_ADDRESS,addrObj);
+            dataObj.put(ConstantTable.TBL_ADDRESS,addrObj);
 
             EMDatabaseManager.getInstance().insertRecords(dataObj.toString());
 
@@ -148,53 +220,67 @@ public class Number1Activity extends Activity implements OnClickListener {
 
     }
 
-    // 删除数据
-    private void testDeleteData(){
-        Log.i(TAG,"test delete records");
-        try {
-            testDeleteWithJsonString();
-        }catch (JSONException e){
-            Log.e(TAG,"!!!" + e.getMessage());
+
+    //  = = = = = = = = = = = = = = = = = = = = 删除数据 = = = = = = = = = = = = = = = = = = = =
+    public enum TestDeleteMethod{
+        deleteWithJsonString,
+        deleteFromTable,
+        clearFromTable
+    }
+
+    private void testDeleteData() throws JSONException{
+        TestDeleteMethod testMethod = TestDeleteMethod.deleteWithJsonString;
+        int methodNum = Integer.parseInt(inputTestMethod.getText().toString());
+        switch (methodNum){
+            case 0:{
+                testMethod = TestDeleteMethod.deleteWithJsonString;
+                break;
+            }
+            case 1:{
+                testMethod = TestDeleteMethod.deleteFromTable;
+                break;
+            }
+            case 2:{
+                testMethod = TestDeleteMethod.clearFromTable;
+                break;
+            }
+            default:{
+                break;
+            }
         }
-    }
 
-    private void testDeleteWithJsonString() throws JSONException{
-
-
-        JSONObject obj = new JSONObject();
-
-        JSONObject userWhereObj = new JSONObject();
-//        userWhereObj.put("name","Kate1");
-//        userWhereObj.put("age","1");
-        obj.put(TBL_USER,userWhereObj);
-//
-//
-        JSONObject accountWhereObj = new JSONObject();
-//        accountWhereObj.put("id","1");
-        obj.put(TBL_ACCOUNT,accountWhereObj);
-
-        JSONObject addressWhereObj = new JSONObject();
-//        addressWhereObj.put("id",null);
-        obj.put(TBL_ADDRESS,addressWhereObj);
-
-        Log.i(TAG,"JSON String:" + obj.toString());
-        EMDatabaseManager.getInstance().deleteWithJsonString(obj.toString());
-    }
-
-    private void deleteFromTable(){
-//        EMDatabaseManager.getInstance().deleteFromTable();
-    }
-
-    private JSONObject buildDeleteWhereJSONData(){
-        JSONObject obj = null;
-        try {
-            obj = new JSONObject();
-            obj.put("name","Samson");
-            obj.put("age" , "1");
-        }catch (JSONException e){
-            Log.e(TAG,"!!!!!!" + e.getMessage());
+        switch (testMethod){
+            case deleteWithJsonString:{
+                if(isDebug){
+                    for(int i = 0 ; i < 10; i++){
+                        String jsonString = BuildDeleteJSON.buildDeleteJsonForCase(i);
+                        Log.i(TAG,"Case " + i + " JSON String:" + jsonString);
+                    }
+                }
+                Log.i(TAG,"Test deleteWithJsonString");
+                int caseNumber = Integer.parseInt(inputTestCase.getText().toString());
+                String jsonString = BuildDeleteJSON.buildDeleteJsonForCase(caseNumber);
+                Log.i(TAG,"input Case : " + caseNumber + "Json String:" + jsonString);
+                EMDatabaseManager.getInstance().deleteWithJsonString(jsonString);
+                break;
+            }
+            case deleteFromTable:{
+                Log.i(TAG,"Test deleteFromTable");
+                String tableName = ConstantTable.TBL_USER;
+                String jsonString = BuildDeleteJSON.buildDeleteJsonWithTable(tableName);
+                EMDatabaseManager.getInstance().deleteFromTable(tableName, jsonString);
+                break;
+            }
+            case clearFromTable:{
+                Log.i(TAG,"Test clearFromTable");
+                String tableName = ConstantTable.TBL_USER;
+                EMDatabaseManager.getInstance().clearFromTable(tableName);
+                break;
+            }
+            default:{
+                break;
+            }
         }
-        return obj;
     }
 
 
@@ -248,7 +334,12 @@ public class Number1Activity extends Activity implements OnClickListener {
                 break;
             //更新数据库
             case R.id.updateDatabase:
-                initDatabase();
+                try{
+                    testUpdateDatabase();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
 //                DatabaseHelper dbHelper2 = new DatabaseHelper(getApplicationContext(), "fish_2.db");
 //                SQLiteDatabase db2 = dbHelper2.getReadableDatabase();
 
@@ -272,7 +363,7 @@ public class Number1Activity extends Activity implements OnClickListener {
                     String jsonStr = obj.toString();
                     DatabaseManager.getInstance().insert("user",jsonStr);
                 }catch (JSONException e){
-                    Log.e(TAG,"JSONException occured--------");
+                    DebugLog.e(TAG,"JSONException occured--------");
                     e.printStackTrace();
                 }
                 */
@@ -320,12 +411,18 @@ public class Number1Activity extends Activity implements OnClickListener {
                 while(cursor.moveToNext()){
                     String name = cursor.getString(cursor.getColumnIndex("name"));
                     //日志打印输出
-                    Log.i(TAG,"query-->"+name);
+                    DebugLog.i(TAG,"query-->"+name);
                 }*/
                 break;
             //删除记录
             case R.id.delete:
-                testDeleteData();
+
+                try{
+                    testDeleteData();
+                } catch (JSONException e){
+                    Log.e(TAG,"JSON Format error！！");
+                }
+
                 /*
                 DatabaseHelper dbHelper6 = new DatabaseHelper(Number1Activity.this,"test_db");
                 SQLiteDatabase db6 = dbHelper6.getWritableDatabase();
