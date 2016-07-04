@@ -1,6 +1,6 @@
-package com.emin.digit.mobile.android.learning.practiceproject.Util;
+package com.sokasyn.android.practice.SQLiteProject.Util;
 
-import com.emin.digit.mobile.android.learning.practiceproject.common.ConstantTable;
+import com.sokasyn.android.practice.SQLiteProject.common.ConstantTable;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -10,6 +10,22 @@ import org.json.JSONObject;
  * Created by Samson on 16/7/1.
  */
 public class BuildTableJSON {
+
+    public static String buildAlterTable(int caseNum) throws JSONException{
+        JSONObject alterObj = new JSONObject();
+        switch (caseNum){
+            case 0:{
+                alterObj.put(ConstantTable.TBL_USER,"telNum");
+                break;
+            }
+            case 1:{
+                alterObj.put(ConstantTable.TBL_ACCOUNT,"memo varchar(20)");
+                break;
+            }
+        }
+        return alterObj.toString();
+    }
+
 
     public static String buildDropJson(int caseNum) throws JSONException {
         JSONArray tableObj =  new JSONArray();

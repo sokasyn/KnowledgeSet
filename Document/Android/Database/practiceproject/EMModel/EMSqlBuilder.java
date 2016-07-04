@@ -1,9 +1,9 @@
-package com.emin.digit.mobile.android.learning.practiceproject.EMModel;
+package com.sokasyn.android.practice.SQLiteProject.EMModel;
 
 import android.util.Log;
 
-import com.emin.digit.mobile.android.learning.practiceproject.common.DebugLog;
-import com.emin.digit.mobile.android.learning.practiceproject.exception.EMDatabaseException;
+import com.sokasyn.android.practice.SQLiteProject.common.DebugLog;
+import com.sokasyn.android.practice.SQLiteProject.exception.EMDatabaseException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,7 +24,7 @@ public class EMSqlBuilder {
         return className;
     }
 
-    // ========================== Build Create SQL ========================== //
+    // * * * * * * * * * * Table Level: Build Create SQL * * * * * * * * * * //
     public static EMSqlInfo buildCreateTableSql(String tableName , String values){
 
         String className = Thread.currentThread().getStackTrace()[1].getClassName();
@@ -42,7 +42,7 @@ public class EMSqlBuilder {
         return sqlInfo;
     }
 
-    // ========================== Build Drop Table SQL ========================== //
+    // * * * * * * * * * * Table Level : Build Drop Table SQL * * * * * * * * * * //
     public static EMSqlInfo buildDropTableSqlWithName(String tableName){
         if(tableName.trim().isEmpty() || tableName == null) {
             throw new EMDatabaseException("Table name can not be null");
@@ -66,7 +66,40 @@ public class EMSqlBuilder {
         return sqlInfoList;
     }
 
-    // ========================== Build Insert SQL ========================== //
+    // * * * * * * * * * * Table Level : Build Alter Table SQL * * * * * * * * * * //
+    private static String getAlterTableSql(String tableName){
+        return "ALTER TABLE " + tableName;
+    }
+
+    public static EMSqlInfo buildAlterTableSql(String jsonString) throws JSONException{
+//        ALTER TABLE USER ADD COLUMN ADDRESS VARCHAR(20)
+        JSONObject alterObj = new JSONObject(jsonString);
+
+        StringBuffer sqlBuffer = new StringBuffer();
+        Iterator tableKeyIterator = alterObj.keys();
+        while (tableKeyIterator.hasNext()){
+            String tableName = (String)tableKeyIterator.next();
+            sqlBuffer.append(getAlterTableSql(tableName));
+            Object columnObj = alterObj.opt(tableName);
+            if(columnObj instanceof JSONArray){
+
+
+
+            }else{
+                sqlBuffer.append(" ADD COLUMN ");
+                sqlBuffer.append(columnObj.toString());
+            }
+        }
+        Log.i(TAG,sqlBuffer.toString());
+        return new EMSqlInfo(sqlBuffer.toString());
+    }
+
+    public static EMSqlInfo buildAlterTableSqlWithTable(String tableName){
+        StringBuffer sqlBuffer = new StringBuffer(getAlterTableSql(tableName));
+        return null;
+    }
+
+    // * * * * * * * * * *  Records Level: Build Insert SQL * * * * * * * * * * //
     public static EMSqlInfo buildInsertSql(String tableName, String jsonString){
         Log.i(TAG,"BuildInsertSql:table name:" + tableName + "jsonString: " + jsonString);
         StringBuffer sqlBuffer = new StringBuffer();
@@ -102,7 +135,7 @@ public class EMSqlBuilder {
         return  sqlInfo;
     }
 
-    //////////////////////////////delete sql start/////////////////////////////////////////////
+    // * * * * * * * * * *  Records Level: Build Delete SQL * * * * * * * * * * //
 
     public static ArrayList<EMSqlInfo> buildDeleteSqlWithJSONString(String jsonString) throws JSONException{
         if(jsonString.trim().isEmpty()){
@@ -173,8 +206,7 @@ public class EMSqlBuilder {
         return  sqlInfo;
     }
 
-    //////////////////////////////update sql start/////////////////////////////////////////////
-
+    // * * * * * * * * * *  Records Level : Build Update SQL * * * * * * * * * * //
     public static EMSqlInfo buildUpdateSql(String tableName, String updateString){
         Log.i(TAG,"=============buildUpdateSql: table name:" + tableName);
         StringBuffer sqlBuffer = new StringBuffer();
@@ -187,7 +219,7 @@ public class EMSqlBuilder {
         return  sqlInfo;
     }
 
-    //////////////////////////////select sql start/////////////////////////////////////////////
+    // * * * * * * * * * *  Records Level : Build Select SQL * * * * * * * * * * //
     private static String getSelectSqlWithTableName(String tableName){
         return new StringBuffer("SELECT * FROM ").append(tableName).toString();
     }

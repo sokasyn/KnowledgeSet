@@ -1,24 +1,23 @@
-package com.emin.digit.mobile.android.learning.practiceproject;
+package com.sokasyn.android.practice.SQLiteProject.activity;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.emin.digit.mobile.android.learning.practiceproject.EMModel.EMDaoConfig;
-import com.emin.digit.mobile.android.learning.practiceproject.EMModel.EMDatabase;
-import com.emin.digit.mobile.android.learning.practiceproject.EMModel.EMDatabaseManager;
-import com.emin.digit.mobile.android.learning.practiceproject.Model.DatabaseHelper;
-import com.emin.digit.mobile.android.learning.practiceproject.Model.DatabaseManager;
-import com.emin.digit.mobile.android.learning.practiceproject.Util.BuildDeleteJSON;
-import com.emin.digit.mobile.android.learning.practiceproject.Util.BuildTableJSON;
-import com.emin.digit.mobile.android.learning.practiceproject.common.ConstantTable;
-import com.emin.digit.mobile.android.learning.practiceproject.common.ThisApplication;
+import com.sokasyn.android.practice.SQLiteProject.EMModel.EMDaoConfig;
+import com.sokasyn.android.practice.SQLiteProject.EMModel.EMDatabase;
+import com.sokasyn.android.practice.SQLiteProject.EMModel.EMDatabaseManager;
+import com.sokasyn.android.practice.SQLiteProject.R;
+import com.sokasyn.android.practice.SQLiteProject.Util.BuildDeleteJSON;
+import com.sokasyn.android.practice.SQLiteProject.Util.BuildTableJSON;
+import com.sokasyn.android.practice.SQLiteProject.common.ConstantTable;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,7 +26,7 @@ import org.json.JSONObject;
 /**
  * Created by Samson on 16/6/22.
  */
-public class Number1Activity extends Activity implements OnClickListener {
+public class Number1Activity extends Activity implements View.OnClickListener {
 
     private static final String TAG = Number1Activity.class.getSimpleName();
 
@@ -159,12 +158,15 @@ public class Number1Activity extends Activity implements OnClickListener {
             }
             case dropAllTables:{
                 Log.i(TAG,"Test dropAllTables");
+                EMDatabaseManager.getInstance().dropAllTables();
 
                 break;
             }
             case updateTables:{
                 Log.i(TAG,"Test updateTables");
-
+                String jsonStr = BuildTableJSON.buildAlterTable(getCaseNumber());
+                Log.i(TAG,"JSON String:" + jsonStr);
+                EMDatabaseManager.getInstance().alterTable(jsonStr);
                 break;
             }
             default:{
@@ -258,9 +260,8 @@ public class Number1Activity extends Activity implements OnClickListener {
                     }
                 }
                 Log.i(TAG,"Test deleteWithJsonString");
-                int caseNumber = Integer.parseInt(inputTestCase.getText().toString());
-                String jsonString = BuildDeleteJSON.buildDeleteJsonForCase(caseNumber);
-                Log.i(TAG,"input Case : " + caseNumber + "Json String:" + jsonString);
+                String jsonString = BuildDeleteJSON.buildDeleteJsonForCase(getCaseNumber());
+                Log.i(TAG,"Json String:" + jsonString);
                 EMDatabaseManager.getInstance().deleteWithJsonString(jsonString);
                 break;
             }
@@ -283,6 +284,17 @@ public class Number1Activity extends Activity implements OnClickListener {
         }
     }
 
+    private int getCaseNumber(){
+        String inputCaseNum = inputTestCase.getText().toString();
+        if(inputCaseNum.trim() == "" || inputCaseNum == null){
+            Log.i(TAG,"No input");
+            return 0;
+        }
+
+        int caseNumber = Integer.parseInt(inputCaseNum);
+        Log.i(TAG,"input Case : " + caseNumber);
+        return caseNumber;
+    }
 
     // 更新数据
     private void updateData(){

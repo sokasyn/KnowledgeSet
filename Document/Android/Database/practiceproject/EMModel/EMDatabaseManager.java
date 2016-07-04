@@ -1,9 +1,9 @@
-package com.emin.digit.mobile.android.learning.practiceproject.EMModel;
+package com.sokasyn.android.practice.SQLiteProject.EMModel;
 
 import android.database.Cursor;
 import android.util.Log;
 
-import com.emin.digit.mobile.android.learning.practiceproject.exception.EMDatabaseException;
+import com.sokasyn.android.practice.SQLiteProject.exception.EMDatabaseException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -97,7 +97,7 @@ public class EMDatabaseManager {
         }
     }
 
-    // 通过构建JSON的方式删除表,可批量
+    // 通过构建JSON的方式删除表
     public void dropTableWithJson(String jsonString) throws JSONException{
         Log.i(TAG,"dropTablesWithJson :" + jsonString);
         if(db == null){
@@ -120,9 +120,15 @@ public class EMDatabaseManager {
         db.execSqlInfo(sqlInfo);
     }
 
-    //************************************** Update Tables **************************************/
-    public void updateTable(String jsonString){
+    //************************************** Alter Tables **************************************/
+    public void alterTable(String jsonString) throws JSONException{
+        if(db == null){
+            Log.i(TAG,"db object is null");
+            return;
+        }
 
+        EMSqlInfo sqlInfo = EMSqlBuilder.buildAlterTableSql(jsonString);
+        db.execSqlInfo(sqlInfo);
     }
 
     //************************************** Insert Records **************************************/
@@ -346,7 +352,6 @@ public class EMDatabaseManager {
 
         return jsonArray.toString();
     }
-
 
 
 }
