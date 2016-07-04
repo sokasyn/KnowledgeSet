@@ -348,3 +348,8 @@
     1.JSON:null的问题
       http://my.oschina.net/iq19900204/blog/408034
 
+2016-07-04
+    1.JAVA:接口与匿名类的使用技巧
+      http://blog.csdn.net/z69183787/article/details/8199646
+
+
