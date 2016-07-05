@@ -356,4 +356,6 @@
 2016-07-05
     1.iOS&android:消息推送
       http://my.oschina.net/starmier/blog/195136?p={{totalPage}}
+    2.消息机制的设计:iOS NSRunLop的理解
+      https://mikeash.com/pyblog/friday-qa-2010-01-01-nsrunloop-internals.html
 
