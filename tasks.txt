@@ -359,3 +359,16 @@
     2.消息机制的设计:iOS NSRunLop的理解
       https://mikeash.com/pyblog/friday-qa-2010-01-01-nsrunloop-internals.html
 
+
+2016-07-06
+    1.MQTT:实现Android的服务端推送服务
+      资源:https://github.com/mqtt/mqtt.github.io/wiki/software?id=software
+    2.Apollo
+      资源:http://activemq.apache.org/apollo/download.html
+    3.Paho
+      资源:https://repo.eclipse.org/content/repositories/paho/org/eclipse/paho/mqtt-client/0.4.0/
+    4.一个不错的博客
+      http://topmanopensource.iteye.com/category/64327
+    5.MQTT的理解
+      http://blog.csdn.net/xukai871105/article/details/39252653
+
