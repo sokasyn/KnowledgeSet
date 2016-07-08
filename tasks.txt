@@ -372,3 +372,8 @@
     5.MQTT的理解
       http://blog.csdn.net/xukai871105/article/details/39252653
 
+2016-07-08
+    1.Gradle和Maven的认识和理解
+      http://www.cnblogs.com/Leo_wl/p/5215385.html
+
+
