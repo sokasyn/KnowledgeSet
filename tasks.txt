@@ -376,4 +376,7 @@
     1.Gradle和Maven的认识和理解
       http://www.cnblogs.com/Leo_wl/p/5215385.html
 
+2016-07-11
+    1.Android:唯一标识码
+      http://blog.csdn.net/nanlus/article/details/8672430
 
