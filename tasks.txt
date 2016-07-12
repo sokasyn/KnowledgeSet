@@ -1,131 +1,131 @@
 #Git 
 2016-04-05
-  *  1..ignore的记录(已学习)
-     2.http://blog.csdn.net/liuqiaoyu080512/article/details/8648266
-  *  3.关于简化命令的调查,如输入git st ==>git status
-       (已学习,git config alias.st status,取消该配置:git config —unset alias.st)
-  *  4.我只commit到本地仓库,没有push到远程主机,怎么远程主机也变最新了?
-       (已学习,git commit 和git commit -a 的区别)
+  * 1.ignore的配置
+    2.http://blog.csdn.net/liuqiaoyu080512/article/details/8648266
+  * 3.关于简化命令的调查,如输入git st ==>git status
+      (git config alias.st status,取消该配置:git config —unset alias.st)
+  * 4.我只commit到本地仓库,没有push到远程主机,怎么远程主机也变最新了?
+      (git commit 和git commit -a 的区别)
 
 2016-04-06
-     1.iPhone旋转的适配问题     
-     2.关于各个iPhone版本的尺寸,像素等详细规格数据以及iOS基于这些数据的适配问题等
-       http://blog.csdn.net/phunxm/article/details/42174937
+    1.iPhone旋转的适配问题     
+    2.关于各个iPhone版本的尺寸,像素等详细规格数据以及iOS基于这些数据的适配问题等
+      http://blog.csdn.net/phunxm/article/details/42174937
 
 2016-04-07
-     1.关于Mac中的brew 类似Linux/centOS等系统的apt-get,yum 下载安装工具
-     2.iOS开发的设备,应用程序的旋转问题
+    1.关于Mac中的brew 类似Linux/centOS等系统的apt-get,yum 下载安装工具
+    2.iOS开发的设备,应用程序的旋转问题
 
 2016-04-08
-     1.关于Git的diff功能学习.(再确认,git diff master 在 git fetch前后)
+    1.关于Git的diff功能学习.(再确认,git diff master 在 git fetch前后)
 
 2016-04-09
-     1.关于git diff,想配置利用source tree工具进行差分查看的配置
-       https://git-scm.com/docs/git-mergetool
-     2.git 高级学习:http://blog.jobbole.com/26131/
-     3.http://www.cnblogs.com/flying_bat/p/3408634.html
-  *  4.git commit template的学习
-  *  5.vim 工具跳到文件开头(:0或者gg)和末尾(:$或者G)的方法;跳到行的开头(shift+6)/末尾(shift+4)的方法;
-     6.dispatch_group 全局的组的细节学习
+    1.关于git diff,想配置利用source tree工具进行差分查看的配置
+      https://git-scm.com/docs/git-mergetool
+    2.git 高级学习:http://blog.jobbole.com/26131/
+    3.http://www.cnblogs.com/flying_bat/p/3408634.html
+  * 4.git commit template的学习
+  * 5.vim 工具跳到文件开头(:0或者gg)和末尾(:$或者G)的方法;跳到行的开头(shift+6)/末尾(shift+4)的方法;
+    6.dispatch_group 全局的组的细节学习
 
 2016-04-10
-     1.终端使用的命令
-       http://www.cocoachina.com/industry/20140519/8466.html 
-     2.Excel中宏的使用
-     3.UIImagepickerViewController的自定义使用
-     4.图片的处理
-     5.动画的系统学习
-     6.UIScrollView翻页效果,UITableView,UICollectionView界面的动画效果整理,完善
-     7.SQLite,CoreDate的整理,完善
-     8.网络相关的整理,完善
+    1.终端使用的命令
+      http://www.cocoachina.com/industry/20140519/8466.html 
+    2.Excel中宏的使用
+    3.UIImagepickerViewController的自定义使用
+    4.图片的处理
+    5.动画的系统学习
+    6.UIScrollView翻页效果,UITableView,UICollectionView界面的动画效果整理,完善
+    7.SQLite,CoreDate的整理,完善
+    8.网络相关的整理,完善
 
 2016-04-11
-     1.JavaScript学习之时间的处理
-       http://www.cnblogs.com/qinpengming/archive/2012/12/03/2800002.html
-     2.JavaScript学习之function
-       http://www.cnblogs.com/see7di/archive/2011/06/18/2239716.html
-     3.plus.webview
-  *  4.在终端通过命令的方式查看端口的占用情况:lsof -i -P
-  *  5.简单查看自己的ip:config | grep inet
+    1.JavaScript学习之时间的处理
+      http://www.cnblogs.com/qinpengming/archive/2012/12/03/2800002.html
+    2.JavaScript学习之function
+      http://www.cnblogs.com/see7di/archive/2011/06/18/2239716.html
+    3.plus.webview
+  * 4.在终端通过命令的方式查看端口的占用情况:lsof -i -P
+  * 5.简单查看自己的ip:config | grep inet
 
 2016-04-12
-     1.JavaScript:addEventListener和闭包
+    1.JavaScript:addEventListener和闭包
 
 2016-04-13
-  *  1.JavaScript对象的学习
-     2.JavaScript中的arguments.callee()的调查
+  * 1.JavaScript对象的学习
+    2.JavaScript中的arguments.callee()的调查
 
 2016-04-18
-  *  1.MUI框架之mui.openWindow({});
-     2.iOS动画的完善与整理,与mui进行类比.
-  *  3.mui.fire()函数的调查.
-  *  4.重写mui.back(),显示在关闭之前执行一些必要的业务逻辑,比如刷新上一级页面
+  * 1.MUI框架之mui.openWindow({});
+    2.iOS动画的完善与整理,与mui进行类比.
+  * 3.mui.fire()函数的调查.
+  * 4.重写mui.back(),显示在关闭之前执行一些必要的业务逻辑,比如刷新上一级页面
 
 2016-04-19
-     1.调查:mui中要始终未button按钮添加type属性,否则,默认为submit,即点击了相当于要执行表单提交,页面会刷新,用户体验差
-  *  2.学习mui页面的传值问题(预加载和新创建中mui.openWindow()中的extras的有效性问题)
-     3.学习MUI,事件绑定,解绑,取消,手势，事件触发,自定义事件.
-       http://dev.dcloud.net.cn/mui/event/
+    1.调查:mui中要始终未button按钮添加type属性,否则,默认为submit,即点击了相当于要执行表单提交,页面会刷新,用户体验差
+  * 2.学习mui页面的传值问题(预加载和新创建中mui.openWindow()中的extras的有效性问题)
+    3.学习MUI,事件绑定,解绑,取消,手势，事件触发,自定义事件.
+      http://dev.dcloud.net.cn/mui/event/
 
 2016-04-20
-  *  1.git强制推送到远程服务器问题:git push origin master -f
-     2.git tag -a v1.0 给版本打上标签的用法;git log --decorate查看这些标签
-     3.调查git commit --anmend造成的于远程仓库冲突的问题(很确定今天遇到的这个问题就是--amend的操作造成)
-     4.git non-fast-forward errors的调查 
-  *  5.vi/vim 的复制,粘贴,块操作,快速替换功能的学习
-     6.Hybrid开发的载入页面之预载与现载的性能问题
-     7.5+SDK 集成原生应用的demo,从零开始,不用SDK提供的demo
+  * 1.git强制推送到远程服务器问题:git push origin master -f
+    2.git tag -a v1.0 给版本打上标签的用法;git log --decorate查看这些标签
+    3.调查git commit --anmend造成的于远程仓库冲突的问题(很确定今天遇到的这个问题就是--amend的操作造成)
+    4.git non-fast-forward errors的调查 
+  * 5.vi/vim 的复制,粘贴,块操作,快速替换功能的学习
+    6.Hybrid开发的载入页面之预载与现载的性能问题
+    7.5+SDK 集成原生应用的demo,从零开始,不用SDK提供的demo
 
 2016-04-21
-     1.iOS9的3D Touch调查
-     2.iOS本地自定义消息提醒
-     3.iOS自动布局之 autoresizingMask 
-       http://www.cocoachina.com/ios/20141216/10652.html
-  *  4.Xcode工程中黄色与蓝色文件夹的区别与做法.(拖入工程的时候选择Group和folder，后者的文件都不会参与编译)
-     5.试验:在源代码中可以通过一个编译器指令__has_feature(objc_arc)来检测项目是否使用了ARC
+    1.iOS9的3D Touch调查
+    2.iOS本地自定义消息提醒
+    3.iOS自动布局之 autoresizingMask 
+      http://www.cocoachina.com/ios/20141216/10652.html
+  * 4.Xcode工程中黄色与蓝色文件夹的区别与做法.(拖入工程的时候选择Group和folder，后者的文件都不会参与编译)
+    5.试验:在源代码中可以通过一个编译器指令__has_feature(objc_arc)来检测项目是否使用了ARC
 
 2016-04-22
-     1.Xcode的环境变量及路劲;导入静态库时,需要配置-Objc(Other linker flag);
+    1.Xcode的环境变量及路劲;导入静态库时,需要配置-Objc(Other linker flag);
       http://www.cnblogs.com/shirley-1019/p/3823906.html
       http://blog.csdn.net/phunxm/article/details/17044337/
       http://blog.csdn.net/phunxm/article/details/17044337/
 
 2016-04-25
-     1.iOS中静态库与动态库的区别与制作
+    1.iOS中静态库与动态库的区别与制作
       http://www.360doc.com/content/15/0910/23/26281448_498349415.shtml
       http://www.tuicool.com/articles/VFFjmq6
-     2.Other Linker Flags -Objc的作用
-     3.iOS,NSEnum&NSOption再完善;
+    2.Other Linker Flags -Objc的作用
+    3.iOS,NSEnum&NSOption再完善;
 
 2016-04-26
-     1.以Sotryboard或IB设计界面的技巧
-       http://my.oschina.net/makeffort/blog/85534?p=1
-     2.HTML5+ App升级,Hybrid app的升级，如果是前端(HTML,JS,CSS等www内的资源),不需要重新打包上传(尤其是苹果应用需要审核)
-       2-1. 整包(apk/ipa)升级 http://ask.dcloud.net.cn/docs/#http://ask.dcloud.net.cn/article/431
-       2-2. 资源升级(wgt)     http://ask.dcloud.net.cn/docs/#http://ask.dcloud.net.cn/article/182
-       2-3. 资源差量升级(wgtu)http://ask.dcloud.net.cn/docs/#http://ask.dcloud.net.cn/article/199
-     3.ajax的使用
-     4.阅读:http://kb.cnblogs.com/page/129756/
-     5.阅读http下载 http://blog.csdn.net/wong_judy/article/details/5785315
-     6.HTML5+SDK runtime API
-     7.阅读http://www.jianshu.com/p/77a4349bf67b
+    1.以Sotryboard或IB设计界面的技巧
+      http://my.oschina.net/makeffort/blog/85534?p=1
+    2.HTML5+ App升级,Hybrid app的升级，如果是前端(HTML,JS,CSS等www内的资源),不需要重新打包上传(尤其是苹果应用需要审核)
+      2-1. 整包(apk/ipa)升级 http://ask.dcloud.net.cn/docs/#http://ask.dcloud.net.cn/article/431
+      2-2. 资源升级(wgt)     http://ask.dcloud.net.cn/docs/#http://ask.dcloud.net.cn/article/182
+      2-3. 资源差量升级(wgtu)http://ask.dcloud.net.cn/docs/#http://ask.dcloud.net.cn/article/199
+    3.ajax的使用
+    4.阅读:http://kb.cnblogs.com/page/129756/
+    5.阅读http下载 http://blog.csdn.net/wong_judy/article/details/5785315
+    6.HTML5+SDK runtime API
+    7.阅读http://www.jianshu.com/p/77a4349bf67b
 
 2016-04-28
-     1.Mac第三方应用的环境配置快捷命令,如tomcat,在终端输入tomcat start等命令取代到bin目录执行startup.sh
-       http://blog.sina.com.cn/s/blog_5a6efa330101eq5z.html
-  *  2.在不做web工程的前提下,将Tomcat作为一个简单的可供HTTP下载的服务器,即只需要将文件放到webapps/ROOT下,或者配置相关文件
-       http://blog.csdn.net/yuan882696yan/article/details/26680253
+    1.Mac第三方应用的环境配置快捷命令,如tomcat,在终端输入tomcat start等命令取代到bin目录执行startup.sh
+      http://blog.sina.com.cn/s/blog_5a6efa330101eq5z.html
+  * 2.在不做web工程的前提下,将Tomcat作为一个简单的可供HTTP下载的服务器,即只需要将文件放到webapps/ROOT下,或者配置相关文件
+      http://blog.csdn.net/yuan882696yan/article/details/26680253
 
 2016-04-29
-     1.HTML5+ download模块学习,并用OC语言开发出类似模块,以供后面项目使用
+    1.HTML5+ download模块学习,并用OC语言开发出类似模块,以供后面项目使用
 
 2016-05-04
-     2.Hybrid升级模块的制造
+    2.Hybrid升级模块的制造
 
 2016-05-06
-     1.http://www.cnblogs.com/hyddd/archive/2009/03/31/1426026.html
-     2.关于git乱码的又一篇可以阅读和学习的文章
-       http://zengrong.net/post/1249.htm
+    1.http://www.cnblogs.com/hyddd/archive/2009/03/31/1426026.html
+    2.关于git乱码的又一篇可以阅读和学习的文章
+      http://zengrong.net/post/1249.htm
 
 2016-05-10
     1.web的跨域访问了解
@@ -186,7 +186,7 @@
       http://www.csdn.net/article/2013-11-17/2817531
 
 2016-05-24
- *  1.Android学习,多线程之AsyncTask Demo以及文档做成
+  * 1.Android学习,多线程之AsyncTask Demo以及文档做成
     2.Android ,AsyncTask 关于cancel不是立即终止任务的解决办法调查与测试
     3.Java中的内部类,在Android中的AsyncTask就有这样的使用
       http://android.blog.51cto.com/268543/384844/
@@ -201,23 +201,23 @@
       http://www.tuicool.com/articles/NzEVzqI
 
 2016-05-26
- *  1.iOS,对象数组排序工具类,普通字符串数组,自定义对象数组按照属性排序,支持多个属性排序
+  * 1.iOS,对象数组排序工具类,普通字符串数组,自定义对象数组按照属性排序,支持多个属性排序
     2.iOS,细节陷阱[string compare:string2]==NSOrderedSame ,string为nil时,值为true
     3.iOS API设计规则
       http://www.tuicool.com/articles/viuQVj
     4.android handler,将Handler单独抽出来,可以处理特定业务的Handler,通过Message的what属性设计业务功能代码
-     http://www.codeceo.com/article/android-handler-usage.html
+      http://www.codeceo.com/article/android-handler-usage.html
     5.Android:Context
-     http://blog.csdn.net/qinjuning/article/details/7310620
+      http://blog.csdn.net/qinjuning/article/details/7310620
     6.android:service的学习
-     http://www.cnblogs.com/newcj/archive/2011/05/30/2061370.html
+      http://www.cnblogs.com/newcj/archive/2011/05/30/2061370.html
     7.android:完成LocalService的Demo与文档
     8.Android:多线程java中的实现方式
-     http://blog.csdn.net/mad1989/article/details/38234759
+      http://blog.csdn.net/mad1989/article/details/38234759
 
 2016-05-30
- *  1.Android:多线程的两种实现方式(继承Thread类,实现Runnable接口)
- *  2.Android:多线程中,start()和run()的原理
+  * 1.Android:多线程的两种实现方式(继承Thread类,实现Runnable接口)
+  * 2.Android:多线程中,start()和run()的原理
     3.iOS,中实现选择性监听某个对象的某个Notification,以及选择性的取消对某个对象某个Notification的监听
       http://blog.csdn.net/nogodoss/article/details/39156125
 
@@ -246,18 +246,18 @@
     1.Xcocde配置 Architectures
 
 2016-06-08
- *  1.基于定位技术的原理了解
+  * 1.基于定位技术的原理了解
     2.高德地图
     3.获取当前定位信息
     4.多个定位连成的路劲
     5.围栏
 
 2016-06-09
- *  1.Ruby的更新,通过安装rvm来管理ruby的版本
- *  2.cocoapods的安装,管理iOS第三方库
- *  3.cocoapods与iOS工程的结合使用
+  * 1.Ruby的更新,通过安装rvm来管理ruby的版本
+  * 2.cocoapods的安装,管理iOS第三方库
+  * 3.cocoapods与iOS工程的结合使用
     4.以上文档的建立
- *  5.iOS项目配置:编译次数的配置(Build version)
+  * 5.iOS项目配置:编译次数的配置(Build version)
       xcrun agvtool next-version -all
 
 
@@ -292,7 +292,6 @@
     3.iOS,完善JSONHelper,将json字符串格式化地写入文件
     4.iOS,app应用增加,当出现应用崩溃的时候,发送E-mail到开发者邮箱
 
-
 2016-06-17
     1.Mac 配置以Eclipse 开发android环境
       https://support.apple.com/kb/DL1572?locale=zh_CN
@@ -325,7 +324,6 @@
       http://blog.csdn.net/lincyang/article/details/5675846
     3.Java:多线程的同步问题
       http://www.cnblogs.com/devinzhang/archive/2011/12/14/2287675.html
-
       https://github.com/yangfuhai/afinal.git
     
 2016-06-27
@@ -342,7 +340,7 @@
 
 2016-06-30
     1.Android :Gradle
-     http://www.androidchina.net/2155.html
+      http://www.androidchina.net/2155.html
 
 2016-07-01
     1.JSON:null的问题
@@ -352,13 +350,11 @@
     1.JAVA:接口与匿名类的使用技巧
       http://blog.csdn.net/z69183787/article/details/8199646
 
-
 2016-07-05
     1.iOS&android:消息推送
       http://my.oschina.net/starmier/blog/195136?p={{totalPage}}
     2.消息机制的设计:iOS NSRunLop的理解
       https://mikeash.com/pyblog/friday-qa-2010-01-01-nsrunloop-internals.html
-
 
 2016-07-06
     1.MQTT:实现Android的服务端推送服务
@@ -379,4 +375,16 @@
 2016-07-11
     1.Android:唯一标识码
       http://blog.csdn.net/nanlus/article/details/8672430
+
+2016-07-12
+    1.Mac:自带Apache服务和PHP服务
+      http://www.tuicool.com/articles/ZjmqYb3
+    2.Android:Intent与Android三大核心组件
+      http://www.tuicool.com/articles/AvAbqyf
+    3.Android:实现bug的热修复问题
+      http://blog.csdn.net/l2show/article/details/46967987
+    4.Android:关于Intent的系统自带的Action(如打电话等)以及第三方调用的使用
+      http://my.oschina.net/yuanxulong/blog/367490
+    5.Android:Prefrence的使用
+      
 
