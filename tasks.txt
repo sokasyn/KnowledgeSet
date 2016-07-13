@@ -367,6 +367,9 @@
       http://topmanopensource.iteye.com/category/64327
     5.MQTT的理解
       http://blog.csdn.net/xukai871105/article/details/39252653
+  * 6.Android推送:RSMB
+      http://blog.sina.com.cn/s/blog_6c762bb30101bkjo.html
+      http://blog.sina.com.cn/s/blog_6c762bb30101bkfp.html
 
 2016-07-08
     1.Gradle和Maven的认识和理解
@@ -387,4 +390,13 @@
       http://my.oschina.net/yuanxulong/blog/367490
     5.Android:Prefrence的使用
       
+2016-07-13
+    1.Android:framework 汇总学习
+      http://blog.csdn.net/banketree/article/details/24718899
+      http://blog.csdn.net/banketree/article/details/24982021
+    2.Android:HAL-hardware层原理
+      http://blog.csdn.net/linux_zkf/article/details/7492391
+      2.1 wifi
+          http://blog.csdn.net/linux_zkf/article/details/7492720
+
 
