@@ -389,7 +389,8 @@
     4.Android:关于Intent的系统自带的Action(如打电话等)以及第三方调用的使用
       http://my.oschina.net/yuanxulong/blog/367490
     5.Android:Prefrence的使用
-      
+    6.Java静态导入
+      http://www.tuicool.com/articles/3UB7fmQ      
 2016-07-13
     1.Android:framework 汇总学习
       http://blog.csdn.net/banketree/article/details/24718899
@@ -403,4 +404,15 @@
     1.Android学习:老罗的Android之旅
       http://blog.csdn.net/luoshengyang/article/details/8923485
 
+2016-07-15
+    Android 单元测试专题
+    1.Google android test samples code on Github
+      https://github.com/googlesamples/android-testing
+    2.Other Github project
+      https://github.com/applicake/Beandroid
+    3.Other Infomation
+      http://www.jianshu.com/p/03118c11c199
+      http://m.blog.csdn.net/article/details?id=50505040
+      类: http://www.tuicool.com/articles/jYBfqq
+      http://lichengfeng.cn/archives/262.html
 
