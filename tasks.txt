@@ -421,3 +421,9 @@
       Github 项目:
       https://github.com/yangfuhai/ASimpleCache
 
+2016-07-19
+    1.Android:缓存机制
+      Java:byte 和char
+      http://blog.csdn.net/luoweifu/article/details/7770588
+
+
