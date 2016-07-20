@@ -403,6 +403,8 @@
 2016-07-14
     1.Android学习:老罗的Android之旅
       http://blog.csdn.net/luoshengyang/article/details/8923485
+    2.优秀的Github开源项目
+      http://www.cnblogs.com/hawkon/p/3593709.html
 
 2016-07-15
     Android 单元测试专题
@@ -427,3 +429,9 @@
       http://blog.csdn.net/luoweifu/article/details/7770588
 
 
+2016-07-20
+    1.Android:单例模式的内存泄漏问题,如传入界面的context,但界面退出,单例持有context的引用
+    2.Java:java.util.Properties 配置的使用
+    3.Android:资源目录assets和res
+      http://www.cnblogs.com/pang123hui/archive/2013/11/06/3411523.html
+   
