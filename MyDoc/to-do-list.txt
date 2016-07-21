@@ -8,3 +8,7 @@ http://www.cnblogs.com/hawkon/p/3593709.html
   Github
   https://github.com/mttkay/droid-fu.git
 
+2.文件处理专题
+  字符编码问题
+  http://blog.sina.com.cn/s/blog_4b4409c30100vw9t.html
+
