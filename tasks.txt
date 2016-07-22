@@ -434,4 +434,11 @@
     2.Java:java.util.Properties 配置的使用
     3.Android:资源目录assets和res
       http://www.cnblogs.com/pang123hui/archive/2013/11/06/3411523.html
-   
+
+2016-07-22
+    1.Java 设计模式工程建立,完善以及实践各种设计模式
+      单例,适配,模版
+    2.Android:Database模块重构,解决问题：
+     2.1  多个数据库实例的可能性
+     2.2  未来基于ORM的扩展,不影响web前端接口的设计
+
