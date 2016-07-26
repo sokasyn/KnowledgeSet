@@ -442,3 +442,8 @@
      2.1  多个数据库实例的可能性
      2.2  未来基于ORM的扩展,不影响web前端接口的设计
 
+2016-07-26
+    1.Android:查询的一个疑惑cursor.moveToNext
+     真相:查询中,得到的cursor的初始位置是指向第一条记录的前一个位置的
+          所以moveToNext()会移动到第一条记录的位置,在while(cusour.moveToNext()),并不会忽略第一个记录
+
