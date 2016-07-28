@@ -1,13 +1,16 @@
 #created 2016-07-20
 #to-do-list
 开源项目的阅读与学习
-http://www.cnblogs.com/hawkon/p/3593709.html
+1.http://www.cnblogs.com/hawkon/p/3593709.html
+2.xUtils
 
 常用算法
 http://www.weixueyuan.net/java/suanfa/
 
 #移动应用界面布局专题-Android
 
+#集成支付到公司应用的开发
+相关文档的目录:/Users/jim/Samson/Manager/document/3_emin/digit/支付的集成相关文档
 
 #EMFramework-android
 1.缓存专题
