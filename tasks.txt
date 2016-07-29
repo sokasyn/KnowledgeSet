@@ -447,3 +447,10 @@
      真相:查询中,得到的cursor的初始位置是指向第一条记录的前一个位置的
           所以moveToNext()会移动到第一条记录的位置,在while(cusour.moveToNext()),并不会忽略第一个记录
 
+2016-07-29
+    1.Android:SQLiteDatabase 每一次操作都需要关闭吗(close()方法)?
+      不需要,关闭了反而会出现多线程的安全问题
+      http://stackoverflow.com/questions/6675240/is-sqlite-database-instance-thread-safe
+      http://blog.csdn.net/xu_fu/article/details/44672635
+
+
