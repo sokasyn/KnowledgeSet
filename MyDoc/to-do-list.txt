@@ -25,3 +25,8 @@ http://www.weixueyuan.net/java/suanfa/
   模版方法模式
   http://blog.csdn.net/jason0539/article/details/45037535
 
+#常见问题收集专题
+1.Android stuido 专题
+http://blog.csdn.net/fakine/article/details/51241202
+
+

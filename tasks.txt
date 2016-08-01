@@ -453,4 +453,13 @@
       http://stackoverflow.com/questions/6675240/is-sqlite-database-instance-thread-safe
       http://blog.csdn.net/xu_fu/article/details/44672635
 
+2016-08-01
+    1.Andoid:真机调试,查看数据库等应用在真机上的数据办法
+      采用第三方工具获取手机的root权限后,用adb shell 更改相应目录的读写权限后,通过在终端shell或者ddms管理器查看
+      http://www.07net01.com/zhishi/183786.html
+      http://www.bubuko.com/infodetail-1101238.html   // adb not found 问题,将android sdk的platform_tool配置到PATH
+    2.Android:@SuppressLint 的用法
+    3.Hybrid:jsBridge:Web中的javascript与原生层的交互研究
+      https://github.com/lzyzsd/JsBridge
+
 
