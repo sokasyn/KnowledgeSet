@@ -462,4 +462,8 @@
     3.Hybrid:jsBridge:Web中的javascript与原生层的交互研究
       https://github.com/lzyzsd/JsBridge
 
+2016-08-02
+    1.Android:Hybrid:jsBridge:Web中的javascript与原生层的交互研究
+      http://blog.csdn.net/xyz_lmn/article/details/39473701
+
 

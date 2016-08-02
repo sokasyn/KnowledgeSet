@@ -5,3 +5,6 @@ http://www.bkjia.com/Androidjc/887665.html
 #一个不错风格的博客
 http://lichengfeng.cn/archives/262.html
 
+
+https://github.com/pedant/safe-java-js-webview-bridge
+https://github.com/lzyzsd/JsBridge.git
