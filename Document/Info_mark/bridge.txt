@@ -1,0 +1,16 @@
+#关于WebViewClient和WebChromClient
+http://www.cnblogs.com/lm3515/archive/2011/03/14/1984091.html
+http://gundumw100.iteye.com/blog/1158719
+http://www.imooc.com/wenda/detail/308365?t=147943
+http://www.cnblogs.com/yaozhongxiao/p/3408948.html
+http://blog.csdn.net/yung7086/article/details/34824167
+
+handler:
+http://www.sollyu.com/android-software-development-webview-addjavascriptinterface-cycle-of-gradual-two/
+
+#Google 关于@JavascriptInterface 的说明
+http://www.eoeandroid.com/thread-549571-1-1.html?_dsign=d9715181
+
+#JSBridge原理
+http://blog.csdn.net/u012971339/article/details/50770854
+
