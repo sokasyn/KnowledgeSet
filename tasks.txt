@@ -471,5 +471,7 @@
       http://blog.csdn.net/honeybaby201314/article/details/38732771
     2.Android:EminBridge,一个关于JSBridge很有启发的设计
       http://blog.csdn.net/u012971339/article/details/50770854
+    3.Android EminBridge:完成参数,返回值的设计,多线程执行后的js回调的设计
+
 
 
