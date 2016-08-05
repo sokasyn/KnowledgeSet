@@ -473,5 +473,10 @@
       http://blog.csdn.net/u012971339/article/details/50770854
     3.Android EminBridge:完成参数,返回值的设计,多线程执行后的js回调的设计
 
+2016-08-05
+    1.Hybrid:单WebView和多WebView的优劣分析
+      http://www.open-open.com/lib/view/open1464133855416.html
+    2.分析和学习一个构建混合开发框架的经验
+      http://www.cocoachina.com/ios/20150911/13301.html
 
 
