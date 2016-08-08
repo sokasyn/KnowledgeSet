@@ -479,4 +479,10 @@
     2.分析和学习一个构建混合开发框架的经验
       http://www.cocoachina.com/ios/20150911/13301.html
 
+2016-08-08
+    1.Android:EminBride,Html页面切换之后,页面之间的消息交互问题
+      1.1 Android的消息机制:Handler
+          http://blog.csdn.net/ahuier/article/details/17012005
+          // 很有启发的一片文章,消息机制的原理,从源代码分析
+          http://blog.csdn.net/lmj623565791/article/details/38377229
 
