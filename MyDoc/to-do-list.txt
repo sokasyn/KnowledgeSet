@@ -3,6 +3,9 @@
 开源项目的阅读与学习
 http://www.cnblogs.com/hawkon/p/3593709.html
 
+设计的学习
+http://www.cnblogs.com/chehaoj/archive/2010/12/09/1901049.html
+
 #EMFramework-android
 1.缓存专题
   Github
@@ -11,4 +14,6 @@ http://www.cnblogs.com/hawkon/p/3593709.html
 2.文件处理专题
   字符编码问题
   http://blog.sina.com.cn/s/blog_4b4409c30100vw9t.html
+  字符的各种进制的转换问题
+  http://blog.csdn.net/tangxufeng/article/details/4288106
 
