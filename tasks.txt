@@ -434,4 +434,61 @@
     2.Java:java.util.Properties 配置的使用
     3.Android:资源目录assets和res
       http://www.cnblogs.com/pang123hui/archive/2013/11/06/3411523.html
-   
+
+2016-07-22
+    1.Java 设计模式工程建立,完善以及实践各种设计模式
+      单例,适配,模版
+    2.Android:Database模块重构,解决问题：
+     2.1  多个数据库实例的可能性
+     2.2  未来基于ORM的扩展,不影响web前端接口的设计
+
+2016-07-26
+    1.Android:查询的一个疑惑cursor.moveToNext
+     真相:查询中,得到的cursor的初始位置是指向第一条记录的前一个位置的
+          所以moveToNext()会移动到第一条记录的位置,在while(cusour.moveToNext()),并不会忽略第一个记录
+
+2016-07-29
+    1.Android:SQLiteDatabase 每一次操作都需要关闭吗(close()方法)?
+      不需要,关闭了反而会出现多线程的安全问题
+      http://stackoverflow.com/questions/6675240/is-sqlite-database-instance-thread-safe
+      http://blog.csdn.net/xu_fu/article/details/44672635
+
+2016-08-01
+    1.Andoid:真机调试,查看数据库等应用在真机上的数据办法
+      采用第三方工具获取手机的root权限后,用adb shell 更改相应目录的读写权限后,通过在终端shell或者ddms管理器查看
+      http://www.07net01.com/zhishi/183786.html
+      http://www.bubuko.com/infodetail-1101238.html   // adb not found 问题,将android sdk的platform_tool配置到PATH
+    2.Android:@SuppressLint 的用法
+    3.Hybrid:jsBridge:Web中的javascript与原生层的交互研究
+      https://github.com/lzyzsd/JsBridge
+
+2016-08-02
+    1.Android:Hybrid:jsBridge:Web中的javascript与原生层的交互研究
+      http://blog.csdn.net/xyz_lmn/article/details/39473701
+
+2016-08-04
+    1.Android:EminBridge,WebView的封装,html跳转的动画问题
+      http://blog.csdn.net/honeybaby201314/article/details/38732771
+    2.Android:EminBridge,一个关于JSBridge很有启发的设计
+      http://blog.csdn.net/u012971339/article/details/50770854
+    3.Android EminBridge:完成参数,返回值的设计,多线程执行后的js回调的设计
+
+2016-08-05
+    1.Hybrid:单WebView和多WebView的优劣分析
+      http://www.open-open.com/lib/view/open1464133855416.html
+    2.分析和学习一个构建混合开发框架的经验
+      http://www.cocoachina.com/ios/20150911/13301.html
+
+2016-08-08
+    1.Android:EminBride,Html页面切换之后,页面之间的消息交互问题
+      1.1 Android的消息机制:Handler
+          http://blog.csdn.net/ahuier/article/details/17012005
+          // 很有启发的一片文章,消息机制的原理,从源代码分析
+          http://blog.csdn.net/lmj623565791/article/details/38377229
+
+2016-08-09
+   1.Java:队列的设计相关
+     http://www.jb51.net/article/58204.htm
+   2.Java:守护线程使用,如清理队列中的过期对象
+     http://www.jb51.net/article/58204.htm
+ 

@@ -1,0 +1,29 @@
+#关于android 内部存储的一些重要的API,主要用到context
+http://blog.csdn.net/hudashi/article/details/8037076
+http://www.bkjia.com/Androidjc/887665.html
+
+#一个不错风格的博客
+http://lichengfeng.cn/archives/262.html
+
+
+https://github.com/pedant/safe-java-js-webview-bridge
+https://github.com/lzyzsd/JsBridge.git
+
+#Android开发错误汇总
+http://blog.csdn.net/panfb227/article/details/6152988
+
+
+#Android JsBridge
+1.漏洞
+http://blog.csdn.net/leehong2005/article/details/11808557/
+
+#Javascript
+1.判断对象是否存在
+http://www.ruanyifeng.com/blog/2011/05/how_to_judge_the_existence_of_a_global_object_in_javascript.html
+
+2.关于Window
+http://www.tuicool.com/articles/bMrInu2
+
+3.访问对象属性,点操作符和中括号操作符号
+
+
