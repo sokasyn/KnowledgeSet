@@ -486,3 +486,9 @@
           // 很有启发的一片文章,消息机制的原理,从源代码分析
           http://blog.csdn.net/lmj623565791/article/details/38377229
 
+2016-08-09
+   1.Java:队列的设计相关
+     http://www.jb51.net/article/58204.htm
+   2.Java:守护线程使用,如清理队列中的过期对象
+     http://www.jb51.net/article/58204.htm
+ 

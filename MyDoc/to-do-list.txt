@@ -12,6 +12,10 @@ http://www.weixueyuan.net/java/suanfa/
 #集成支付到公司应用的开发
 相关文档的目录:/Users/jim/Samson/Manager/document/3_emin/digit/支付的集成相关文档
 
+#时间相关处理专题
+SystemClock.uptimeMillis
+System.currentTimeMillis
+
 #EMFramework-android
 1.缓存专题
   Github
@@ -50,7 +54,9 @@ http://www.weixueyuan.net/java/suanfa/
      http://blog.csdn.net/leehong2005/article/details/11808557/
  2.2 多线程安全问题
 
-
+#Android 消息机制专题
+1.底层的消息循环机制epoll的实现
+  http://blog.csdn.net/ashqal/article/details/32107099
 
 #Android UI 专题
 1.WebView
