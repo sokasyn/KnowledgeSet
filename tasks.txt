@@ -495,3 +495,11 @@
    2.Java:守护线程使用,如清理队列中的过期对象
      http://www.jb51.net/article/58204.htm
  
+2016-08-10
+   1.Hybrid:Android,Web前端出错的问题
+     WebView可以监听控制台信息,如监听到js的某个异常/错误,并捕获处理
+     http://www.2cto.com/kf/201404/292474.html
+   2.Hybrid:Android,web前端页面跳转,原生webview实现跳转动画
+   3.Javascript,页面返回上一页,Android原生对该事件的封装(相当于调用android设备的返回键事件)
+     关于js的页面返回:http://blog.csdn.net/zjx2388/article/details/2617051
+ 

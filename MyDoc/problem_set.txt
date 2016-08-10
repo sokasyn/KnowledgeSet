@@ -1,0 +1,7 @@
+#Android部分
+The specified child already has a parent. You must call removeView() on the child's parent first
+
+我的解决:在addView(targetView) 之前,先判断targetView是否已经有parent(即之前已经被add),没有才add
+Code: if(targetView.getParent() == null){parentView.addView(targetView); }
+
+
