@@ -502,4 +502,9 @@
    2.Hybrid:Android,web前端页面跳转,原生webview实现跳转动画
    3.Javascript,页面返回上一页,Android原生对该事件的封装(相当于调用android设备的返回键事件)
      关于js的页面返回:http://blog.csdn.net/zjx2388/article/details/2617051
- 
+
+2016-08-11
+   1.Android:布局
+     setContetView();findViewById()与LayoutInfalte的区别和用法
+     http://blog.csdn.net/cswhale/article/details/38706315
+
