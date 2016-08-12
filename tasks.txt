@@ -508,3 +508,11 @@
      setContetView();findViewById()与LayoutInfalte的区别和用法
      http://blog.csdn.net/cswhale/article/details/38706315
 
+2016-08-12
+   1.Android:布局,Activity,View,Layout,Window等之间的关系
+   2.Android:弹窗
+     http://www.cnblogs.com/mengdd/p/3569127.html
+   3.Android:UI:动态加载子view
+     http://xie2010.blog.163.com/blog/static/211317365201342103820708/
+
+
