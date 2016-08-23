@@ -524,4 +524,11 @@
    1.Android:完善关于WebView setting的细节
      http://www.cnblogs.com/olartan/p/5713013.html
 
+2016-08-23
+   1.Android:关于SDCard的实验
+     http://blog.csdn.net/zhouyingge1104/article/details/44311581
+   2.Android:关于应用启动白屏的问题
+   3.Android:动画效果集锦
+     http://www.open-open.com/lib/view/open1411443332703.html
+
 
