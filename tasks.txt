@@ -531,4 +531,12 @@
    3.Android:动画效果集锦
      http://www.open-open.com/lib/view/open1411443332703.html
 
+2016-08-26
+   1.Android:动态布局
+     http://www.oschina.net/code/snippet_163910_6212
+   2.Android:SurfaceView
+   3.Android studio中查看View的层次结构工具
+     http://blog.csdn.net/xyz_lmn/article/details/14222975  
+     http://www.tuicool.com/articles/qAzAzqb
+
 
