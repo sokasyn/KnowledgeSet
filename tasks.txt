@@ -538,8 +538,17 @@
    3.Android studio中查看View的层次结构工具
      http://blog.csdn.net/xyz_lmn/article/details/14222975  
      http://www.tuicool.com/articles/qAzAzqb
+<<<<<<< HEAD
 
 2016-08-29
    1.Docker:认识和理解
      http://www.open-open.com/lib/view/open1446695630904.html
+   2.Docker:docker for mac
+     https://docs.docker.com/docker-for-mac/
+   3.Docker:JKD+tomcat
+     http://bbs.csdn.net/topics/390844669
+     http://www.cnblogs.com/Leo_wl/p/5035437.html
+     DockerFilei方式: http://www.tuicool.com/articles/MVJVnq7
+
+
 
