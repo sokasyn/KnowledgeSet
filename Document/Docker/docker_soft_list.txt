@@ -1,0 +1,9 @@
+#soft for docker 
+zookeeper
+http://apache.org/dist/zookeeper/zookeeper-3.4.8/
+
+PostgreSQL 9.3
+
+apache-tomcat-8.0.36
+
+
