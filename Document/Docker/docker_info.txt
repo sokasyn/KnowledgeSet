@@ -1,0 +1,18 @@
+#参考信息
+
+官方的手册
+https://docs.docker.com/engine/installation/linux/centos/
+
+其他
+http://www.docker.org.cn/book/docker/docker-search-image-6.html
+http://www.cnblogs.com/Leo_wl/p/5035437.html
+http://www.tuicool.com/articles/MVJVnq7
+http://bbs.csdn.net/topics/390844669
+
+docker-engine 的安装源(解决官方服务器在国内被墙无法获取的问题)
+http://blog.csdn.net/kdchxue/article/details/50902580
+
+关于docker的导入导出
+http://www.linuxidc.com/Linux/2014-04/100631.html
+http://www.mamicode.com/info-detail-891132.html
+

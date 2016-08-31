@@ -1,0 +1,64 @@
+#在CentOS 下的Docker下载安装,以及Images的创建运行配置
+官方的手册
+https://docs.docker.com/engine/installation/linux/centos/
+
+docker-engine 的安装源(解决官方服务器在国内被墙无法获取的问题)
+http://blog.csdn.net/kdchxue/article/details/50902580
+
+// - - - - - - - - 以下是实践的过程 - - - - - - - - - - - - -
+steps:
+1.在虚拟机安装CentOS 6.5
+2.启动CentOS 6.5,安装docker
+   2.1 安装docker需要root权限,如果不是root用户,则需要将当前用户添加到root组
+        sudo visudo   // visudo无空格
+        找到## Allow root to run any commands anywhere的行,在root下添加当前的用户
+        :wq   // 保存并退出
+   2.2. 更新yum    // 如果没有更新过的话.(因为可能docker并没有在yum列表中)
+        sudo yum update  // 该过程可能需要20-30分钟
+   2.3 添加docker的yum仓库
+        sudo tee /etc/yum.repos.d/docker.repo <<-'EOF'
+	在提示的标准输入中输入以下内容:(每一行一个回车就OK了)
+          [docker repo]
+   	  name=Docker Repository
+   	  baseurl=https://yum.dockerproject.org/repo/main/centos/7/
+   	  enabled=1
+   	  gpgcheck=1
+   	  gpgkey=https://yum.dockerproject.org/gpg
+   	  EOF
+    2.4 下载并安装docker
+           官方的:
+                sodu yum install docker-engine
+	   但是因为墙的原因,不一定能连得上并下载,所以可以采用下面的方式
+ 	        sudo yum install https://get.docker.com/rpm/1.7.1/centos-6/RPMS/x86_64/docker-engine-1.7.1-1.el6.x86_64.rpm      
+    2.5 验证docker的安装成功
+          sudo docker version
+    2.6 安装成功以后可以启动docker service了
+         sudo service docker start
+    2.7 查看当前的镜像或容器
+           sudo docker images // 查看所有的镜像,运行一个镜像就会产生一个容器(container)
+	  sudo docker ps -a // 全有的容器,运行或不没有运行的都列出来           
+	  sudo docker ps  // 正在运行的容器
+         
+ 3.下载一个基础镜像
+    // 为了不用每次都输入sudo,可以用root用户操作,也可以创建docker组,并加入当前用户(本地试验没有成功)
+    3.1 在下载之前先查找目标镜像,如centos
+        docker search centos  // 显示一个列表,可以看到官方的一个基础镜像(The official build of CentOS. ),名字就是centos
+    3.2 把目标镜像下载到本地
+        docker pull centos  // centos 是上一步的结果列表中的其中一个(NAME)
+    3.3 查看确认
+        docker images  // 发现本地的images列表中有了一行,包括IMAGE ID,CREATED等信息
+    3.4 运行镜像
+        docker run -i -t d83a55af4e75 /bin/bash   // 其中d83a55af4e75是上一步中查看的IMAGE ID
+        运行成功之后,终端由[root@localhost ~],变成了[root@67f321dc85a9 /] ,说明已经进入了centos的container了
+ 4.安装JDK
+   运行了镜像之后,可以在镜像容器中安装我们需要的软件
+   yum list java*  // 查找可安装的源
+   yum install java-1.7.0-openjdk.x86_64  // 以1.7为例
+   java -version  // 确认,显示JAVA版本则表示安装成功了 
+   docker commit contain_id centos/jdk1_7  
+ 5.导出/导入 镜像
+   导出到本地
+   docker save centos > /home/sokasyn/Documents/docker/saved/centos_base.tar
+   将本地镜像tar文件导入到docker
+   docker load < /home/sokasyn/Documents/docker/saved/centos_base.tar
+

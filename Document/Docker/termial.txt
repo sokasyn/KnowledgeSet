@@ -1,0 +1,18 @@
+
+kasyn@localhost saved]$ sudo docker images
+[sudo] password for sokasyn: 
+REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+centos              latest              d83a55af4e75        4 weeks ago         196.7 MB
+hello-world         latest              f0cb9bdcaa69        8 weeks ago         1.848 kB
+[sokasyn@localhost saved]$ sudo docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+380d6ca7e531        d83a55af4e75        "/bin/bash"         11 minutes ago      Up 11 minutes                           loving_yonath       
+[sokasyn@localhost saved]$ sudo docker commit 380d6ca7e531 centos/jdk1_7
+87921eaaa7f3d60e4ac353e674ef3c6d772df27fb1e8aafe28400c32c6075c20
+[sokasyn@localhost saved]$ sudo docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED              VIRTUAL SIZE
+centos/jdk1_7       latest              87921eaaa7f3        About a minute ago   472.5 MB
+centos              latest              d83a55af4e75        4 weeks ago          196.7 MB
+hello-world         latest              f0cb9bdcaa69        8 weeks ago          1.848 kB
+[sokasyn@localhost saved]$ 
+
