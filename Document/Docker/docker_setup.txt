@@ -56,7 +56,25 @@ steps:
    yum install java-1.7.0-openjdk.x86_64  // 以1.7为例
    java -version  // 确认,显示JAVA版本则表示安装成功了 
    docker commit contain_id centos/jdk1_7  
- 5.导出/导入 镜像
+
+ 5.安装tomcat
+   5.1 下载8.0.36的tar.gz包(其他合适的格式也可以)
+       由于下载是在container的外部(宿主机器),所以需要将安装包的目录在启动image的时候挂进去
+       docker run -i -t -v /home/document/share/soft:/home/download <image_name> /bin/bash
+       // -v 是指挂载本地目录到container的目标目录,如果container没有,则自动创建
+   5.2 解压安装包
+       tar -xzvf apache-tomcat-8.0.3.tar.gz
+       mv apache-tomcat-8.0.5 /usr/local
+   5.3 先退出容器并commit保存,以便下次进来
+       在退出之前,新起一个终端,通过docker ps -l 记住container_id
+       然后回到container的命令终端,exit退出
+       接着,docker commit container_id centos/tomcat   //新镜像名字自定
+   5.4 验证在宿主机器,访问container启动的tomcat
+       docker -i -t -p 18080:8080 centos/tomcat /bin/bash  // -p表示在启动container后暴露
+       启动tomcat
+       查看ip地址,得到类似172.17.0.2,跟外部不在一个网段  // 如果ifconfig command not found 需要安装 yum install net-tools
+       在宿主机器,浏览器中输入172.17.0.2:8080,正常情况能弹出Tomat的界面
+ 7.导出/导入 镜像
    导出到本地
    docker save centos > /home/sokasyn/Documents/docker/saved/centos_base.tar
    将本地镜像tar文件导入到docker
