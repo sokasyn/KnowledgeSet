@@ -550,5 +550,10 @@
      DockerFilei方式: http://www.tuicool.com/articles/MVJVnq7
    4.http://blog.csdn.net/waixin/article/details/50212161
 
+2016-09-02
+   1.Docker:Docker的一些常用命令和坑
+     http://blog.csdn.net/wsscy2004/article/details/25878363
+   2.Docker:Run命令的用法
+     http://www.open-open.com/lib/view/open1422492851548.html
 
 
