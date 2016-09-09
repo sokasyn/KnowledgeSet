@@ -1,11 +1,17 @@
 #soft for docker 
-1.zookeeper
-http://apache.org/dist/zookeeper/zookeeper-3.4.8/
+1.JDK
+http://www.mamicode.com/info-detail-613410.html
 
-2.PostgreSQL 9.3
+2.apache-tomcat-8.0.36
+
+3.PostgreSQL 9.3
+https://download.postgresql.org/pub/repos/yum/9.3/redhat/rhel-6-x86_64/pgdg-centos93-9.3-2.noarch.rpm
+
 http://seansnow.blog.51cto.com/5656820/1198859
 http://blog.itpub.net/8102208/viewspace-1337789/
 
-3.apache-tomcat-8.0.36
+4.zookeeper
+http://apache.org/dist/zookeeper/zookeeper-3.4.8/
+
 
 
