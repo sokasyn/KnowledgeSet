@@ -560,4 +560,8 @@
    1.Docker:深入
     http://www.open-open.com/lib/view/open1423703640748.html
 
+2016-09-27
+   1.Linux:启动脚本的制作
+     http://blog.csdn.net/taiyang1987912/article/details/41698817
+
 
