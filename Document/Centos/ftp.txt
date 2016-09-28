@@ -1,0 +1,27 @@
+# FTP setup
+1.安装ftp服务组件
+ # 如果安装了的话,会有/etc/vsftpd/vsftpd.conf文件 
+ yum -y install vsftpd
+2.取消匿名登录
+ vi /etc/vsftpd/vsftpd.conf
+ 把anonymous_enbale=YES 改为NO
+3.安装iptables服务(如果没安装的话)
+ yum -y install iptables-services
+4.编辑iptables文件
+ vi /etc/sysconfig/iptalbes
+ 加入以下两行 
+ #开放21端口
+ -A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
+ #开启passive模式(否则无法上传,报错553 Could not create file.)
+ -A INPUT -m state --state NEW -m tcp -p tcp --dport 30000:30999 -j ACCEPT
+ #3000:30999自定义
+5.修改selinux
+ getsebool -a|grep ftp 查看状态,确认以下几个变量为on,默认为off
+ #设置(以上面的命令显示为准)
+  setsebool allow_sftpd_full_access on
+  setsebool ftp_home_dir on
+  setsebool ftpd_disable_trans on
+6.重启iptables,vsftpd
+ service iptables restart
+ service vsftpd restart
+
