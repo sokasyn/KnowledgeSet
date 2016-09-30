@@ -16,6 +16,9 @@
  -A INPUT -m state --state NEW -m tcp -p tcp --dport 30000:30999 -j ACCEPT
  #3000:30999自定义
 5.修改selinux
+ 如果报异常:getsebool:SELinux is disable
+ 则要编辑 /etc/selinux/config 将SELINUX=disable ->SELINUX=1 
+
  getsebool -a|grep ftp 查看状态,确认以下几个变量为on,默认为off
  #设置(以上面的命令显示为准)
   setsebool allow_sftpd_full_access on
@@ -24,4 +27,20 @@
 6.重启iptables,vsftpd
  service iptables restart
  service vsftpd restart
+
+###### 常见问题
+状态:	读取目录列表...
+命令:	PWD
+响应:	257 "/home/emin"
+命令:	TYPE I
+响应:	200 Switching to Binary mode.
+命令:	PASV
+响应:	227 Entering Passive Mode (192,168,0,89,175,176).
+命令:	LIST
+错误:	无法建立数据连接: ECONNREFUSED - 连接被服务器拒绝
+
+解决办法:
+在Filezilla客户端中的该站点的连接属性中的传输设置的传输模式为"主动"
+
+
 

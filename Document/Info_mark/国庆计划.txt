@@ -1,18 +1,34 @@
 # 
 1 Docker 
- 1.1 DockerFile
- 1.2 多container的交互
- 1.3 container的长期运行测试
- 1.4 Emin image文档的整理 
-
-2 Centos
- 2.1 Linux命令的整理
- 2.2 腾讯云服务器的购买计划
-
+ *1.1 DockerFile
+ *1.2 多container的交互
+ *1.3 container的长期运行测试
+ *1.4 Emin image文档的整理 
+ *1.5 时间同步问题整理
+      https://segmentfault.com/q/1010000005776163 
+2 Linux(Centos)
+ *2.1 Linux命令的整理
+ *2.2 腾讯云服务器的购买计划
+ *2.3 Linux目录结构
+      http://www.cnblogs.com/fsjohnhuang/p/3918483.html
 3 Android
- 3.1 EminBridge整理
- 3.2 Hardware
-     Camera
-     Acce
+ *3.1 EminBridge整理
+  3.2 Hardware
+    *Camera
+     Accesoler
+ *3.3 Layout
+ *3.4 Service
 
 4 Web
+ 4.1 Html
+   *list
+   *动态内容
+ 4.2 Javascript
+   *callback
+   *closesure
+ 4.3 Mui
+
+5 思维导图
+ 5.1 xmid工具
+ 5.2 EminBridge思维导图
+
