@@ -1,63 +1,64 @@
 ##### FTP setup
 1.安装ftp服务组件
- # 如果安装了的话,会有/etc/vsftpd/vsftpd.conf文件 
- yum -y install vsftpd
+  # 如果安装了的话,会有/etc/vsftpd/vsftpd.conf文件 
+  yum -y install vsftpd
 
 2.取消匿名登录
- vi /etc/vsftpd/vsftpd.conf
- 把anonymous_enbale=YES 改为NO
+  vi /etc/vsftpd/vsftpd.conf
+  把anonymous_enbale=YES 改为NO
 
 3.安装iptables服务(如果没安装的话)
- yum -y install iptables-services
+  yum -y install iptables-services
 
 4.编辑iptables文件
- vi /etc/sysconfig/iptalbes
- 加入以下两行 
- #开放21端口
- -A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
- #开启passive模式(否则无法上传,报错553 Could not create file.)
- -A INPUT -m state --state NEW -m tcp -p tcp --dport 30000:30999 -j ACCEPT
- #3000:30999自定义
+  vi /etc/sysconfig/iptalbes
+  加入以下两行 
+  #开放21端口
+  -A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
+  #开启passive模式(否则无法上传,报错553 Could not create file.)
+  -A INPUT -m state --state NEW -m tcp -p tcp --dport 30000:30999 -j ACCEPT
+  #3000:30999自定义
 
 5.修改selinux
- 如果报异常:getsebool:SELinux is disable
- 则要编辑 /etc/selinux/config 将SELINUX=disable ->SELINUX=1 
+  如果报异常:getsebool:SELinux is disable
+  则要编辑 /etc/selinux/config 将SELINUX=disable ->SELINUX=1 或者enforcing
 
- getsebool -a|grep ftp 查看状态,确认以下几个变量为on,默认为off
- #设置(以上面的命令显示为准)
+  getsebool -a|grep ftp 查看状态,确认以下几个变量为on,默认为off
+  
+  #设置(以上面的命令显示为准)
   setsebool allow_sftpd_full_access on
   setsebool ftp_home_dir on
   setsebool ftpd_disable_trans on
 
 6.重启iptables,vsftpd
- service iptables restart
- service vsftpd restart
+  service iptables restart
+  service vsftpd restart
 
 ##### 权限配置问题
 1 ftpusers文件 
-/etc/vsftpd/ftpusers 文件列出的用户都无权限登录
+  /etc/vsftpd/ftpusers 文件列出的用户都无权限登录(默认的root也在这个列表中)
 
 2 user_list文件
-  2.1 该文件的生效是否,看/etc/vsftpd/vsftpd.conf 中的userlist_enable=YES
+  2.1 该文件的生效,看/etc/vsftpd/vsftpd.conf 中的userlist_enable=YES
   2.2 关键变量userlist_deny,在/etc/vsftpd/vsftpd.conf中,如果无,则加入即可,默认无此变量,所以为YES或者1
       /etc/vsftpd/user_list 文件列出的用户默认也无权限登录,因为userlist_deny=YES (deny中文意思为否定,则用户不能登录)
       所以,只要修改/追加,userlist_deny=NO,则只允许该文件中的用户登录,其他用户不能登录.建议这种方式,因为直接控制哪些用户有ftp权限!
 
 3 chroot_list文件
   默认情况下,所有能登录FTP的用户都能切换目录,即可以从系统的跟目录开始浏览,回存在一定的安全隐患。
-  如果要限制用户只能登录后限定在自己家的目录,即/home/${user}下,不允许切换到其他家目录以外的目录,可配置chroot。
- 3.1 vi /etc/vsftpd/vsftpd.conf 
-  chroot_local_user=YES
-  chroot_list_enable=YES
-  chroot_list_file=/etc/vsftpd/chroot_list
- 
- 3.2 在/etc/vsftpd/下新建chroot_list
-  vi chroot_list
-  在该文件下加入用户,一行一个用户,这些用户则是可以切换目录的,其他的用户则不可以。
-  这样可以便于维护拥有这些权限的用户.普通的临时的创建的用户默认不会拥有这么高的权限了。
+  如果要限制用户只能登录后限定在自己家的目录,即/home/${user}下,不允许切换到其他家目录以外的目录,可配置chroot.
+  3.1 vi /etc/vsftpd/vsftpd.conf 
+      chroot_local_user=YES
+      chroot_list_enable=YES
+      chroot_list_file=/etc/vsftpd/chroot_list
+
+  3.2 在/etc/vsftpd/下新建chroot_list文件
+      vi chroot_list
+      在该文件下加入用户,一行一个用户,这些用户则是可以切换目录的,其他的用户则不可以。
+      这样可以便于维护拥有这些权限的用户.普通的临时的创建的用户默认不会拥有这么高的权限了。
   
- 3.3 重启服务
-  service vsftpd restart
+  3.3 重启服务
+      service vsftpd restart
 
 ##### 常见问题
 1
