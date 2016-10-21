@@ -568,4 +568,6 @@
    1.Android:跨进程通信
    2.Parcel在跨进程通信中数据传输的使用
      http://www.cnblogs.com/rookiechen/p/5352053.html
+   3.Android:service
+     http://blog.csdn.net/lgl1170860350/article/details/38080077
 
