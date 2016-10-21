@@ -564,4 +564,8 @@
    1.Linux:启动脚本的制作
      http://blog.csdn.net/taiyang1987912/article/details/41698817
 
+2016-10-21
+   1.Android:跨进程通信
+   2.Parcel在跨进程通信中数据传输的使用
+     http://www.cnblogs.com/rookiechen/p/5352053.html
 

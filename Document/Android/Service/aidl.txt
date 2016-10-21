@@ -1,0 +1,12 @@
+# Android 关于实现跨进程通信
+1.创建跨进程通信的接口
+  a AIDL
+2.进程间的连接
+  ServiceConnection
+3.进程间复杂数据的传输
+  a 实现Parcelable接口的类
+  b 1中的接口方法中该类得生命in out类型
+    e.g void addBook(in Book book);
+
+  
+
