@@ -127,7 +127,7 @@
     if([NSJSONSerialization isValidJSONObject:jsonString]){
         NSLog(@"YES");
     }else{
-        NSLog(@"NO");
+        NSLog(@"NO");   // 打印
     }
     
     id object = [JSONHelper dictionaryFromJsonString:jsonString];
