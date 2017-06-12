@@ -570,4 +570,141 @@
      http://www.cnblogs.com/rookiechen/p/5352053.html
    3.Android:service
      http://blog.csdn.net/lgl1170860350/article/details/38080077
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-04
+   1.Android USB-HID 通信
+   2.USB设备Product id 和Vender id
+     http://www.cnblogs.com/shanyou/archive/2012/11/05/2755957.html
+   3.流程
+     http://blog.csdn.net/lincyang/article/details/50739342
+2016-11-08
+   1.Android USB HOST-USB HID 通信中的编码问题
+     http://blog.csdn.net/huningjun/article/details/470411412016-11-08
+   2.关于框架中基础与业务分离的用法:以内部接口的方式
+     http://blog.csdn.net/mengweiqi33/article/details/18094221
+2016-11-15
+   1.Android真机调试过程中查看数据库sqlite的问题
+     1.1 获取root权限不彻底问题
+         http://blog.csdn.net/ljfbest/article/details/45669019
+     1.2 把sqliet3 push 到/system/xbin/ 以及libncurses.so push到/system/lib/
+         http://www.cnblogs.com/shangdawei/p/4414395.html
+     备注：1.获取root权限后，可能会有不稳定的问题,比如在终端输入adb root的时候长时间无反应
+             可以尝试关闭终端,重新开一个,然后拔掉usb连接线，在插入后,在终端输入adb root
+             应该能提示 adbd is already running as root 则可以了,在输入adb remount
+           2.以上步骤成功后可以跟在linux上一样可以删除新增文件了，包括slqite3
+           3.sqlite3的文件版本要跟调试的设备的版本匹配，试过好几次,都因为版本不一致
+             而提示not executable: magic 7F45
 
