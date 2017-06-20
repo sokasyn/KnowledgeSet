@@ -708,3 +708,9 @@
            3.sqlite3的文件版本要跟调试的设备的版本匹配，试过好几次,都因为版本不一致
              而提示not executable: magic 7F45
 
+2017-06-20
+   1.iOS内部分发app测试环境搭建(iPhone扫码下载ipa并安装)
+     1.1 Tomcat配置https(各种证书问题)
+     1.2 提供网页入口(下载.plist文件)
+     1.3 .plist配置下载ipa资源
+
