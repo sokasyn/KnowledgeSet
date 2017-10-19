@@ -73,3 +73,15 @@ http://www.cnblogs.com/chehaoj/archive/2010/12/09/1901049.html
 http://blog.csdn.net/fakine/article/details/51241202
 
 
+# 总结/博客/分享/备忘
+一.Android
+  1.新建一个Android项目需要做哪些事情
+    1.File and code Template(Class,注释等模板)
+    2.Android Studio视觉主题、常用插件
+    3.svn,git等代码仓库管理配置
+    4.Project 和Module关系以及管理
+    5.常见项目目录结构
+    6.Android打包签名文件制作
+  2.基于Jekins的自动化打包
+  3.单元测试/模拟测试
+
